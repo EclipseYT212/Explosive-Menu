@@ -1,4 +1,4 @@
-
+--Explosive Menu Closed Alpha---
 
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
@@ -32,15 +32,7 @@ local uitab = win:Tab('UI')
 Logtab:Label('Waiting for Drops or plane')
 option:Label("The name says what this does ;)")
 option:Toggle("Hyper Mode", function(T)
-	-- Gui to Lua
-	-- Version: 3.2
-
-	-- Instances:
-
-
 	if game.PlaceId == 606849621 then
-
-
 		local ScreenGui = Instance.new("ScreenGui")
 		local MainTab = Instance.new("Frame")
 		local TextBox = Instance.new("TextBox")
@@ -57,11 +49,10 @@ option:Toggle("Hyper Mode", function(T)
 		local MuseumLabel = Instance.new("TextLabel")
 		local BankLabel = Instance.new("TextLabel")
 		local CasinoLabel = Instance.new("TextLabel")
-		local game = game
 		local player = game.Players.LocalPlayer
 		local Museum = game.Workspace.Museum
-		local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
-
+		local bank = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
+--local CargoShip = game:GetService("Worspace").CargoShip
 		local cargotrain =  game:GetService("Workspace").Trains
 		local RoofHolePart = Museum:FindFirstChild("Roof")
 		local RoofHoleOpen = false
