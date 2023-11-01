@@ -124,6 +124,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 
 				wait(2)
 				TextBox.Text = ("Going inside plane")
+local crate = game:GetService("Workspace").Plane.Crates.Crate1:FindFirstChild("1").Position
 				local pos = Vector3.new(crate.Position) -- your pos here
 				local delay = 1 -- tp tween speed like how many seconds takes to tp
 
