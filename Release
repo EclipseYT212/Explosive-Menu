@@ -782,13 +782,13 @@ option:Toggle("Hyper Mode", function(T)
 					VirtualInputManager:SendKeyEvent(true,"E",false,game)
 
 					_G.AutoRobbing = false
-
-
+					TextBox.Text = "Waiting for stores to open"
+					Baseplate()
 					return
-						TextBox.Text == ("Waiting for stores to open")
+						
 
-
-				end
+end
+				
 
 				TextBox.Text = "Waiting for stores to open"
 
