@@ -166,12 +166,12 @@ option:Toggle("Plane & airdrop farm", function(T)
 
 				teleport(CFrame.new(-338.4594421386719, 21.26369285583496, 2055.239990234375));
 				Baseplate()
-
+		TextBox.Text = "Waiting For Stores To Open"
 				_G.AutoRobbing = false
 
 			else 
 
-				TextBox.Text = "Waiting For Stores To Open"
+				
 
 
 
@@ -782,7 +782,7 @@ option:Toggle("Hyper Mode", function(T)
 					VirtualInputManager:SendKeyEvent(true,"E",false,game)
 
 					_G.AutoRobbing = false
-					TextBox.Text = "Waiting for stores to open"
+					Baseplate()
 					
 					return
 						
