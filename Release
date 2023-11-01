@@ -84,20 +84,6 @@ option:Toggle("Plane & airdrop farm", function(T)
 	TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 	TextBox.TextSize = 14.000
 
-	TextBox_2.Parent = MainFrame
-	TextBox_2.Active = false
-	TextBox_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-	TextBox_2.BackgroundTransparency = 1.000
-	TextBox_2.BorderColor3 = Color3.fromRGB(85, 255, 255)
-	TextBox_2.BorderSizePixel = 0
-	TextBox_2.Position = UDim2.new(0.0963855386, 0, 0.163265303, 0)
-	TextBox_2.Size = UDim2.new(0, 200, 0, 50)
-	TextBox_2.ClearTextOnFocus = false
-	TextBox_2.Font = Enum.Font.Unknown
-	TextBox_2.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
-	TextBox_2.Text = "Welcome!"
-	TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextBox_2.TextSize = 14.000
 
 	Start.Name = "Start"
 	Start.Parent = MainFrame
