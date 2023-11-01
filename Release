@@ -786,6 +786,7 @@ option:Toggle("Hyper Mode", function(T)
 
 					return
 TextBox.Text = "Waiting for stores to open"
+Baseplate()
 
 
 				end
@@ -1246,15 +1247,18 @@ TextBox.Text = "Waiting for stores to open"
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
 					BSD()
+Baseplate()
 				end
+TextBox.Text = "Waiting for stores to open"
 				_G.AutoRobbing = false
+
 				-- Break out of the loop
 
 
 
 				indicator.Transparency = 0 
 				wait(2)
-				TextBox.Text = "Waiting for stores to open"
+				
 			end
 
 		end)
