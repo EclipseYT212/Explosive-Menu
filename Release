@@ -1,5 +1,5 @@
 --Explosive Menu Closed Alpha---
---Note this script might be a little buggy as I'm new to this sort of scripting and the script it too--
+
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
