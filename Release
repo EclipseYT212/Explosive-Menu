@@ -783,14 +783,14 @@ option:Toggle("Hyper Mode", function(T)
 
 					_G.AutoRobbing = false
 					TextBox.Text = "Waiting for stores to open"
-					Baseplate()
+					
 					return
 						
 
 end
 				
 
-				TextBox.Text = "Waiting for stores to open"
+				
 
 
 				-- Check if the condition for your loop has been met
