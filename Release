@@ -257,8 +257,7 @@ _G.AutoRobbing = false
 
 
 	
-if _G.AutoRobbing then return end
-	_G.AutoRobbing = true
+
 				workspace.ChildAdded:connect(function(v)
 		
 					if v.Name == "Drop" and v:IsA("Model") then
