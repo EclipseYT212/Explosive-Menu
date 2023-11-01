@@ -68,7 +68,6 @@ option:Toggle("Plane & airdrop farm", function(T)
 	MainFrame.Position = UDim2.new(-0.00106321287, 0, 0.980499268, 0)
 	MainFrame.Size = UDim2.new(0, 249, 0, 98)
 	MainFrame.Active = true 
-	MainFrame.Draggable = true 
 
 	TextBox.Parent = MainFrame
 	TextBox.Active = false
@@ -111,7 +110,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 	Start.ImageRectOffset = Vector2.new(844, 804)
 	Start.ImageRectSize = Vector2.new(36, 36)
 	Start.MouseButton1Click:Connect(function(T)
-		_G.Farmer = T
+_G.Farmer = true
 		while _G.Farmer == true do 
 
 			if _G.AutoRobbing then return end
@@ -424,6 +423,8 @@ option:Toggle("Plane & airdrop farm", function(T)
 
 	UICorner_2.CornerRadius = UDim.new(0, 50)
 	UICorner_2.Parent = TopFrame
+
+
 end)
 
 
