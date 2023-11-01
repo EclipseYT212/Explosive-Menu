@@ -180,285 +180,6 @@ option:Toggle("Hyper Mode", function(T)
 			Baseplate()
 			while true do
 
-			
-			
-
-
-		
-if _G.AutoRobbing then return end
-	_G.AutoRobbing = true
-			if CheckPlane() then
-
-				print("\nPlane Found")
-
-
-				TextBox.Text =("Going to cargo plane")
-
-				local crate = game:GetService("Workspace").Plane.Crates.Crate1:FindFirstChild("1").Position
-				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-
-				teleport(CFrame.new(crate));
-
-
-
-
-
-
-				wait(1)
-				TextBox.Text = ("Going inside plane")
-				local pos = Vector3.new(5-1169.8582763671875, 44.35041809082031, 2905.92236328125) -- your pos here
-				local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-
-
-
-				end
-
-				TextBox.Text = ('Opening crates')
-				wait(15)
-				for i,v in pairs(require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs) do
-					if v.Name == "Inspect Crate" then
-						v:Callback(v, true)
-					end
-				end
-				
-						local VirtualInputManager = game:GetService('VirtualInputManager')
-
-						VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-				wait(30)
-
-
-				Baseplate()
-				TextBox.Text = ("Bypassing by waiting")
-				wait(15)
-				TextBox.Text =("Selling")
-				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-
-				teleport(CFrame.new(-338.4594421386719, 21.26369285583496, 2055.239990234375));
-				Baseplate()
-
-_G.AutoRobbing = false
-
-			else 
-
-
-
-
-	
-
-				workspace.ChildAdded:connect(function(v)
-		
-					if v.Name == "Drop" and v:IsA("Model") then
-						if _G.AutoRobbing then return end
-						_G.AutoRobbing = true
-						TextBox.Text = ("\nDrop found\nWaiting for it to land")
-
-
-						wait(15)
-
-						TextBox.Text = ('Going to airdrop')
-						local drop = game:GetService("Workspace").Drop.Top
-
-						local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-
-						teleport(CFrame.new(drop.Position));
-
-
-
-
-
-
-						wait(2)
-						local target = game:GetService("Workspace").Drop.Top
-
-						local Pathfind = game:GetService("PathfindingService")
-						local balls = {}
-
-						local Path = Pathfind:CreatePath()
-						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
-						local Waypoint = Path:GetWaypoints()
-
-						for _,v in pairs(Waypoint) do
-
-							local ball = Instance.new("Part")
-							ball.Shape = "Ball"
-							ball.Material = "Neon"
-							ball.Parent = game:GetService("Players").LocalPlayer.Character
-							ball.Size = Vector3.new(0.6,0.6,0.6)
-							ball.Anchored = true
-							ball.Color = Color3.fromRGB(255,255,255)
-							ball.Position = v.Position
-
-							if v.Action == Enum.PathWaypointAction.Jump then
-								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
-							end
-
-							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
-							table.insert(balls,ball)
-						end
-
-						for _,v in pairs(balls) do
-							v.Color = Color3.fromRGB(255,0,0)
-							wait(-9)
-							v:Destroy() 
-						end
-
-						TextBox.Text = ('Opening aridrop')
-
-
-						local VirtualInputManager = game:GetService('VirtualInputManager')
-
-						VirtualInputManager:SendKeyEvent(true,"E",false,game)
-						game:GetService("Workspace").Drop.BriefcasePress:FireServer()
-						wait(2)
-						game:GetService("Workspace").Drop.NPCs:Destroy()
-
-
-
-
-
-						-- Yield the coroutine
-						--COllecting cash function
-						wait(25)
-
-						TextBox.Text = ('Collecting cash')
-
-						print("Collecting cash")
-
-
-
-						local target = game:GetService("Workspace").DroppedCash.Cash.Part
-
-						local Pathfind = game:GetService("PathfindingService")
-						local balls = {}
-
-						local Path = Pathfind:CreatePath()
-						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
-						local Waypoint = Path:GetWaypoints()
-
-						for _,v in pairs(Waypoint) do
-
-							local ball = Instance.new("Part")
-							ball.Shape = "Ball"
-							ball.Material = "Neon"
-							ball.Parent = game:GetService("Players").LocalPlayer.Character
-							ball.Size = Vector3.new(0.6,0.6,0.6)
-							ball.Anchored = true
-							ball.Color = Color3.fromRGB(255,255,255)
-							ball.Position = v.Position
-
-							if v.Action == Enum.PathWaypointAction.Jump then
-								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
-							end
-
-							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
-							table.insert(balls,ball)
-						end
-
-						for _,v in pairs(balls) do
-							v.Color = Color3.fromRGB(255,0,0)
-							wait()
-							v:Destroy() 
-						end
-						local VirtualInputManager = game:GetService('VirtualInputManager')
-
-						VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-						wait(2)
-
-						local target = game:GetService("Workspace").DroppedCash.Cash.Part
-
-						local Pathfind = game:GetService("PathfindingService")
-						local balls = {}
-
-						local Path = Pathfind:CreatePath()
-						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
-						local Waypoint = Path:GetWaypoints()
-
-						for _,v in pairs(Waypoint) do
-
-							local ball = Instance.new("Part")
-							ball.Shape = "Ball"
-							ball.Material = "Neon"
-							ball.Parent = game:GetService("Players").LocalPlayer.Character
-							ball.Size = Vector3.new(0.6,0.6,0.6)
-							ball.Anchored = true
-							ball.Color = Color3.fromRGB(255,255,255)
-							ball.Position = v.Position
-
-							if v.Action == Enum.PathWaypointAction.Jump then
-								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
-							end
-
-							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
-							table.insert(balls,ball)
-						end
-
-						for _,v in pairs(balls) do
-							v.Color = Color3.fromRGB(255,0,0)
-							wait()
-							v:Destroy() 
-						end
-						local VirtualInputManager = game:GetService('VirtualInputManager')
-
-						VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-
-
-						wait(2)
-
-						local target = game:GetService("Workspace").DroppedCash.Cash.Part
-
-						local Pathfind = game:GetService("PathfindingService")
-						local balls = {}
-
-						local Path = Pathfind:CreatePath()
-						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
-						local Waypoint = Path:GetWaypoints()
-
-						for _,v in pairs(Waypoint) do
-
-							local ball = Instance.new("Part")
-							ball.Shape = "Ball"
-							ball.Material = "Neon"
-							ball.Parent = game:GetService("Players").LocalPlayer.Character
-							ball.Size = Vector3.new(0.6,0.6,0.6)
-							ball.Anchored = true
-							ball.Color = Color3.fromRGB(255,255,255)
-							ball.Position = v.Position
-
-							if v.Action == Enum.PathWaypointAction.Jump then
-								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
-							end
-
-							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
-							table.insert(balls,ball)
-						end
-
-						for _,v in pairs(balls) do
-							v.Color = Color3.fromRGB(255,0,0)
-							wait()
-							v:Destroy() 
-						end
-						wait(5)
-						TextBox.Text = ('Airdrop Completed')
-						Baseplate()
-					end	
-
-				end)
-
 		
 			
 
@@ -1132,6 +853,283 @@ wait(2)
 
 
 				indicator.Transparency = 0 
+	
+
+
+		
+if _G.AutoRobbing then return end
+	_G.AutoRobbing = true
+			if CheckPlane() then
+
+				print("\nPlane Found")
+
+
+				TextBox.Text =("Going to cargo plane")
+
+				local crate = game:GetService("Workspace").Plane.Crates.Crate1:FindFirstChild("1").Position
+				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+
+				teleport(CFrame.new(crate));
+
+
+
+
+
+
+				wait(1)
+				TextBox.Text = ("Going inside plane")
+				local pos = Vector3.new(5-1169.8582763671875, 44.35041809082031, 2905.92236328125) -- your pos here
+				local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+
+
+
+				end
+
+				TextBox.Text = ('Opening crates')
+				wait(15)
+				for i,v in pairs(require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs) do
+					if v.Name == "Inspect Crate" then
+						v:Callback(v, true)
+					end
+				end
+				
+						local VirtualInputManager = game:GetService('VirtualInputManager')
+
+						VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+				wait(30)
+
+
+				Baseplate()
+				TextBox.Text = ("Bypassing by waiting")
+				wait(15)
+				TextBox.Text =("Selling")
+				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
+
+				teleport(CFrame.new(-338.4594421386719, 21.26369285583496, 2055.239990234375));
+				Baseplate()
+
+_G.AutoRobbing = false
+
+			else 
+
+
+
+
+	
+
+				workspace.ChildAdded:connect(function(v)
+		
+					if v.Name == "Drop" and v:IsA("Model") then
+						if _G.AutoRobbing then return end
+						_G.AutoRobbing = true
+						TextBox.Text = ("\nDrop found\nWaiting for it to land")
+
+
+						wait(15)
+
+						TextBox.Text = ('Going to airdrop')
+						local drop = game:GetService("Workspace").Drop.Top
+
+						local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
+
+						teleport(CFrame.new(drop.Position));
+
+
+
+
+
+
+						wait(2)
+						local target = game:GetService("Workspace").Drop.Top
+
+						local Pathfind = game:GetService("PathfindingService")
+						local balls = {}
+
+						local Path = Pathfind:CreatePath()
+						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+						local Waypoint = Path:GetWaypoints()
+
+						for _,v in pairs(Waypoint) do
+
+							local ball = Instance.new("Part")
+							ball.Shape = "Ball"
+							ball.Material = "Neon"
+							ball.Parent = game:GetService("Players").LocalPlayer.Character
+							ball.Size = Vector3.new(0.6,0.6,0.6)
+							ball.Anchored = true
+							ball.Color = Color3.fromRGB(255,255,255)
+							ball.Position = v.Position
+
+							if v.Action == Enum.PathWaypointAction.Jump then
+								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+							end
+
+							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+							table.insert(balls,ball)
+						end
+
+						for _,v in pairs(balls) do
+							v.Color = Color3.fromRGB(255,0,0)
+							wait(-9)
+							v:Destroy() 
+						end
+
+						TextBox.Text = ('Opening aridrop')
+
+
+						local VirtualInputManager = game:GetService('VirtualInputManager')
+
+						VirtualInputManager:SendKeyEvent(true,"E",false,game)
+						game:GetService("Workspace").Drop.BriefcasePress:FireServer()
+						wait(2)
+						game:GetService("Workspace").Drop.NPCs:Destroy()
+
+
+
+
+
+						-- Yield the coroutine
+						--COllecting cash function
+						wait(25)
+
+						TextBox.Text = ('Collecting cash')
+
+						print("Collecting cash")
+
+
+
+						local target = game:GetService("Workspace").DroppedCash.Cash.Part
+
+						local Pathfind = game:GetService("PathfindingService")
+						local balls = {}
+
+						local Path = Pathfind:CreatePath()
+						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+						local Waypoint = Path:GetWaypoints()
+
+						for _,v in pairs(Waypoint) do
+
+							local ball = Instance.new("Part")
+							ball.Shape = "Ball"
+							ball.Material = "Neon"
+							ball.Parent = game:GetService("Players").LocalPlayer.Character
+							ball.Size = Vector3.new(0.6,0.6,0.6)
+							ball.Anchored = true
+							ball.Color = Color3.fromRGB(255,255,255)
+							ball.Position = v.Position
+
+							if v.Action == Enum.PathWaypointAction.Jump then
+								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+							end
+
+							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+							table.insert(balls,ball)
+						end
+
+						for _,v in pairs(balls) do
+							v.Color = Color3.fromRGB(255,0,0)
+							wait()
+							v:Destroy() 
+						end
+						local VirtualInputManager = game:GetService('VirtualInputManager')
+
+						VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+						wait(2)
+
+						local target = game:GetService("Workspace").DroppedCash.Cash.Part
+
+						local Pathfind = game:GetService("PathfindingService")
+						local balls = {}
+
+						local Path = Pathfind:CreatePath()
+						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+						local Waypoint = Path:GetWaypoints()
+
+						for _,v in pairs(Waypoint) do
+
+							local ball = Instance.new("Part")
+							ball.Shape = "Ball"
+							ball.Material = "Neon"
+							ball.Parent = game:GetService("Players").LocalPlayer.Character
+							ball.Size = Vector3.new(0.6,0.6,0.6)
+							ball.Anchored = true
+							ball.Color = Color3.fromRGB(255,255,255)
+							ball.Position = v.Position
+
+							if v.Action == Enum.PathWaypointAction.Jump then
+								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+							end
+
+							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+							table.insert(balls,ball)
+						end
+
+						for _,v in pairs(balls) do
+							v.Color = Color3.fromRGB(255,0,0)
+							wait()
+							v:Destroy() 
+						end
+						local VirtualInputManager = game:GetService('VirtualInputManager')
+
+						VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+
+
+						wait(2)
+
+						local target = game:GetService("Workspace").DroppedCash.Cash.Part
+
+						local Pathfind = game:GetService("PathfindingService")
+						local balls = {}
+
+						local Path = Pathfind:CreatePath()
+						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+						local Waypoint = Path:GetWaypoints()
+
+						for _,v in pairs(Waypoint) do
+
+							local ball = Instance.new("Part")
+							ball.Shape = "Ball"
+							ball.Material = "Neon"
+							ball.Parent = game:GetService("Players").LocalPlayer.Character
+							ball.Size = Vector3.new(0.6,0.6,0.6)
+							ball.Anchored = true
+							ball.Color = Color3.fromRGB(255,255,255)
+							ball.Position = v.Position
+
+							if v.Action == Enum.PathWaypointAction.Jump then
+								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+							end
+
+							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+							table.insert(balls,ball)
+						end
+
+						for _,v in pairs(balls) do
+							v.Color = Color3.fromRGB(255,0,0)
+							wait()
+							v:Destroy() 
+						end
+						wait(5)
+						TextBox.Text = ('Airdrop Completed')
+						Baseplate()
+					end	
+
+				end)
 				wait(2)
 				TextBox.Text = "Waiting for stores to open"
 			end
