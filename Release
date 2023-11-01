@@ -30,9 +30,7 @@ local option = win:Tab("Settings")
 local uitab = win:Tab('UI')
 
 Logtab:Label('Waiting for Drops or plane')
-option:Toggle("Mobile Farmer", function(T)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/1111/main/S"))()
-end)
+
 option:Toggle("Plane & airdrop farm", function(T)
 	-- Gui to Lua
 	-- Version: 3.2
