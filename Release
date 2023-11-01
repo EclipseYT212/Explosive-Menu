@@ -1440,6 +1440,8 @@ end
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
 					BSD()
+Baseplate()
+TextBox.Text = ("Waiting For Stores To Open")
 				end
 				_G.AutoRobbing = false
 				-- Break out of the loop
