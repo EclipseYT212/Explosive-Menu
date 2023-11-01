@@ -1070,7 +1070,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 		Baseplate()
 		TextBox.Text = "Waiting for Drops or Plane!"
 		_G.Farmer = true
-		while _G.Farmer == true do 
+		while true  do 
 
 			if _G.AutoRobbing then return end
 			_G.AutoRobbing = true
