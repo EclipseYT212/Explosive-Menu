@@ -566,7 +566,8 @@ wait(2)
 						wait(5)
 						TextBox.Text = ('Airdrop Completed')
 						Baseplate()
-
+						wait(2)
+						TextBox.Text = ('Waiting For Drops Or Plane')
 					else 
 						print("Switched off")
 					end	
