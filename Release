@@ -129,8 +129,7 @@ TextBox.Text = "Waiting for stores to open"
 		-- Check if the condition for your loop has been met
 
 		if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
-			if _G.AutoRobbing then return end
-			_G.AutoRobbing = true
+		
 
 			TextBox.Text = "Teleporting to the Museum"
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
@@ -870,12 +869,12 @@ JewelryYes.Image = "rbxassetid://3926305904"
 JewelryYes.ImageRectOffset = Vector2.new(312, 4)
 JewelryYes.ImageRectSize = Vector2.new(24, 24)
 JewelryYes.MouseButton1Click:Connect(function()
-	if JewelryYes.Visible == true then 
-		_G.JewlRob = true 
+	 JewelryYes.Visible = false
+		
 
-	elseif JewelryNo.Visible == true then 
-		_G.JewlRob = false
-	end
+ JewelryNo.Visible = true
+
+	
 end)
 
 
@@ -890,12 +889,11 @@ JewelryNo.Image = "rbxassetid://3926305904"
 JewelryNo.ImageRectOffset = Vector2.new(924, 724)
 JewelryNo.ImageRectSize = Vector2.new(36, 36)
 JewelryNo.MouseButton1Click:Connect(function()
-	if JewelryNo.Visible == true then 
-		JewelryYes.Visible = true
+		 JewelryNo.Visible = false
 
-	elseif JewelryYes.Visible == true then 
-		JewelryNo.Visible = true
-	end
+
+ JewelryYes.Visible = true
+		
 end)
 StoresLabel.Name = "StoresLabel"
 StoresLabel.Parent = StoresTab
