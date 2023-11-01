@@ -816,7 +816,11 @@ option:Toggle("Hyper Mode", function(T)
 						end
 					end 
 
-
+					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+						if v.Name:match("Cameras") then
+							v:Destroy()
+						end
+					end 
 
 
 
