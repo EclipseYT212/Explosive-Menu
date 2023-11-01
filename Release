@@ -118,10 +118,9 @@ Start.Image = "rbxassetid://3926305904"
 Start.ImageRectOffset = Vector2.new(844, 804)
 Start.ImageRectSize = Vector2.new(36, 36)
 Start.MouseButton1Click:Connect(function()
-		Baseplate()
-TextBox.Text = "Waiting for stores to open"
-		_G.Farmer = true 
-	while _G.Farmer == true do
+	_G.AutoRobbing = nil
+	Baseplate()
+	while true do
 
 
 
@@ -129,7 +128,8 @@ TextBox.Text = "Waiting for stores to open"
 		-- Check if the condition for your loop has been met
 
 		if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
-		
+			if _G.AutoRobbing then return end
+			_G.AutoRobbing = true
 
 			TextBox.Text = "Teleporting to the Museum"
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
@@ -869,12 +869,12 @@ JewelryYes.Image = "rbxassetid://3926305904"
 JewelryYes.ImageRectOffset = Vector2.new(312, 4)
 JewelryYes.ImageRectSize = Vector2.new(24, 24)
 JewelryYes.MouseButton1Click:Connect(function()
-	 JewelryYes.Visible = false
-		
+	if JewelryYes.Visible == true then 
+		_G.JewlRob = true 
 
- JewelryNo.Visible = true
-
-	
+	elseif JewelryNo.Visible == true then 
+		_G.JewlRob = false
+	end
 end)
 
 
@@ -889,11 +889,12 @@ JewelryNo.Image = "rbxassetid://3926305904"
 JewelryNo.ImageRectOffset = Vector2.new(924, 724)
 JewelryNo.ImageRectSize = Vector2.new(36, 36)
 JewelryNo.MouseButton1Click:Connect(function()
-		 JewelryNo.Visible = false
+	if JewelryNo.Visible == true then 
+		JewelryYes.Visible = true
 
-
- JewelryYes.Visible = true
-		
+	elseif JewelryYes.Visible == true then 
+		JewelryNo.Visible = true
+	end
 end)
 StoresLabel.Name = "StoresLabel"
 StoresLabel.Parent = StoresTab
@@ -997,39 +998,7 @@ BankLabel_2.TextWrapped = true
 
 UICorner_3.CornerRadius = UDim.new(0, 50)
 UICorner_3.Parent = TopFrame
-function antiafk()
-	local vu = game:GetService("VirtualUser")
-	game:GetService("Players").LocalPlayer.Idled:connect(function()
-		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-		wait(1)
-		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-	end)
 
-end
-
-function Baseplate()
-	local baseplate = Instance.new("Part")
-	baseplate.Parent = workspace
-	baseplate.Size = Vector3.new(100,5,100) -- change size
-	baseplate.Anchored = true
-	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
-	wait(1)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
-
-end
-
-function fireworks()
-	for i, v in pairs(getgc()) do
-		if typeof(v) == "function" then
-			for i2, v2 in pairs(debug.getupvalues(v)) do
-				if typeof(v2) == "table" and rawget(v2, "Fireworks") then
-					v2.Fireworks(math.huge)
-				end
-			end
-		end
-	end
-
-end
 end)
 option:Toggle("Plane & airdrop farm", function(T)
 	-- Gui to Lua
