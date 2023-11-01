@@ -107,10 +107,10 @@ option:Toggle("Plane & airdrop farm", function(T)
 			_G.AutoRobbing = true
 			if CheckPlane() then
 
-				print("\nPlane Found")
+				TextBox.Text = ("\nPlane Found")
 
 
-				TextBox.Text =("Going to cargo plane")
+				TextBox.Text = ("Going to cargo plane")
 
 				local crate = game:GetService("Workspace").Plane.Crates.Crate1:FindFirstChild("1").Position
 				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
