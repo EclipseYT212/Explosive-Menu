@@ -77,7 +77,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 	TextBox.BorderSizePixel = 0
 	TextBox.Position = UDim2.new(0.0963855386, 0, 0.163265303, 0)
 	TextBox.Size = UDim2.new(0, 200, 0, 50)
-	TextBox.ClearTextOnFocus = false
+	TextBox.ClearTextOnFocus = true
 	TextBox.Font = Enum.Font.Unknown
 	TextBox.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
 	TextBox.Text = "Welcome!"
