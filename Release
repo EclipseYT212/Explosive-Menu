@@ -70,7 +70,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 	MainFrame.Active = true 
 
 	TextBox.Parent = MainFrame
-	TextBox.Active = false
+	TextBox.Active = true
 	TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 	TextBox.BackgroundTransparency = 1.000
 	TextBox.BorderColor3 = Color3.fromRGB(85, 255, 255)
