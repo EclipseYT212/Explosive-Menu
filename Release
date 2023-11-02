@@ -30,7 +30,132 @@ local option = win:Tab("Settings")
 local uitab = win:Tab('UI')
 
 Logtab:Label('Waiting for Drops or plane')
+option:Toggle("Train Tester", function(T)
 
+if CheckTrainType() then
+	TextBox.Text = "Going to train"
+		if tostring(CheckTrainType()) == "Passenger" then
+			for i,v in pairs(require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs) do
+				if v.Name == "Grab briefcase" then
+					v:Callback(true)
+					wait(1)
+				end
+			 end
+			 
+			 
+			 TextBox.Text = "Selling"
+			 	wait(0.3)
+
+					local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(3)
+					local pos = Vector3.new(2292.545654296875, 19.805152893066406, -2589.681396484375) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(3)
+					local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(3)
+					local pos = Vector3.new(2279.58154296875, 19.21677017211914, -2067.020751953125) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					print"Autorob V0.5 finished"
+					TextBox.Text = "Waiting For Stores To Open"
+
+		else
+			
+			game:GetService("Players").LocalPlayer.PlayerGui.MainGui.CollectMoney.Money.Text = ""
+			for i,v in pairs(require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs) do
+				if v.Name == "Open Door" or v.Name == "Breach Vault" then
+					v:Callback(true)
+				end
+			end
+			repeat wait()
+            local pos = Vector3.new(CheckTrainType().Gold.CFrame + Vector3.new(0,0.1,0))
+				local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+
+
+
+				end
+
+			
+			until getNumber(game:GetService("Players").LocalPlayer.PlayerGui.MainGui.RobberyMoneyGui.Money.Text) == GetMoneyCapacity(game:GetService("Players").LocalPlayer.PlayerGui.MainGui.RobberyMoneyGui.Maximum.Text)
+			wait()
+			
+			teleport(CFrame.new(1730.87537, 20.45331, -1727.92773))
+			wait()
+			
+			
+		end
+	else
+		print("Train", "Closed", 2)
+		_G.AutoRobbing = false
+		return false
+	end
+
+end)
 option:Toggle("Plane & airdrop farm", function(T)
 	-- Gui to Lua
 	-- Version: 3.2
