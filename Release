@@ -818,6 +818,18 @@ wait(2)
 					end 
 wait(2)
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+						if v.Name:match("Cameras") then
+							v:Destroy()
+						end
+					end 
+wait(2)
+					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+						if v.Name:match("Camera") then
+							v:Destroy()
+						end
+					end 
+wait(2)
+					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("CameraFloors") then
 							v:Destroy()
 						end
