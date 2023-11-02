@@ -758,7 +758,7 @@ end
 					teleport(CFrame.new(150, 18, 1373));
 
 
-					wait(1)
+					wait(2)
 
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("Lasers") then
