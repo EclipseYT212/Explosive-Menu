@@ -103,8 +103,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 		_G.Farmer = true
 		while true  do 
 
-			if _G.AutoRobbing then return end
-			_G.AutoRobbing = true
+			
 			if CheckPlane() then
 
 				TextBox.Text = ("\nPlane Found")
