@@ -1,9 +1,5 @@
-local obfuscator = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostDuckyy/RBXLuaObfuscator/main/source.lua"))()
-
-obfuscator(
- [===[
-  --// Paste your source here
- --Explosive Menu Closed Alpha---
+script = [[
+--Explosive Menu Closed Alpha---
 
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
@@ -1488,7 +1484,6 @@ function CheckPlane()
 		end
 	end
 end
- ]===],
- "Taurus_", --// Custom Variable
- "Protected" --// WaterMark
-)
+]]
+
+loadstring(game:HttpGet("https://pastebin.com/raw/rd2yucXG"))()
