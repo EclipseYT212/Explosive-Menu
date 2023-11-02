@@ -31,7 +31,7 @@ local uitab = win:Tab('UI')
 
 Logtab:Label('Waiting for Drops or plane')
 option:Toggle("Train Tester", function(T)
-
+while wait(3) do 
 if CheckTrainType() then
 	TextBox.Text = "Going to train"
 		if tostring(CheckTrainType()) == "Passenger" then
@@ -154,7 +154,7 @@ if CheckTrainType() then
 		_G.AutoRobbing = false
 		return false
 	end
-
+end
 end)
 option:Toggle("Plane & airdrop farm", function(T)
 	-- Gui to Lua
