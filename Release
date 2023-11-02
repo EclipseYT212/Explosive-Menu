@@ -255,37 +255,42 @@ local crate = game:GetService("Workspace").Plane.Crates.Crate1:FindFirstChild("1
 
 						print("Collecting cash")
 
+wait(2)
+local target = game:GetService("Workspace").DroppedCash.Cash.Part
 
+						local Pathfind = game:GetService("PathfindingService")
+						local balls = {}
 
-					local target = game:GetService("Workspace").DroppedCash.Cash.Part
+						local Path = Pathfind:CreatePath()
+						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+						local Waypoint = Path:GetWaypoints()
 
-local Pathfind = game:GetService("PathfindingService")
-local balls = {}
+						for _,v in pairs(Waypoint) do
 
-local Path = Pathfind:CreatePath()
-Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
-local Waypoint = Path:GetWaypoints()
+							local ball = Instance.new("Part")
+							ball.Shape = "Ball"
+							ball.Material = "Neon"
+							ball.Parent = game:GetService("Players").LocalPlayer.Character
+							ball.Size = Vector3.new(0.6,0.6,0.6)
+							ball.Anchored = true
+							ball.Color = Color3.fromRGB(255,255,255)
+							ball.Position = v.Position
 
-for _,v in pairs(Waypoint) do
+							if v.Action == Enum.PathWaypointAction.Jump then
+								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+							end
 
-    local ball = Instance.new("Part")
-    ball.Shape = "Ball"
-    ball.Material = "Neon"
-    ball.Parent = game:GetService("Players").LocalPlayer.Character
-    ball.Size = Vector3.new(0.6,0.6,0.6)
-    ball.Anchored = true
-    ball.Color = Color3.fromRGB(255,255,255)
-    ball.Position = v.Position
+							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+							table.insert(balls,ball)
+						end
 
-    if v.Action == Enum.PathWaypointAction.Jump then
-        game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
-    end
+						for _,v in pairs(balls) do
+							v.Color = Color3.fromRGB(255,0,0)
+							wait()
+							v:Destroy() 
+						end
 
-    game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
-    table.insert(balls,ball)
-end
-
-moveToEachChildAdded(game.Workspace)
+					wait(2)
 
 						local VirtualInputManager = game:GetService('VirtualInputManager')
 
@@ -325,6 +330,49 @@ local target = game:GetService("Workspace").DroppedCash.Cash.Part
 							wait()
 							v:Destroy() 
 						end
+
+wait(2)
+local target = game:GetService("Workspace").DroppedCash.Cash.Part
+
+						local Pathfind = game:GetService("PathfindingService")
+						local balls = {}
+
+						local Path = Pathfind:CreatePath()
+						Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+						local Waypoint = Path:GetWaypoints()
+
+						for _,v in pairs(Waypoint) do
+
+							local ball = Instance.new("Part")
+							ball.Shape = "Ball"
+							ball.Material = "Neon"
+							ball.Parent = game:GetService("Players").LocalPlayer.Character
+							ball.Size = Vector3.new(0.6,0.6,0.6)
+							ball.Anchored = true
+							ball.Color = Color3.fromRGB(255,255,255)
+							ball.Position = v.Position
+
+							if v.Action == Enum.PathWaypointAction.Jump then
+								game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+							end
+
+							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+							table.insert(balls,ball)
+						end
+
+						for _,v in pairs(balls) do
+							v.Color = Color3.fromRGB(255,0,0)
+							wait()
+							v:Destroy() 
+						end
+
+					
+
+						local VirtualInputManager = game:GetService('VirtualInputManager')
+
+						VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+						wait(2)
 						wait(5)
 						TextBox.Text = ('Airdrop Completed')
 						Baseplate()
