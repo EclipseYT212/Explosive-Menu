@@ -758,7 +758,7 @@ end
 					teleport(CFrame.new(150, 18, 1373));
 
 
-					wait(2)
+					wait(1)
 
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("Lasers") then
@@ -785,7 +785,7 @@ end
 					TextBox.Text = "Breaking Glass"
 					--breaking glass
 					local pos = Vector3.new(132.88629150390625, 18.563629150390625, 1345.051513671875) -- your pos here
-					local delay = 1 -- tp tween speed like how many seconds takes to tp
+					local delay = 0.50 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -799,7 +799,7 @@ end
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(1)
+					wait(0.35)
 					TextBox.Text = "Auto Robbing"
 
 					--Teleport to inside
