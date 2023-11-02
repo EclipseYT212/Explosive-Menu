@@ -332,7 +332,7 @@ local target = game:GetService("Workspace").DroppedCash.Cash.Part
 						wait(2)
 						TextBox.Text = ('Waiting For Drops Or Plane')
 					else 
-						print("Switched off")
+						
 					end	
 				end)
 
