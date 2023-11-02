@@ -106,7 +106,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 			
 			if CheckPlane() then
 
-				TextBox.Text = ("\nPlane Found")
+				print("\nPlane Found")
 
 
 				TextBox.Text = ("Going to cargo plane")
