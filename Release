@@ -569,7 +569,7 @@ option:Toggle("Hyper Mode", function(T)
 		power.MouseButton1Click:Connect(function(Value)
 			_G.AutoRobbing = nil
 			Baseplate()
-			while true do
+			while wait(2) do
 
 
 
@@ -584,8 +584,7 @@ option:Toggle("Hyper Mode", function(T)
 				-- Check if the condition for your loop has been met
 
 				if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
-					if _G.AutoRobbing then return end
-					_G.AutoRobbing = true
+					
 
 					TextBox.Text = "Teleporting to the Museum"
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
@@ -804,20 +803,20 @@ end
 					teleport(CFrame.new(150, 18, 1373));
 
 
-					wait(2)
+					wait(3)
 
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("Lasers") then
 							v:Destroy()
 						end
 					end 
-
+wait(1)
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("BarbedWire") then
 							v:Destroy()
 						end
 					end 
-
+wait(1)
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("Cameras") then
 							v:Destroy()
@@ -827,7 +826,7 @@ end
 
 
 
-					wait(2)
+					wait(1)
 					TextBox.Text = "Breaking Glass"
 					--breaking glass
 					local pos = Vector3.new(132.88629150390625, 18.563629150390625, 1345.051513671875) -- your pos here
