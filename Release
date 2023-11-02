@@ -1407,7 +1407,13 @@ option:Toggle("Hyper Mode", function(T)
 						local args = {
 							[1] = "2457",
 							[1] = "5028",
-							[1] = "3380"
+							[1] = "3380",
+							[1] = "7265",
+							[1] = "3782",
+							[1] = "3380",
+							[1] = "9598",
+							[1] = "8020",
+						
 						}
 
 						workspace:WaitForChild("Casino"):WaitForChild("RobberyDoor"):WaitForChild("Keypad"):WaitForChild("Pad"):WaitForChild("CasinoKeypadSubmit"):FireServer(unpack(args))
