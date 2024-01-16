@@ -58,7 +58,7 @@ local humanoid = character:WaitForChild("Humanoid")
 --Properties:
 
 ScreenGui.Parent = game.CoreGui
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 
 ExplosiveMenu.Name = "Explosive Menu"
 ExplosiveMenu.Parent = ScreenGui
