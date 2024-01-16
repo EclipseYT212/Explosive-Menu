@@ -1,4 +1,4 @@
-_G.AutoRobbing = nil 
+
 if _G.AutoRobbing then return end
 _G.AutoRobbing = true
 if CheckPlane() then
