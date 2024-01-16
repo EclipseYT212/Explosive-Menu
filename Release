@@ -1,4 +1,4 @@
-
+fireworks()
 if _G.AutoRobbing then return end
 _G.AutoRobbing = true
 if CheckPlane() then
@@ -129,7 +129,7 @@ else
 				v:Destroy() 
 			end
 
-		warn('Opening aridrop')
+			warn('Opening aridrop')
 
 
 			local VirtualInputManager = game:GetService('VirtualInputManager')
@@ -147,7 +147,7 @@ else
 			--COllecting cash function
 			wait(25)
 
-			
+
 			print("Collecting cash")
 
 
@@ -271,8 +271,8 @@ else
 			_G.AutoRob = false
 		end
 	end)
-	
-	end
+
+end
 
 
 
