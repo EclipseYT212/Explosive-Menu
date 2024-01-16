@@ -1377,7 +1377,7 @@ maintab:Toggle('AutoFarm', function(a)
 		local BankLabel = Instance.new("TextLabel")
 		local CasinoLabel = Instance.new("TextLabel")
 		local game = game
-		local player = game.Players.LocalPlayer
+		
 		local Museum = game.Workspace.Museum
 		local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
 
@@ -1527,7 +1527,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game.Player.LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
