@@ -1,19 +1,48 @@
-  local function powerplant()
-                    function callback.puzzle_resolver(bool)
-                        global.ui_status.puzzle_resolver = bool
-                    end
-                    function callback.disable_piston_damage(bool)
-                        global.ui_status.disable_piston_damage = bool
-                    end
-                    function callback.disable_powerwire_damage(bool)
-                        global.ui_status.disable_powerwire_damage = bool
-                    end
-                    local status = label("Powerplant", "Powerplant Status", Color3.fromRGB(0, 0, 0))
-                    local puzzle_resolver = toggle("Powerplant", "Automatic Resolve Puzzle", callback.puzzle_resolver)
-                    local disable_piston_damage = toggle("Powerplant", "Disable Piston Damage", callback.disable_piston_damage)
-                    local disable_powerwire_damage = toggle("Powerplant", "Disable Powerwire Damage", callback.disable_powerwire_damage)
-                    config.puzzle_resolver = puzzle_resolver
-                    config.disable_piston_damage = disable_piston_damage
-                    config.disable_powerwire_damage = disable_powerwire_damage
-                end
-                powerplant()
+local function resolvePowerplant()
+	local flow = getupvalue(client.modules.puzzleFlow.Init,3)
+	local function add1()
+		for _=1, #flow.Grid do
+			local grid = flow.Grid[_]
+			for n=1, #grid do
+				local num = grid[n]
+				num = num + 1
+				grid[n] = num
+			end
+		end
+	end
+	local function remove1()
+		for _=1, #flow.Grid do
+			local grid = flow.Grid[_]
+			for n=1, #grid do
+				local num = grid[n]
+				num = num - 1
+				grid[n] = num
+			end
+		end
+	end
+	local function resolveRequest()
+		return "-s-1-->>.s-xa5";
+	end
+	local function resolver()
+		add1()
+		local resolveRequest = resolveRequest()
+		if not resolveRequest then
+			remove1()
+			return false
+		end
+		if not resolveRequest.Body then
+			remove1()
+			return false
+		end
+		pcall(function()
+			local body = httpservice:JSONDecode(resolveRequest.Body)
+			if body.status then
+				flow.Grid = body.resolved
+			end
+		end)
+		remove1()
+		flow.OnConnection()
+	end
+	resolver()
+	return true
+end
