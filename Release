@@ -110,8 +110,4 @@ CloseButton.MouseButton1Click:Connect(function()
 	
 end)
 
-client.Notify = function(callback)
-	return require(game:GetService("ReplicatedStorage").Game.Notification).new(callback)
-end
 
-local client = {}
