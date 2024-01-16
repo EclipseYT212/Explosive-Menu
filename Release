@@ -1,4 +1,4 @@
-
+print("loaded")
 _G.AutoRobbing = true
 if _G.AutoRobbing then return end
 
