@@ -1,113 +1,333 @@
--- Gui to Lua
--- Version: 3.2
+_G.AutoRobbing = nil 
+if _G.AutoRobbing then return end
+_G.AutoRobbing = true
+if CheckPlane() then
 
--- Instances:
+	print("\nPlane Found")
 
-local Frame = Instance.new("Frame")
-local _1 = Instance.new("TextLabel")
-local _2 = Instance.new("TextLabel")
-local _3 = Instance.new("TextLabel")
-local _4 = Instance.new("TextLabel")
-local RunButton = Instance.new("TextButton")
-local CloseButton = Instance.new("TextButton")
 
---Properties:
+	warn("Going to cargo plane")
 
-Frame.Parent = game.CoreGui
-Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.118524335, 0, 0.172058821, 0)
-Frame.Size = UDim2.new(0, 369, 0, 245)
-Frame.Draggable = true
+	local crate = game:GetService("Workspace").Plane.Crates.Crate1:FindFirstChild("1").Position
+	local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 
-_1.Name = "1"
-_1.Parent = Frame
-_1.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-_1.BorderSizePixel = 0
-_1.Position = UDim2.new(0.0542005412, 0, 0.314285725, 0)
-_1.Size = UDim2.new(0, 322, 0, 50)
-_1.Font = Enum.Font.Unknown
-_1.Text = "Checking for stores."
-_1.TextColor3 = Color3.fromRGB(255, 255, 255)
-_1.TextSize = 30.000
+	teleport(CFrame.new(crate));
 
-_2.Name = "2"
-_2.Parent = Frame
-_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-_2.BorderSizePixel = 0
-_2.Position = UDim2.new(0.227642283, 0, 0.326530606, 0)
-_2.Size = UDim2.new(0, 200, 0, 50)
-_2.Visible = false
-_2.Font = Enum.Font.Unknown
-_2.Text = "Checking for stores.."
-_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-_2.TextSize = 30.000
 
-_3.Name = "3"
-_3.Parent = Frame
-_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-_3.BorderSizePixel = 0
-_3.Position = UDim2.new(0.227642283, 0, 0.326530606, 0)
-_3.Size = UDim2.new(0, 200, 0, 50)
-_3.Visible = false
-_3.Font = Enum.Font.Unknown
-_3.Text = "Checking for stores..."
-_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-_3.TextSize = 30.000
 
-_4.Name = "4"
-_4.Parent = Frame
-_4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
-_4.BorderSizePixel = 0
-_4.Position = UDim2.new(0.227642283, 0, 0.326530606, 0)
-_4.Size = UDim2.new(0, 200, 0, 50)
-_4.Visible = false
-_4.Font = Enum.Font.Unknown
-_4.Text = "Checking for stores...."
-_4.TextColor3 = Color3.fromRGB(255, 255, 255)
-_4.TextSize = 30.000
 
-RunButton.Name = "RunButton"
-RunButton.Parent = Frame
-RunButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-RunButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-RunButton.BorderSizePixel = 0
-RunButton.Position = UDim2.new(0.227642283, 0, 0.738775492, 0)
-RunButton.Size = UDim2.new(0, 200, 0, 50)
-RunButton.Font = Enum.Font.Unknown
-RunButton.Text = "Run"
-RunButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-RunButton.TextSize = 30.000
-RunButton.MouseButton1Click:Connect(function()
-	
-	workspace.PowerPlant.Piston.Piston.ChildAdded:connect(function(children)
-		if children:FindFirstChildOfClass("TouchTransmitter") ~= nil then
-			_1.Text = "Powerplant is open"
+
+
+	wait(2)
+	warn("Going inside plane")
+	local pos = Vector3.new(5-1169.8582763671875, 44.35041809082031, 2905.92236328125) -- your pos here
+	local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+	-- do not edit below cuz breaks script
+
+	local tween_s = game:GetService('TweenService')
+	local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+	local lp = game.Players.LocalPlayer
+
+	if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+		local cf = CFrame.new(pos)
+		local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+		a:Play()
+
+
+
+	end
+
+	warn('Opening crates')
+	wait(15)
+	for i,v in pairs(require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs) do
+		if v.Name == "Inspect Crate" then
+			v:Callback(v, true)
+		end
+	end
+
+	local VirtualInputManager = game:GetService('VirtualInputManager')
+
+	VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+	wait(30)
+
+
+	Baseplate()
+	warn("Bypassing by waiting")
+	wait(15)
+	warn("Selling")
+	local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
+
+	teleport(CFrame.new(-338.4594421386719, 21.26369285583496, 2055.239990234375));
+	Baseplate()
+
+	_G.AutoRobbing = false
+
+else 
+
+
+
+
+
+
+	workspace.ChildAdded:connect(function(v)
+
+		if v.Name == "Drop" and v:IsA("Model") then
+			if _G.AutoRobbing then return end
+			_G.AutoRobbing = true
+			warn("\nDrop found\nWaiting for it to land")
+
+
+			wait(15)
+
+			warn('Going to airdrop')
+			local drop = game:GetService("Workspace").Drop.Top
+
+			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
+
+			teleport(CFrame.new(drop.Position));
+
+
+
+
+
+
+			wait(2)
+			local target = game:GetService("Workspace").Drop.Top
+
+			local Pathfind = game:GetService("PathfindingService")
+			local balls = {}
+
+			local Path = Pathfind:CreatePath()
+			Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+			local Waypoint = Path:GetWaypoints()
+
+			for _,v in pairs(Waypoint) do
+
+				local ball = Instance.new("Part")
+				ball.Shape = "Ball"
+				ball.Material = "Neon"
+				ball.Parent = game:GetService("Players").LocalPlayer.Character
+				ball.Size = Vector3.new(0.6,0.6,0.6)
+				ball.Anchored = true
+				ball.Color = Color3.fromRGB(255,255,255)
+				ball.Position = v.Position
+
+				if v.Action == Enum.PathWaypointAction.Jump then
+					game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+				end
+
+				game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+				table.insert(balls,ball)
+			end
+
+			for _,v in pairs(balls) do
+				v.Color = Color3.fromRGB(255,0,0)
+				wait(-9)
+				v:Destroy() 
+			end
+
+		warn('Opening aridrop')
+
+
+			local VirtualInputManager = game:GetService('VirtualInputManager')
+
+			VirtualInputManager:SendKeyEvent(true,"E",false,game)
+			game:GetService("Workspace").Drop.BriefcasePress:FireServer()
+			wait(2)
+			game:GetService("Workspace").Drop.NPCs:Destroy()
+
+
+
+
+
+			-- Yield the coroutine
+			--COllecting cash function
+			wait(25)
+
 			
-		
+			print("Collecting cash")
+
+
+
+			local target = game:GetService("Workspace").DroppedCash.Cash.Part
+
+			local Pathfind = game:GetService("PathfindingService")
+			local balls = {}
+
+			local Path = Pathfind:CreatePath()
+			Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+			local Waypoint = Path:GetWaypoints()
+
+			for _,v in pairs(Waypoint) do
+
+				local ball = Instance.new("Part")
+				ball.Shape = "Ball"
+				ball.Material = "Neon"
+				ball.Parent = game:GetService("Players").LocalPlayer.Character
+				ball.Size = Vector3.new(0.6,0.6,0.6)
+				ball.Anchored = true
+				ball.Color = Color3.fromRGB(255,255,255)
+				ball.Position = v.Position
+
+				if v.Action == Enum.PathWaypointAction.Jump then
+					game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+				end
+
+				game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+				table.insert(balls,ball)
+			end
+
+			for _,v in pairs(balls) do
+				v.Color = Color3.fromRGB(255,0,0)
+				wait()
+				v:Destroy() 
+			end
+			local VirtualInputManager = game:GetService('VirtualInputManager')
+
+			VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+			wait(2)
+
+			local target = game:GetService("Workspace").DroppedCash.Cash.Part
+
+			local Pathfind = game:GetService("PathfindingService")
+			local balls = {}
+
+			local Path = Pathfind:CreatePath()
+			Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+			local Waypoint = Path:GetWaypoints()
+
+			for _,v in pairs(Waypoint) do
+
+				local ball = Instance.new("Part")
+				ball.Shape = "Ball"
+				ball.Material = "Neon"
+				ball.Parent = game:GetService("Players").LocalPlayer.Character
+				ball.Size = Vector3.new(0.6,0.6,0.6)
+				ball.Anchored = true
+				ball.Color = Color3.fromRGB(255,255,255)
+				ball.Position = v.Position
+
+				if v.Action == Enum.PathWaypointAction.Jump then
+					game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+				end
+
+				game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+				table.insert(balls,ball)
+			end
+
+			for _,v in pairs(balls) do
+				v.Color = Color3.fromRGB(255,0,0)
+				wait()
+				v:Destroy() 
+			end
+			local VirtualInputManager = game:GetService('VirtualInputManager')
+
+			VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+
+
+			wait(2)
+
+			local target = game:GetService("Workspace").DroppedCash.Cash.Part
+
+			local Pathfind = game:GetService("PathfindingService")
+			local balls = {}
+
+			local Path = Pathfind:CreatePath()
+			Path:ComputeAsync(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position,target.Position)
+			local Waypoint = Path:GetWaypoints()
+
+			for _,v in pairs(Waypoint) do
+
+				local ball = Instance.new("Part")
+				ball.Shape = "Ball"
+				ball.Material = "Neon"
+				ball.Parent = game:GetService("Players").LocalPlayer.Character
+				ball.Size = Vector3.new(0.6,0.6,0.6)
+				ball.Anchored = true
+				ball.Color = Color3.fromRGB(255,255,255)
+				ball.Position = v.Position
+
+				if v.Action == Enum.PathWaypointAction.Jump then
+					game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+				end
+
+				game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):MoveTo(v.Position)
+				table.insert(balls,ball)
+			end
+
+			for _,v in pairs(balls) do
+				v.Color = Color3.fromRGB(255,0,0)
+				wait()
+				v:Destroy() 
+			end
+			wait(5)
+			print('Airdrop Completed')
+			Baseplate()
+			_G.AutoRob = false
 		end
 	end)
-
-end)
-CloseButton.Name = "CloseButton"
-CloseButton.Parent = Frame
-CloseButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-CloseButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CloseButton.BorderSizePixel = 0
-CloseButton.Position = UDim2.new(0.926829278, 0, 0, 0)
-CloseButton.Size = UDim2.new(0, 21, 0, 28)
-CloseButton.Font = Enum.Font.Unknown
-CloseButton.Text = "X"
-CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-CloseButton.TextSize = 30.000
-CloseButton.MouseButton1Click:Connect(function()
-	Frame.Visible = false
 	
-end)
+	end
 
 
+
+function antiafk()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+
+end
+
+function Baseplate()
+	local baseplate = Instance.new("Part")
+	baseplate.Parent = workspace
+	baseplate.Size = Vector3.new(100,5,100) -- change size
+	baseplate.Anchored = true
+	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
+	wait(1)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
+
+end
+
+function fireworks()
+	for i, v in pairs(getgc()) do
+		if typeof(v) == "function" then
+			for i2, v2 in pairs(debug.getupvalues(v)) do
+				if typeof(v2) == "table" and rawget(v2, "Fireworks") then
+					v2.Fireworks(math.huge)
+				end
+			end
+		end
+	end
+
+end
+
+function CheckTrainType()
+	for i,v in pairs(workspace.Trains:GetChildren()) do
+		if v.Name == "BoxCar" then
+			return v.Model.Rob
+		elseif v.Name == "SteamEngine" then
+			return "Passenger"
+		end
+	end
+end
+
+function CheckPlane()
+	for i,v in pairs(workspace:GetChildren()) do
+		if v.Name == "Plane" and v.Root then
+			if v.Crates.Crate1["1"].Transparency == 0 then
+				return v.Crates:GetChildren()[math.random(1,table.maxn(v.Crates:GetChildren()))]
+			else
+				return false
+			end
+		end
+	end
+end
