@@ -269,7 +269,7 @@ else
 			wait(5)
 			print('Airdrop Completed')
 			Baseplate()
-			_G.AutoRob = false
+			_G.AutoRobbing = false
 		end
 	end)
 
