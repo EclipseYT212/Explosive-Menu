@@ -1,6 +1,7 @@
 fireworks()
-if _G.AutoRobbing then return end
 _G.AutoRobbing = true
+if _G.AutoRobbing then return end
+
 if CheckPlane() then
 
 	print("\nPlane Found")
