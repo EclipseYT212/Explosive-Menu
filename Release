@@ -102,7 +102,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 		_G.Farmer = true
 		while wait(2)  do 
 
-
+			
 			if CheckPlane() then
 
 				print("\nPlane Found")
@@ -164,12 +164,12 @@ option:Toggle("Plane & airdrop farm", function(T)
 
 				teleport(CFrame.new(-338.4594421386719, 21.26369285583496, 2055.239990234375));
 				Baseplate()
-				TextBox.Text = "Waiting for Drops or Plane!"
+		TextBox.Text = "Waiting For Stores To Open"
 				_G.AutoRobbing = false
 
 			else 
 
-
+				
 
 
 
@@ -253,8 +253,8 @@ option:Toggle("Plane & airdrop farm", function(T)
 
 						print("Collecting cash")
 
-						wait(2)
-						local target = game:GetService("Workspace").DroppedCash.Cash.Part
+wait(2)
+local target = game:GetService("Workspace").DroppedCash.Cash.Part
 
 						local Pathfind = game:GetService("PathfindingService")
 						local balls = {}
@@ -288,14 +288,14 @@ option:Toggle("Plane & airdrop farm", function(T)
 							v:Destroy() 
 						end
 
-						wait(2)
+					wait(2)
 
 						local VirtualInputManager = game:GetService('VirtualInputManager')
 
 						VirtualInputManager:SendKeyEvent(true,"E",false,game)
 
 						wait(2)
-						local target = game:GetService("Workspace").DroppedCash.Cash.Part
+local target = game:GetService("Workspace").DroppedCash.Cash.Part
 
 						local Pathfind = game:GetService("PathfindingService")
 						local balls = {}
@@ -329,8 +329,8 @@ option:Toggle("Plane & airdrop farm", function(T)
 							v:Destroy() 
 						end
 
-						wait(2)
-						local target = game:GetService("Workspace").DroppedCash.Cash.Part
+wait(2)
+local target = game:GetService("Workspace").DroppedCash.Cash.Part
 
 						local Pathfind = game:GetService("PathfindingService")
 						local balls = {}
@@ -364,7 +364,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 							v:Destroy() 
 						end
 
-
+					
 
 						local VirtualInputManager = game:GetService('VirtualInputManager')
 
@@ -377,7 +377,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 						wait(2)
 						TextBox.Text = ('Waiting For Drops Or Plane')
 					else 
-
+						
 					end	
 				end)
 
@@ -584,7 +584,7 @@ option:Toggle("Hyper Mode", function(T)
 				-- Check if the condition for your loop has been met
 
 				if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
-
+					
 
 					TextBox.Text = "Teleporting to the Museum"
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
@@ -784,14 +784,14 @@ option:Toggle("Hyper Mode", function(T)
 
 					_G.AutoRobbing = false
 					Baseplate()
-
+					
 					return
+						
 
+end
+				
 
-				end
-
-
-
+				
 
 
 				-- Check if the condition for your loop has been met
@@ -803,34 +803,22 @@ option:Toggle("Hyper Mode", function(T)
 					teleport(CFrame.new(150, 18, 1373));
 
 
-					wait(2)
+					wait(3)
 
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("Lasers") then
 							v:Destroy()
 						end
 					end 
-					wait(2)
+wait(1)
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("BarbedWire") then
 							v:Destroy()
 						end
 					end 
-					wait(2)
+wait(1)
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("Cameras") then
-							v:Destroy()
-						end
-					end 
-					wait(2)
-					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-						if v.Name:match("Camera") then
-							v:Destroy()
-						end
-					end 
-					wait(2)
-					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-						if v.Name:match("CameraFloors") then
 							v:Destroy()
 						end
 					end 
@@ -1259,13 +1247,8 @@ option:Toggle("Hyper Mode", function(T)
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
 					BSD()
-					Baseplate()
-					TextBox.Text = ("Waiting For Stores To Open")
-				
-
-
-
-
+Baseplate()
+TextBox.Text = ("Waiting For Stores To Open")
 				end
 				_G.AutoRobbing = false
 				-- Break out of the loop
