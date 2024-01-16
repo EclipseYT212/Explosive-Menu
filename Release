@@ -1,65 +1,25 @@
-_G.Switch = true
-while _G.Switch == true do 
-	wait(2)
-	local Robberys = {
-		['1'] = 'Bank',
-		['2'] = 'Jewelry Store',
-		['3'] = "STORE_DONUT",		
-		['4'] = 'Power Plant',
-		['5'] = 'Passenger Train',
-		['6'] = 'Cargo Train',
-		['7'] = 'Cargo Ship',
-		['8'] = 'Cargo Plane',
-		['9'] = 'Gas Station',
-		['10'] = 'Museum',
-		['11'] = 'Money Truck',
-		['12'] = 'Home Vault',
-		['13'] = 'Tomb',
-		['14'] = 'Casino',
-		['15'] = 'Mansion'
-	}
-	function get_rob(name)
-		for i, v in pairs(Robberys) do
-			if v:lower() == name:lower() then
-				return i
-			end
+local function resolvePuzzle()
+	local function loop()
+		local bool = global.ui_status.puzzle_resolver
+		if not bool then
+			return false
 		end
+		local flow = getupvalue(client.modules.puzzleFlow.Init,3)
+		if not flow.IsOpen then
+			return false
+		end
+		local resolvePowerplant = global.registry.resolvePowerplant
+		if not resolvePowerplant then
+			return false
+		end
+		return resolvePowerplant()
 	end
+	createloop(0.5, loop)
+end
+resolvePuzzle()
 
-	function is_opened(rob)
-		local theft = get_rob(rob)
-
-		local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
-
-
-		  if status == "OPENED" then
-                            return true
-print("open")
-                        end
-                        if status == "STARTED" then
-                            return 0
-			print("closed")
-                        end 
-                        return false
-                    end
-		
-	
-
-	
-	end
-	-- Check if the Donut Shop is open.
-
-	local bankStatus = is_opened("DonutShop")
-	if bankStatus == "open" or bankStatus == "closed"   then
-
-		-- The Donut Shop is open.
-		game:GetService("StarterGui"):SetCore("SendNotification", {
-			Title = "Donut Shop Info",
-			Icon = "",
-			Text = is_opened("DonutShop")
-		})
-
-
-
+local function serviceloop()
+	function global.createloop(seconds, callback)
+		return interval.every(tonumber(seconds)):connect(callback)
 	end
 end
