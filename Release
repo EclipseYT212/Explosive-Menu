@@ -63,6 +63,7 @@ ExplosiveMenu.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 ExplosiveMenu.BorderColor3 = Color3.fromRGB(0, 255, 255)
 ExplosiveMenu.Position = UDim2.new(0.0659340695, 0, 0.328571439, 0)
 ExplosiveMenu.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenu.Draggable = true 
 
 MoneyInfo.Name = "Money Info"
 MoneyInfo.Parent = ExplosiveMenu
@@ -73,6 +74,9 @@ MoneyInfo.ZIndex = 2
 MoneyInfo.Image = "rbxassetid://3926307971"
 MoneyInfo.ImageRectOffset = Vector2.new(964, 484)
 MoneyInfo.ImageRectSize = Vector2.new(36, 36)
+MoneyInfo.MouseButton1Click:Connect(function()
+	ExplosiveMenuMoney.Visible = true
+end)
 
 Locations.Name = "Locations"
 Locations.Parent = ExplosiveMenu
@@ -83,7 +87,9 @@ Locations.ZIndex = 2
 Locations.Image = "rbxassetid://3926307971"
 Locations.ImageRectOffset = Vector2.new(804, 364)
 Locations.ImageRectSize = Vector2.new(36, 36)
-
+Locations.MouseButton1Click:Connect(function()
+	ExplosiveMenuLocations.Visible = true
+end)
 Snooze.Name = "Snooze"
 Snooze.Parent = ExplosiveMenu
 Snooze.BackgroundTransparency = 1.000
@@ -93,7 +99,19 @@ Snooze.ZIndex = 2
 Snooze.Image = "rbxassetid://3926307971"
 Snooze.ImageRectOffset = Vector2.new(684, 244)
 Snooze.ImageRectSize = Vector2.new(36, 36)
+Snooze.MouseButton1Click:Connect(function(T)
+	_G.Snooze = T
+	if _G.Snooze == true then 
+		return
+			true
+	else 
+		if _G.Snooze == nil then 
+			return
+				false
 
+		end
+	end
+end)
 TextLabel.Parent = ExplosiveMenu
 TextLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 TextLabel.BorderColor3 = Color3.fromRGB(0, 255, 255)
@@ -117,7 +135,185 @@ Run.TextColor3 = Color3.fromRGB(255, 255, 255)
 Run.TextScaled = true
 Run.TextSize = 14.000
 Run.TextWrapped = true
+Run.MouseButton1Click:Connect(function()
+	if _G.Snooze == true then 
+		local Robberys = {
+			['1'] = 'Bank',
+			['2'] = 'Power Plant',
+			['3'] = 'Passenger Train',
+			['4'] = 'Cargo Train',
+			['5'] = 'Cargo Ship',
+			['6'] = 'Cargo Plane',
+			['7'] = 'Gas Station',
+			['8'] = 'Donut Store',
+			['9'] = 'Money Truck',
+			['10'] = 'Home Vault',
+			['11'] = 'Tomb',
+			['12'] = 'Casino',
+			['13'] = 'Mansion'
+		}
+		function get_rob(name)
+			for i, v in pairs(Robberys) do
+				if v:lower() == name:lower() then
+					return i
+				end
+			end
+		end
 
+		function is_opened(rob)
+			local theft = get_rob(rob)
+
+			local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+			if State == nil then
+				return 'closed'
+			elseif State.Value == 1 then
+				return 'open'
+			elseif State.Value == 2 then
+				return 'stealing'
+			else
+				return 'closed'
+			end
+		end
+
+		local bankStatus = is_opened("Bank")
+		if bankStatus == "open" or bankStatus == "closed" then
+			if BankOn.Visible == true then
+				print(is_opened("Bank"))
+				wait(1) 
+
+				print("Going to Bank")
+				getgenv().NoKey = true 
+
+				if getgenv().NoKey == true then 
+
+					local plrUtils = game:GetService("ReplicatedStorage").Game.PlayerUtils
+					local oldHasKey = require(plrUtils).hasKey
+					require(plrUtils).hasKey = function() 
+						return true
+					end
+
+
+
+
+				else
+					warn'no key'
+				end
+
+				local teleport = loadstring(game:HttpGet("https://github.com/EclipseYT212/test3/blob/main/tp"))();
+				teleport(CFrame.new(11.062485694885254, 18.563661575317383, 863.6871948242188));
+				wait(1)
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "Going to Main door"; -- the title 
+					Text = "Explosive Menu"; -- what the text says 
+					Duration = 25; -- how long the notification should in secounds
+				})
+
+				--Teleport to inside
+				local pos = Vector3.new(36.073097229003906, 18.635835647583008, 905.9580078125) -- your pos here
+				local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(1)
+				if getgenv().Delete == true then 
+
+
+
+					for i,v in pairs(workspace.Banks:GetDescendants()) do
+						if v.Name:match("Lasers") then
+							v:Destroy()
+						end
+					end
+
+
+					for i,v in pairs(workspace.Banks:GetDescendants()) do
+						if v.Name:match("lasers") then
+							v:Destroy()
+						end
+					end
+
+
+					--Teleport to inside
+					wait(2)
+					local pos = Vector3.new(40.11933898925781, 18.63584327697754, 921.849365234375) -- your pos here
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+
+					wait(5)
+					local bankcheck = game:GetService("Workspace").Banks.Bank.Layout:FindFirstChild("Money")
+
+
+					if bankcheck then 
+						local PathfindingService = game:GetService("PathfindingService")
+						local Players = game:GetService("Players")
+						local RunService = game:GetService("RunService")
+
+						local path = PathfindingService:CreatePath()
+
+						local player = Players.LocalPlayer
+						local character = player.Character
+						local humanoid = character:WaitForChild("Humanoid")
+
+						local TEST_DESTINATION = Vector3.new(bankcheck.Position)
+
+						local waypoints
+						local nextWaypointIndex
+						local reachedConnection
+						local blockedConnection
+
+						local function followPath(destination)
+							-- Compute the path
+							local success, errorMessage = pcall(function()
+								path:ComputeAsync(character.PrimaryPart.Position, destination)
+
+								humanoid.WalkSpeed = 40
+
+							end)
+						end
+					end
+
+
+				end
+
+			else 
+				if BankOff.Visible == true then
+					print("Opted Out")
+				end
+
+
+			end
+
+
+		else
+			if _G.Snooze == false then return end
+		end
+	end
+end)
 TextBox.Parent = ExplosiveMenu
 TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 TextBox.BorderColor3 = Color3.fromRGB(0, 255, 255)
@@ -142,7 +338,9 @@ DropFarm.ZIndex = 2
 DropFarm.Image = "rbxassetid://3926307971"
 DropFarm.ImageRectOffset = Vector2.new(124, 84)
 DropFarm.ImageRectSize = Vector2.new(36, 36)
-
+DropFarm.MouseButton1Click:Connect(function()
+	ExplosiveMenuDropFarm.Visible = true
+end)
 ExplosiveMenuDropFarm.Name = "Explosive Menu Drop Farm"
 ExplosiveMenuDropFarm.Parent = ScreenGui
 ExplosiveMenuDropFarm.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
@@ -334,7 +532,10 @@ BankOff.Image = "rbxassetid://3926307971"
 BankOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
 BankOff.ImageRectOffset = Vector2.new(484, 44)
 BankOff.ImageRectSize = Vector2.new(36, 36)
-
+BankOff.MouseButton1Click:Connect(function()
+	BankOff.Visible = false 
+	BankOn.Visible = true
+end)
 CargoShipOn.Name = "CargoShipOn"
 CargoShipOn.Parent = ExplosiveMenuLocations
 CargoShipOn.BackgroundTransparency = 1.000
@@ -346,7 +547,10 @@ CargoShipOn.Image = "rbxassetid://3926305904"
 CargoShipOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
 CargoShipOn.ImageRectOffset = Vector2.new(84, 524)
 CargoShipOn.ImageRectSize = Vector2.new(36, 36)
-
+CargoShipOn.MouseButton1Click:Connect(function()
+	CargoShipOff.Visible = true 
+	CargoShipOn.Visible = false
+end)
 DonutShopOn.Name = "DonutShopOn"
 DonutShopOn.Parent = ExplosiveMenuLocations
 DonutShopOn.BackgroundTransparency = 1.000
@@ -359,7 +563,10 @@ DonutShopOn.Image = "rbxassetid://3926307971"
 DonutShopOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
 DonutShopOn.ImageRectOffset = Vector2.new(924, 204)
 DonutShopOn.ImageRectSize = Vector2.new(36, 36)
-
+DonutShopOn.MouseButton1Click:Connect(function()
+	DonutShopOff.Visible = true 
+	DonutShopOn.Visible = false
+end)
 BankTruckOn.Name = "BankTruckOn"
 BankTruckOn.Parent = ExplosiveMenuLocations
 BankTruckOn.BackgroundTransparency = 1.000
@@ -371,7 +578,10 @@ BankTruckOn.Image = "rbxassetid://3926305904"
 BankTruckOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
 BankTruckOn.ImageRectOffset = Vector2.new(124, 604)
 BankTruckOn.ImageRectSize = Vector2.new(36, 36)
-
+BankTruckOn.MouseButton1Click:Connect(function()
+	BankTruckOff.Visible = true 
+	BankTruckOn.Visible = false
+end)
 GasStationOn.Name = "GasStationOn"
 GasStationOn.Parent = ExplosiveMenuLocations
 GasStationOn.BackgroundTransparency = 1.000
@@ -383,7 +593,10 @@ GasStationOn.Image = "rbxassetid://3926305904"
 GasStationOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
 GasStationOn.ImageRectOffset = Vector2.new(844, 484)
 GasStationOn.ImageRectSize = Vector2.new(36, 36)
-
+GasStationOn.MouseButton1Click:Connect(function()
+	GasStationOff.Visible = true 
+	GasStationOn.Visible = false
+end)
 JewelryStoreOn.Name = "JewelryStoreOn"
 JewelryStoreOn.Parent = ExplosiveMenuLocations
 JewelryStoreOn.BackgroundTransparency = 1.000
@@ -394,7 +607,10 @@ JewelryStoreOn.Image = "rbxassetid://6764432293"
 JewelryStoreOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
 JewelryStoreOn.ImageRectOffset = Vector2.new(700, 600)
 JewelryStoreOn.ImageRectSize = Vector2.new(100, 100)
-
+JewelryStoreOn.MouseButton1Click:Connect(function()
+	JewelryStoreOff.Visible = true 
+	JewelryStoreOn.Visible = false
+end)
 CargoPlaneOn.Name = "CargoPlaneOn"
 CargoPlaneOn.Parent = ExplosiveMenuLocations
 CargoPlaneOn.BackgroundTransparency = 1.000
@@ -406,7 +622,10 @@ CargoPlaneOn.Image = "rbxassetid://3926305904"
 CargoPlaneOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
 CargoPlaneOn.ImageRectOffset = Vector2.new(684, 44)
 CargoPlaneOn.ImageRectSize = Vector2.new(36, 36)
-
+CargoPlaneOn.MouseButton1Click:Connect(function()
+	CargoPlaneOff.Visible = true 
+	CargoPlaneOn.Visible = false
+end)
 MuseumOn.Name = "MuseumOn"
 MuseumOn.Parent = ExplosiveMenuLocations
 MuseumOn.BackgroundTransparency = 1.000
@@ -418,7 +637,10 @@ MuseumOn.Image = "rbxassetid://3926305904"
 MuseumOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
 MuseumOn.ImageRectOffset = Vector2.new(484, 844)
 MuseumOn.ImageRectSize = Vector2.new(36, 36)
-
+MuseumOn.MouseButton1Click:Connect(function()
+	MuseumOff.Visible = true 
+	MuseumOn.Visible = false
+end)
 CargoPlaneOff.Name = "CargoPlaneOff"
 CargoPlaneOff.Parent = ExplosiveMenuLocations
 CargoPlaneOff.BackgroundTransparency = 1.000
@@ -431,7 +653,10 @@ CargoPlaneOff.Image = "rbxassetid://3926305904"
 CargoPlaneOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
 CargoPlaneOff.ImageRectOffset = Vector2.new(684, 44)
 CargoPlaneOff.ImageRectSize = Vector2.new(36, 36)
-
+CargoPlaneOff.MouseButton1Click:Connect(function()
+	CargoPlaneOff.Visible = false 
+	CargoPlaneOn.Visible = true
+end)
 MuseumOff.Name = "MuseumOff"
 MuseumOff.Parent = ExplosiveMenuLocations
 MuseumOff.BackgroundTransparency = 1.000
@@ -444,7 +669,10 @@ MuseumOff.Image = "rbxassetid://3926305904"
 MuseumOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
 MuseumOff.ImageRectOffset = Vector2.new(484, 844)
 MuseumOff.ImageRectSize = Vector2.new(36, 36)
-
+MuseumOff.MouseButton1Click:Connect(function()
+	MuseumOff.Visible = false 
+	MuseumOn.Visible = true
+end)
 DonutShopOff.Name = "DonutShopOff"
 DonutShopOff.Parent = ExplosiveMenuLocations
 DonutShopOff.BackgroundTransparency = 1.000
@@ -458,7 +686,10 @@ DonutShopOff.Image = "rbxassetid://3926307971"
 DonutShopOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
 DonutShopOff.ImageRectOffset = Vector2.new(924, 204)
 DonutShopOff.ImageRectSize = Vector2.new(36, 36)
-
+DonutShopOff.MouseButton1Click:Connect(function()
+	DonutShopOff.Visible = false 
+	DonutShopOn.Visible = true
+end)
 BankTruckOff.Name = "BankTruckOff"
 BankTruckOff.Parent = ExplosiveMenuLocations
 BankTruckOff.BackgroundTransparency = 1.000
@@ -471,7 +702,10 @@ BankTruckOff.Image = "rbxassetid://3926305904"
 BankTruckOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
 BankTruckOff.ImageRectOffset = Vector2.new(124, 604)
 BankTruckOff.ImageRectSize = Vector2.new(36, 36)
-
+BankTruckOff.MouseButton1Click:Connect(function()
+	BankTruckOff.Visible = false 
+	BankTruckOn.Visible = true
+end)
 GasStationOff.Name = "GasStationOff"
 GasStationOff.Parent = ExplosiveMenuLocations
 GasStationOff.BackgroundTransparency = 1.000
@@ -484,7 +718,10 @@ GasStationOff.Image = "rbxassetid://3926305904"
 GasStationOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
 GasStationOff.ImageRectOffset = Vector2.new(844, 484)
 GasStationOff.ImageRectSize = Vector2.new(36, 36)
-
+GasStationOff.MouseButton1Click:Connect(function()
+	GasStationOn.Visible = true 
+	GasStationOff.Visible = false
+end)
 CargoShipOff.Name = "CargoShipOff"
 CargoShipOff.Parent = ExplosiveMenuLocations
 CargoShipOff.BackgroundTransparency = 1.000
@@ -497,7 +734,10 @@ CargoShipOff.Image = "rbxassetid://3926305904"
 CargoShipOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
 CargoShipOff.ImageRectOffset = Vector2.new(84, 524)
 CargoShipOff.ImageRectSize = Vector2.new(36, 36)
-
+CargoShipOff.MouseButton1Click:Connect(function()
+	CargoShipOff.Visible = false 
+	MuseumOn.Visible = true
+end)
 JewelryStoreOff.Name = "JewelryStoreOff"
 JewelryStoreOff.Parent = ExplosiveMenuLocations
 JewelryStoreOff.BackgroundTransparency = 1.000
@@ -509,7 +749,10 @@ JewelryStoreOff.Image = "rbxassetid://6764432293"
 JewelryStoreOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
 JewelryStoreOff.ImageRectOffset = Vector2.new(700, 600)
 JewelryStoreOff.ImageRectSize = Vector2.new(100, 100)
-
+JewelryStoreOff.MouseButton1Click:Connect(function()
+	JewelryStoreOff.Visible = false 
+	JewelryStoreOn.Visible = true
+end)
 BankOn.Name = "BankOn"
 BankOn.Parent = ExplosiveMenuLocations
 BankOn.BackgroundTransparency = 1.000
@@ -521,7 +764,10 @@ BankOn.Image = "rbxassetid://3926307971"
 BankOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
 BankOn.ImageRectOffset = Vector2.new(484, 44)
 BankOn.ImageRectSize = Vector2.new(36, 36)
-
+BankOn.MouseButton1Click:Connect(function()
+	BankOff.Visible = true 
+	BankOn.Visible = false
+end)
 ExplosiveMenuDropFarmMoney.Name = "Explosive Menu DropFarmMoney"
 ExplosiveMenuDropFarmMoney.Parent = ScreenGui
 ExplosiveMenuDropFarmMoney.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
@@ -529,6 +775,7 @@ ExplosiveMenuDropFarmMoney.BorderColor3 = Color3.fromRGB(0, 255, 255)
 ExplosiveMenuDropFarmMoney.Position = UDim2.new(0.270118773, 0, 0.328571439, 0)
 ExplosiveMenuDropFarmMoney.Size = UDim2.new(0, 252, 0, 167)
 ExplosiveMenuDropFarmMoney.Visible = false
+ExplosiveMenuDropFarmMoney.Draggable = true 
 
 MoneyInfo_4.Name = "Money Info"
 MoneyInfo_4.Parent = ExplosiveMenuDropFarmMoney
@@ -563,6 +810,10 @@ Return_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 Return_3.TextScaled = true
 Return_3.TextSize = 14.000
 Return_3.TextWrapped = true
+Return_3.MouseButton1Click:Connect(function()
+	ExplosiveMenuDropFarmMoney.Visible = false 
+
+end)
 
 TextBox_5.Parent = ExplosiveMenuDropFarmMoney
 TextBox_5.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
