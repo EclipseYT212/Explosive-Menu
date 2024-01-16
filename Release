@@ -1,4 +1,4 @@
-fireworks()
+
 _G.AutoRobbing = true
 if _G.AutoRobbing then return end
 
@@ -298,18 +298,7 @@ function Baseplate()
 
 end
 
-function fireworks()
-	for i, v in pairs(getgc()) do
-		if typeof(v) == "function" then
-			for i2, v2 in pairs(debug.getupvalues(v)) do
-				if typeof(v2) == "table" and rawget(v2, "Fireworks") then
-					v2.Fireworks(math.huge)
-				end
-			end
-		end
-	end
 
-end
 
 function CheckTrainType()
 	for i,v in pairs(workspace.Trains:GetChildren()) do
