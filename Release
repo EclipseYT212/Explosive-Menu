@@ -2,690 +2,858 @@
 -- Version: 3.2
 
 -- Instances:
-getgenv().key == "1"
-
-if key == 1 then
-if game.PlaceId == 606849621 then
-
 
 local ScreenGui = Instance.new("ScreenGui")
-local MainTab = Instance.new("Frame")
+local ExplosiveMenu = Instance.new("Frame")
+local MoneyInfo = Instance.new("ImageButton")
+local Locations = Instance.new("ImageButton")
+local Snooze = Instance.new("ImageButton")
+local TextLabel = Instance.new("TextLabel")
+local Run = Instance.new("TextButton")
 local TextBox = Instance.new("TextBox")
-local cancel = Instance.new("ImageButton")
-local build = Instance.new("ImageButton")
-local event_note = Instance.new("ImageButton")
-local verified_user = Instance.new("ImageButton")
-local save = Instance.new("ImageButton")
-local power = Instance.new("ImageButton")
-local warning = Instance.new("ImageButton")
-local OptionsBar = Instance.new("Frame")
-local DeveloperButton = Instance.new("TextButton")
-local JewlLabel = Instance.new("TextLabel")
-local MuseumLabel = Instance.new("TextLabel")
-local BankLabel = Instance.new("TextLabel")
-local CasinoLabel = Instance.new("TextLabel")
-local game = game
-local player = game.Players.LocalPlayer
-local Museum = game.Workspace.Museum
-local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
-
-local cargotrain =  game:GetService("Workspace").Trains
-local RoofHolePart = Museum:FindFirstChild("Roof")
-local RoofHoleOpen = false
-local ind = workspace.Jewelrys:FindFirstChild('Sign', true)
-local indicator = ind.Decal
-local RunService = game:GetService("RunService")
-local loopActive = false
+local DropFarm = Instance.new("ImageButton")
+local ExplosiveMenuDropFarm = Instance.new("Frame")
+local MoneyInfo_2 = Instance.new("ImageButton")
+local Snooze_2 = Instance.new("ImageButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local Run_2 = Instance.new("TextButton")
+local TextBox_2 = Instance.new("TextBox")
+local ExplosiveMenuMoney = Instance.new("Frame")
+local MoneyInfo_3 = Instance.new("ImageButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local Return = Instance.new("TextButton")
+local TextBox_3 = Instance.new("TextBox")
+local RunTimeInfo = Instance.new("ImageButton")
+local TextBox_4 = Instance.new("TextBox")
+local ExplosiveMenuLocations = Instance.new("Frame")
+local TextLabel_4 = Instance.new("TextLabel")
+local Return_2 = Instance.new("TextButton")
+local BankOff = Instance.new("ImageButton")
+local CargoShipOn = Instance.new("ImageButton")
+local DonutShopOn = Instance.new("ImageButton")
+local BankTruckOn = Instance.new("ImageButton")
+local GasStationOn = Instance.new("ImageButton")
+local JewelryStoreOn = Instance.new("ImageButton")
+local CargoPlaneOn = Instance.new("ImageButton")
+local MuseumOn = Instance.new("ImageButton")
+local CargoPlaneOff = Instance.new("ImageButton")
+local MuseumOff = Instance.new("ImageButton")
+local DonutShopOff = Instance.new("ImageButton")
+local BankTruckOff = Instance.new("ImageButton")
+local GasStationOff = Instance.new("ImageButton")
+local CargoShipOff = Instance.new("ImageButton")
+local JewelryStoreOff = Instance.new("ImageButton")
+local BankOn = Instance.new("ImageButton")
+local ExplosiveMenuDropFarmMoney = Instance.new("Frame")
+local MoneyInfo_4 = Instance.new("ImageButton")
+local TextLabel_5 = Instance.new("TextLabel")
+local Return_3 = Instance.new("TextButton")
+local TextBox_5 = Instance.new("TextBox")
+local RunTimeInfo_2 = Instance.new("ImageButton")
+local TextBox_6 = Instance.new("TextBox")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local character = player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 --Properties:
 
 ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-MainTab.Name = "MainTab"
-MainTab.Parent = ScreenGui
-MainTab.Active = true
-MainTab.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-MainTab.BackgroundTransparency = 0.070
-MainTab.BorderColor3 = Color3.fromRGB(45, 45, 45)
-MainTab.BorderSizePixel = 0
-MainTab.Position = UDim2.new(0.151253924, 0, 0.257918566, 0)
-MainTab.Size = UDim2.new(0, 374, 0, 252)
-MainTab.Draggable = true
+ExplosiveMenu.Name = "Explosive Menu"
+ExplosiveMenu.Parent = ScreenGui
+ExplosiveMenu.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenu.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenu.Position = UDim2.new(0.0659340695, 0, 0.328571439, 0)
+ExplosiveMenu.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenu.Active = true 
+ExplosiveMenu.Draggable = true
 
-TextBox.Parent = MainTab
+MoneyInfo.Name = "Money Info"
+MoneyInfo.Parent = ExplosiveMenu
+MoneyInfo.BackgroundTransparency = 1.000
+MoneyInfo.Position = UDim2.new(0, 0, 0.673652709, 0)
+MoneyInfo.Size = UDim2.new(0, 25, 0, 25)
+MoneyInfo.ZIndex = 2
+MoneyInfo.Image = "rbxassetid://3926307971"
+MoneyInfo.ImageRectOffset = Vector2.new(964, 484)
+MoneyInfo.ImageRectSize = Vector2.new(36, 36)
+MoneyInfo.MouseButton1Click:Connect(function()
+	ExplosiveMenuMoney.Visible = true
+end)
+Locations.Name = "Locations"
+Locations.Parent = ExplosiveMenu
+Locations.BackgroundTransparency = 1.000
+Locations.Position = UDim2.new(0, 0, 0.523952067, 0)
+Locations.Size = UDim2.new(0, 25, 0, 25)
+Locations.ZIndex = 2
+Locations.Image = "rbxassetid://3926307971"
+Locations.ImageRectOffset = Vector2.new(804, 364)
+Locations.ImageRectSize = Vector2.new(36, 36)
+Locations.MouseButton1Click:Connect(function()
+	ExplosiveMenuLocations.Visible = true
+end)
+Snooze.Name = "Snooze"
+Snooze.Parent = ExplosiveMenu
+Snooze.BackgroundTransparency = 1.000
+Snooze.Position = UDim2.new(0, 0, 0.374251485, 0)
+Snooze.Size = UDim2.new(0, 25, 0, 25)
+Snooze.ZIndex = 2
+Snooze.Image = "rbxassetid://3926307971"
+Snooze.ImageRectOffset = Vector2.new(684, 244)
+Snooze.ImageRectSize = Vector2.new(36, 36)
+Snooze.MouseButton1Click:Connect(function(T)
+	_G.Snooze = T
+	if _G.Snooze == true then 
+		return
+			true
+	else 
+		if _G.Snooze == nil then 
+			return
+				false
+
+		end
+	end
+end)
+TextLabel.Parent = ExplosiveMenu
+TextLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel.Size = UDim2.new(0, 252, 0, 24)
+TextLabel.Font = Enum.Font.SciFi
+TextLabel.Text = "Explosive Menu"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+Run.Name = "Run"
+Run.Parent = ExplosiveMenu
+Run.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Run.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Run.Position = UDim2.new(0, 0, 0.826347291, 0)
+Run.Size = UDim2.new(0, 252, 0, 29)
+Run.Font = Enum.Font.SciFi
+Run.Text = "Run"
+Run.TextColor3 = Color3.fromRGB(255, 255, 255)
+Run.TextScaled = true
+Run.TextSize = 14.000
+Run.TextWrapped = true
+Run.MouseButton1Click:Connect(function()
+	if _G.Snooze == true then 
+		local Robberys = {
+			['1'] = 'Bank',
+			['2'] = 'Power Plant',
+			['3'] = 'Passenger Train',
+			['4'] = 'Cargo Train',
+			['5'] = 'Cargo Ship',
+			['6'] = 'Cargo Plane',
+			['7'] = 'Gas Station',
+			['8'] = 'Donut Store',
+			['9'] = 'Money Truck',
+			['10'] = 'Home Vault',
+			['11'] = 'Tomb',
+			['12'] = 'Casino',
+			['13'] = 'Mansion'
+		}
+		function get_rob(name)
+			for i, v in pairs(Robberys) do
+				if v:lower() == name:lower() then
+					return i
+				end
+			end
+		end
+
+		function is_opened(rob)
+			local theft = get_rob(rob)
+
+			local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+			if State == nil then
+				return 'closed'
+			elseif State.Value == 1 then
+				return 'open'
+			elseif State.Value == 2 then
+				return 'stealing'
+			else
+				return 'closed'
+			end
+		end
+
+		local bankStatus = is_opened("Bank")
+		if bankStatus == "open" or bankStatus == "closed" then
+			if BankOn.Visible == true then
+				print(is_opened("Bank"))
+				wait(1) 
+
+				print("Going to Bank")
+				getgenv().NoKey = true 
+
+				if getgenv().NoKey == true then 
+
+					local plrUtils = game:GetService("ReplicatedStorage").Game.PlayerUtils
+					local oldHasKey = require(plrUtils).hasKey
+					require(plrUtils).hasKey = function() 
+						return true
+					end
+
+
+
+
+				else
+					warn'no key'
+				end
+
+				local teleport = loadstring(game:HttpGet("https://github.com/EclipseYT212/test3/blob/main/tp"))();
+				teleport(CFrame.new(11.062485694885254, 18.563661575317383, 863.6871948242188));
+				wait(1)
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "Going to Main door"; -- the title 
+					Text = "Explosive Menu"; -- what the text says 
+					Duration = 25; -- how long the notification should in secounds
+				})
+
+				--Teleport to inside
+				local pos = Vector3.new(36.073097229003906, 18.635835647583008, 905.9580078125) -- your pos here
+				local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(1)
+				if getgenv().Delete == true then 
+
+
+
+					for i,v in pairs(workspace.Banks:GetDescendants()) do
+						if v.Name:match("Lasers") then
+							v:Destroy()
+						end
+					end
+
+
+					for i,v in pairs(workspace.Banks:GetDescendants()) do
+						if v.Name:match("lasers") then
+							v:Destroy()
+						end
+					end
+
+
+					--Teleport to inside
+					wait(2)
+					local pos = Vector3.new(40.11933898925781, 18.63584327697754, 921.849365234375) -- your pos here
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+
+					wait(5)
+					local bankcheck = game:GetService("Workspace").Banks.Bank.Layout:FindFirstChild("Money")
+
+
+					if bankcheck then 
+						local PathfindingService = game:GetService("PathfindingService")
+						local Players = game:GetService("Players")
+						local RunService = game:GetService("RunService")
+
+						local path = PathfindingService:CreatePath()
+
+						local player = Players.LocalPlayer
+						local character = player.Character
+						local humanoid = character:WaitForChild("Humanoid")
+
+						local TEST_DESTINATION = Vector3.new(bankcheck.Position)
+
+						local waypoints
+						local nextWaypointIndex
+						local reachedConnection
+						local blockedConnection
+
+						local function followPath(destination)
+							-- Compute the path
+							local success, errorMessage = pcall(function()
+								path:ComputeAsync(character.PrimaryPart.Position, destination)
+
+								humanoid.WalkSpeed = 40
+
+							end)
+						end
+					end
+
+
+				end
+
+			else 
+				if BankOff.Visible == true then
+					print("Opted Out")
+				end
+
+
+			end
+
+
+		else
+			if _G.Snooze == false then return end
+		end
+	end
+end)
+TextBox.Parent = ExplosiveMenu
 TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderColor3 = Color3.fromRGB(0, 255, 255)
 TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(-0.00267379684, 0, 0.126984134, 0)
+TextBox.Position = UDim2.new(0.115773097, 0, 0.226481736, 0)
 TextBox.Selectable = false
-TextBox.Size = UDim2.new(0, 374, 0, 133)
+TextBox.Size = UDim2.new(0, 193, 0, 89)
 TextBox.ClearTextOnFocus = false
-TextBox.Font = Enum.Font.FredokaOne
-TextBox.MultiLine = true
-TextBox.Text = "Explosive Menu Farm"
+TextBox.Font = Enum.Font.SciFi
+TextBox.Text = "Waiting!!"
 TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextBox.TextSize = 25.000
 TextBox.TextWrapped = true
 
-cancel.Name = "cancel"
-cancel.Parent = MainTab
-cancel.BackgroundTransparency = 1.000
-cancel.Position = UDim2.new(0.895722032, 0, 0, 0)
-cancel.Size = UDim2.new(0, 37, 0, 32)
-cancel.ZIndex = 2
-cancel.Image = "rbxassetid://3926305904"
-cancel.ImageRectOffset = Vector2.new(4, 4)
-cancel.ImageRectSize = Vector2.new(24, 24)
-cancel.MouseButton1Click:Connect(function()
-	MainTab:Destroy()
-	OptionsBar:Destroy()
+DropFarm.Name = "DropFarm"
+DropFarm.Parent = ExplosiveMenu
+DropFarm.BackgroundTransparency = 1.000
+DropFarm.LayoutOrder = 7
+DropFarm.Position = UDim2.new(0, 0, 0.170658678, 0)
+DropFarm.Size = UDim2.new(0, 25, 0, 25)
+DropFarm.ZIndex = 2
+DropFarm.Image = "rbxassetid://3926307971"
+DropFarm.ImageRectOffset = Vector2.new(124, 84)
+DropFarm.ImageRectSize = Vector2.new(36, 36)
+DropFarm.MouseButton1Click:Connect(function()
+	ExplosiveMenuDropFarm.Visible = true
+end)
+ExplosiveMenuDropFarm.Name = "Explosive Menu Drop Farm"
+ExplosiveMenuDropFarm.Parent = ScreenGui
+ExplosiveMenuDropFarm.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenuDropFarm.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenuDropFarm.Position = UDim2.new(0.274365723, 0, 0.328571439, 0)
+ExplosiveMenuDropFarm.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenuDropFarm.Visible = false
+
+MoneyInfo_2.Name = "Money Info"
+MoneyInfo_2.Parent = ExplosiveMenuDropFarm
+MoneyInfo_2.BackgroundTransparency = 1.000
+MoneyInfo_2.Position = UDim2.new(0, 0, 0.374251485, 0)
+MoneyInfo_2.Size = UDim2.new(0, 25, 0, 25)
+MoneyInfo_2.ZIndex = 2
+MoneyInfo_2.Image = "rbxassetid://3926307971"
+MoneyInfo_2.ImageRectOffset = Vector2.new(964, 484)
+MoneyInfo_2.ImageRectSize = Vector2.new(36, 36)
+
+Snooze_2.Name = "Snooze"
+Snooze_2.Parent = ExplosiveMenuDropFarm
+Snooze_2.BackgroundTransparency = 1.000
+Snooze_2.Position = UDim2.new(0, 0, 0.170658678, 0)
+Snooze_2.Size = UDim2.new(0, 25, 0, 25)
+Snooze_2.ZIndex = 2
+Snooze_2.Image = "rbxassetid://3926307971"
+Snooze_2.ImageRectOffset = Vector2.new(684, 244)
+Snooze_2.ImageRectSize = Vector2.new(36, 36)
+
+TextLabel_2.Parent = ExplosiveMenuDropFarm
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel_2.Size = UDim2.new(0, 252, 0, 24)
+TextLabel_2.Font = Enum.Font.SciFi
+TextLabel_2.Text = "Explosive Menu Drop Farm"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+Run_2.Name = "Run"
+Run_2.Parent = ExplosiveMenuDropFarm
+Run_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Run_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Run_2.Position = UDim2.new(0, 0, 0.826347291, 0)
+Run_2.Size = UDim2.new(0, 252, 0, 29)
+Run_2.Font = Enum.Font.SciFi
+Run_2.Text = "Run"
+Run_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Run_2.TextScaled = true
+Run_2.TextSize = 14.000
+Run_2.TextWrapped = true
+
+TextBox_2.Parent = ExplosiveMenuDropFarm
+TextBox_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_2.BorderSizePixel = 0
+TextBox_2.Position = UDim2.new(0.115773037, 0, 0.226481736, 0)
+TextBox_2.Selectable = false
+TextBox_2.Size = UDim2.new(0, 193, 0, 89)
+TextBox_2.ClearTextOnFocus = false
+TextBox_2.Font = Enum.Font.SciFi
+TextBox_2.Text = "Waiting!!"
+TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_2.TextSize = 25.000
+TextBox_2.TextWrapped = true
+
+ExplosiveMenuMoney.Name = "Explosive Menu Money"
+ExplosiveMenuMoney.Parent = ScreenGui
+ExplosiveMenuMoney.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenuMoney.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenuMoney.Position = UDim2.new(0.270118773, 0, 0.328571439, 0)
+ExplosiveMenuMoney.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenuMoney.Visible = false
+
+MoneyInfo_3.Name = "Money Info"
+MoneyInfo_3.Parent = ExplosiveMenuMoney
+MoneyInfo_3.BackgroundTransparency = 1.000
+MoneyInfo_3.Position = UDim2.new(0, 0, 0.242514968, 0)
+MoneyInfo_3.Size = UDim2.new(0, 25, 0, 25)
+MoneyInfo_3.ZIndex = 2
+MoneyInfo_3.Image = "rbxassetid://3926307971"
+MoneyInfo_3.ImageRectOffset = Vector2.new(964, 484)
+MoneyInfo_3.ImageRectSize = Vector2.new(36, 36)
+
+TextLabel_3.Parent = ExplosiveMenuMoney
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel_3.Size = UDim2.new(0, 252, 0, 24)
+TextLabel_3.Font = Enum.Font.SciFi
+TextLabel_3.Text = "Explosive Menu Money"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+Return.Name = "Return"
+Return.Parent = ExplosiveMenuMoney
+Return.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Return.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Return.Position = UDim2.new(0, 0, 0.826347291, 0)
+Return.Size = UDim2.new(0, 252, 0, 29)
+Return.Font = Enum.Font.SciFi
+Return.Text = "Return"
+Return.TextColor3 = Color3.fromRGB(255, 255, 255)
+Return.TextScaled = true
+Return.TextSize = 14.000
+Return.TextWrapped = true
+
+TextBox_3.Parent = ExplosiveMenuMoney
+TextBox_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_3.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_3.BorderSizePixel = 0
+TextBox_3.Position = UDim2.new(0.115773156, 0, 0.226481736, 0)
+TextBox_3.Selectable = false
+TextBox_3.Size = UDim2.new(0, 214, 0, 35)
+TextBox_3.ClearTextOnFocus = false
+TextBox_3.Font = Enum.Font.SciFi
+TextBox_3.Text = "Money Earned = $0"
+TextBox_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_3.TextSize = 15.000
+TextBox_3.TextWrapped = true
+
+RunTimeInfo.Name = "RunTimeInfo"
+RunTimeInfo.Parent = ExplosiveMenuMoney
+RunTimeInfo.BackgroundTransparency = 1.000
+RunTimeInfo.LayoutOrder = 14
+RunTimeInfo.Position = UDim2.new(0, 0, 0.440119773, 0)
+RunTimeInfo.Size = UDim2.new(0, 25, 0, 25)
+RunTimeInfo.ZIndex = 2
+RunTimeInfo.Image = "rbxassetid://3926305904"
+RunTimeInfo.ImageRectOffset = Vector2.new(804, 164)
+RunTimeInfo.ImageRectSize = Vector2.new(36, 36)
+
+TextBox_4.Parent = ExplosiveMenuMoney
+TextBox_4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_4.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_4.BorderSizePixel = 0
+TextBox_4.Position = UDim2.new(0.0959318876, 0, 0.406122446, 0)
+TextBox_4.Selectable = false
+TextBox_4.Size = UDim2.new(0, 214, 0, 35)
+TextBox_4.ClearTextOnFocus = false
+TextBox_4.Font = Enum.Font.SciFi
+TextBox_4.Text = "Total Run Time = 0 Secs"
+TextBox_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_4.TextSize = 15.000
+TextBox_4.TextWrapped = true
+
+ExplosiveMenuLocations.Name = "Explosive Menu Locations"
+ExplosiveMenuLocations.Parent = ScreenGui
+ExplosiveMenuLocations.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenuLocations.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenuLocations.Position = UDim2.new(0.272466183, 0, 0.328571439, 0)
+ExplosiveMenuLocations.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenuLocations.Visible = false
+
+TextLabel_4.Parent = ExplosiveMenuLocations
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel_4.Size = UDim2.new(0, 252, 0, 24)
+TextLabel_4.Font = Enum.Font.SciFi
+TextLabel_4.Text = "Explosive Menu Stores"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+Return_2.Name = "Return"
+Return_2.Parent = ExplosiveMenuLocations
+Return_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Return_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Return_2.Position = UDim2.new(0, 0, 0.826347291, 0)
+Return_2.Size = UDim2.new(0, 252, 0, 29)
+Return_2.Font = Enum.Font.SciFi
+Return_2.Text = "Return"
+Return_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Return_2.TextScaled = true
+Return_2.TextSize = 14.000
+Return_2.TextWrapped = true
+
+BankOff.Name = "BankOff"
+BankOff.Parent = ExplosiveMenuLocations
+BankOff.BackgroundTransparency = 1.000
+BankOff.LayoutOrder = 15
+BankOff.Position = UDim2.new(0.900793672, 0, 0.488023967, 0)
+BankOff.Size = UDim2.new(0, 25, 0, 25)
+BankOff.Visible = false
+BankOff.ZIndex = 2
+BankOff.Image = "rbxassetid://3926307971"
+BankOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+BankOff.ImageRectOffset = Vector2.new(484, 44)
+BankOff.ImageRectSize = Vector2.new(36, 36)
+BankOff.MouseButton1Click:Connect(function()
+	BankOff.Visible = false 
+	BankOn.Visible = true
+end)
+CargoShipOn.Name = "CargoShipOn"
+CargoShipOn.Parent = ExplosiveMenuLocations
+CargoShipOn.BackgroundTransparency = 1.000
+CargoShipOn.LayoutOrder = 15
+CargoShipOn.Position = UDim2.new(0.900793672, 0, 0.661676645, 0)
+CargoShipOn.Size = UDim2.new(0, 25, 0, 25)
+CargoShipOn.ZIndex = 2
+CargoShipOn.Image = "rbxassetid://3926305904"
+CargoShipOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+CargoShipOn.ImageRectOffset = Vector2.new(84, 524)
+CargoShipOn.ImageRectSize = Vector2.new(36, 36)
+CargoShipOn.MouseButton1Click:Connect(function()
+	CargoShipOff.Visible = true 
+	CargoShipOn.Visible = false
+end)
+DonutShopOn.Name = "DonutShopOn"
+DonutShopOn.Parent = ExplosiveMenuLocations
+DonutShopOn.BackgroundTransparency = 1.000
+DonutShopOn.LayoutOrder = 15
+DonutShopOn.Position = UDim2.new(0.0317460336, 0, 0.326347291, 0)
+DonutShopOn.Size = UDim2.new(0, 25, 0, 25)
+DonutShopOn.ZIndex = 2
+DonutShopOn.Modal = true
+DonutShopOn.Image = "rbxassetid://3926307971"
+DonutShopOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+DonutShopOn.ImageRectOffset = Vector2.new(924, 204)
+DonutShopOn.ImageRectSize = Vector2.new(36, 36)
+DonutShopOn.MouseButton1Click:Connect(function()
+	DonutShopOff.Visible = true 
+	DonutShopOn.Visible = false
+end)
+BankTruckOn.Name = "BankTruckOn"
+BankTruckOn.Parent = ExplosiveMenuLocations
+BankTruckOn.BackgroundTransparency = 1.000
+BankTruckOn.LayoutOrder = 14
+BankTruckOn.Position = UDim2.new(0.0317460336, 0, 0.476047903, 0)
+BankTruckOn.Size = UDim2.new(0, 25, 0, 25)
+BankTruckOn.ZIndex = 2
+BankTruckOn.Image = "rbxassetid://3926305904"
+BankTruckOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+BankTruckOn.ImageRectOffset = Vector2.new(124, 604)
+BankTruckOn.ImageRectSize = Vector2.new(36, 36)
+BankTruckOn.MouseButton1Click:Connect(function()
+	BankTruckOff.Visible = true 
+	BankTruckOn.Visible = false
+end)
+GasStationOn.Name = "GasStationOn"
+GasStationOn.Parent = ExplosiveMenuLocations
+GasStationOn.BackgroundTransparency = 1.000
+GasStationOn.LayoutOrder = 17
+GasStationOn.Position = UDim2.new(0.0317460336, 0, 0.625748515, 0)
+GasStationOn.Size = UDim2.new(0, 25, 0, 25)
+GasStationOn.ZIndex = 2
+GasStationOn.Image = "rbxassetid://3926305904"
+GasStationOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+GasStationOn.ImageRectOffset = Vector2.new(844, 484)
+GasStationOn.ImageRectSize = Vector2.new(36, 36)
+GasStationOn.MouseButton1Click:Connect(function()
+	GasStationOff.Visible = true 
+	GasStationOn.Visible = false
+end)
+JewelryStoreOn.Name = "JewelryStoreOn"
+JewelryStoreOn.Parent = ExplosiveMenuLocations
+JewelryStoreOn.BackgroundTransparency = 1.000
+JewelryStoreOn.Position = UDim2.new(0.0317460336, 0, 0.176646709, 0)
+JewelryStoreOn.Size = UDim2.new(0, 25, 0, 25)
+JewelryStoreOn.ZIndex = 2
+JewelryStoreOn.Image = "rbxassetid://6764432293"
+JewelryStoreOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+JewelryStoreOn.ImageRectOffset = Vector2.new(700, 600)
+JewelryStoreOn.ImageRectSize = Vector2.new(100, 100)
+JewelryStoreOn.MouseButton1Click:Connect(function()
+	JewelryStoreOff.Visible = true 
+	JewelryStoreOn.Visible = false
+end)
+CargoPlaneOn.Name = "CargoPlaneOn"
+CargoPlaneOn.Parent = ExplosiveMenuLocations
+CargoPlaneOn.BackgroundTransparency = 1.000
+CargoPlaneOn.LayoutOrder = 14
+CargoPlaneOn.Position = UDim2.new(0.900793672, 0, 0.338323355, 0)
+CargoPlaneOn.Size = UDim2.new(0, 25, 0, 25)
+CargoPlaneOn.ZIndex = 2
+CargoPlaneOn.Image = "rbxassetid://3926305904"
+CargoPlaneOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+CargoPlaneOn.ImageRectOffset = Vector2.new(684, 44)
+CargoPlaneOn.ImageRectSize = Vector2.new(36, 36)
+CargoPlaneOn.MouseButton1Click:Connect(function()
+	CargoPlaneOff.Visible = true 
+	CargoPlaneOn.Visible = false
+end)
+MuseumOn.Name = "MuseumOn"
+MuseumOn.Parent = ExplosiveMenuLocations
+MuseumOn.BackgroundTransparency = 1.000
+MuseumOn.LayoutOrder = 13
+MuseumOn.Position = UDim2.new(0.900793672, 0, 0.176646709, 0)
+MuseumOn.Size = UDim2.new(0, 25, 0, 25)
+MuseumOn.ZIndex = 2
+MuseumOn.Image = "rbxassetid://3926305904"
+MuseumOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+MuseumOn.ImageRectOffset = Vector2.new(484, 844)
+MuseumOn.ImageRectSize = Vector2.new(36, 36)
+MuseumOn.MouseButton1Click:Connect(function()
+	MuseumOff.Visible = true 
+	MuseumOn.Visible = false
+end)
+CargoPlaneOff.Name = "CargoPlaneOff"
+CargoPlaneOff.Parent = ExplosiveMenuLocations
+CargoPlaneOff.BackgroundTransparency = 1.000
+CargoPlaneOff.LayoutOrder = 14
+CargoPlaneOff.Position = UDim2.new(0.900793672, 0, 0.338323355, 0)
+CargoPlaneOff.Size = UDim2.new(0, 25, 0, 25)
+CargoPlaneOff.Visible = false
+CargoPlaneOff.ZIndex = 2
+CargoPlaneOff.Image = "rbxassetid://3926305904"
+CargoPlaneOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+CargoPlaneOff.ImageRectOffset = Vector2.new(684, 44)
+CargoPlaneOff.ImageRectSize = Vector2.new(36, 36)
+CargoPlaneOff.MouseButton1Click:Connect(function()
+	CargoPlaneOff.Visible = false 
+	CargoPlaneOn.Visible = true
+end)
+MuseumOff.Name = "MuseumOff"
+MuseumOff.Parent = ExplosiveMenuLocations
+MuseumOff.BackgroundTransparency = 1.000
+MuseumOff.LayoutOrder = 13
+MuseumOff.Position = UDim2.new(0.900793672, 0, 0.176646709, 0)
+MuseumOff.Size = UDim2.new(0, 25, 0, 25)
+MuseumOff.Visible = false
+MuseumOff.ZIndex = 2
+MuseumOff.Image = "rbxassetid://3926305904"
+MuseumOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+MuseumOff.ImageRectOffset = Vector2.new(484, 844)
+MuseumOff.ImageRectSize = Vector2.new(36, 36)
+MuseumOff.MouseButton1Click:Connect(function()
+	MuseumOff.Visible = false 
+	MuseumOn.Visible = true
+end)
+DonutShopOff.Name = "DonutShopOff"
+DonutShopOff.Parent = ExplosiveMenuLocations
+DonutShopOff.BackgroundTransparency = 1.000
+DonutShopOff.LayoutOrder = 15
+DonutShopOff.Position = UDim2.new(0.0317460336, 0, 0.326347291, 0)
+DonutShopOff.Size = UDim2.new(0, 25, 0, 25)
+DonutShopOff.Visible = false
+DonutShopOff.ZIndex = 2
+DonutShopOff.Modal = true
+DonutShopOff.Image = "rbxassetid://3926307971"
+DonutShopOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+DonutShopOff.ImageRectOffset = Vector2.new(924, 204)
+DonutShopOff.ImageRectSize = Vector2.new(36, 36)
+DonutShopOff.MouseButton1Click:Connect(function()
+	DonutShopOff.Visible = false 
+	DonutShopOn.Visible = true
+end)
+BankTruckOff.Name = "BankTruckOff"
+BankTruckOff.Parent = ExplosiveMenuLocations
+BankTruckOff.BackgroundTransparency = 1.000
+BankTruckOff.LayoutOrder = 14
+BankTruckOff.Position = UDim2.new(0.0317460336, 0, 0.476047903, 0)
+BankTruckOff.Size = UDim2.new(0, 25, 0, 25)
+BankTruckOff.Visible = false
+BankTruckOff.ZIndex = 2
+BankTruckOff.Image = "rbxassetid://3926305904"
+BankTruckOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+BankTruckOff.ImageRectOffset = Vector2.new(124, 604)
+BankTruckOff.ImageRectSize = Vector2.new(36, 36)
+BankTruckOff.MouseButton1Click:Connect(function()
+	BankTruckOff.Visible = false 
+	BankTruckOn.Visible = true
+end)
+GasStationOff.Name = "GasStationOff"
+GasStationOff.Parent = ExplosiveMenuLocations
+GasStationOff.BackgroundTransparency = 1.000
+GasStationOff.LayoutOrder = 17
+GasStationOff.Position = UDim2.new(0.0317460336, 0, 0.625748515, 0)
+GasStationOff.Size = UDim2.new(0, 25, 0, 25)
+GasStationOff.Visible = false
+GasStationOff.ZIndex = 2
+GasStationOff.Image = "rbxassetid://3926305904"
+GasStationOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+GasStationOff.ImageRectOffset = Vector2.new(844, 484)
+GasStationOff.ImageRectSize = Vector2.new(36, 36)
+GasStationOff.MouseButton1Click:Connect(function()
+	GasStationOn.Visible = true 
+	GasStationOff.Visible = false
+end)
+CargoShipOff.Name = "CargoShipOff"
+CargoShipOff.Parent = ExplosiveMenuLocations
+CargoShipOff.BackgroundTransparency = 1.000
+CargoShipOff.LayoutOrder = 15
+CargoShipOff.Position = UDim2.new(0.900793672, 0, 0.661676645, 0)
+CargoShipOff.Size = UDim2.new(0, 25, 0, 25)
+CargoShipOff.Visible = false
+CargoShipOff.ZIndex = 2
+CargoShipOff.Image = "rbxassetid://3926305904"
+CargoShipOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+CargoShipOff.ImageRectOffset = Vector2.new(84, 524)
+CargoShipOff.ImageRectSize = Vector2.new(36, 36)
+CargoShipOff.MouseButton1Click:Connect(function()
+	CargoShipOff.Visible = false 
+	MuseumOn.Visible = true
+end)
+JewelryStoreOff.Name = "JewelryStoreOff"
+JewelryStoreOff.Parent = ExplosiveMenuLocations
+JewelryStoreOff.BackgroundTransparency = 1.000
+JewelryStoreOff.Position = UDim2.new(0.0317460336, 0, 0.176646709, 0)
+JewelryStoreOff.Size = UDim2.new(0, 25, 0, 25)
+JewelryStoreOff.Visible = false
+JewelryStoreOff.ZIndex = 2
+JewelryStoreOff.Image = "rbxassetid://6764432293"
+JewelryStoreOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+JewelryStoreOff.ImageRectOffset = Vector2.new(700, 600)
+JewelryStoreOff.ImageRectSize = Vector2.new(100, 100)
+JewelryStoreOff.MouseButton1Click:Connect(function()
+	JewelryStoreOff.Visible = false 
+	JewelryStoreOn.Visible = true
+end)
+BankOn.Name = "BankOn"
+BankOn.Parent = ExplosiveMenuLocations
+BankOn.BackgroundTransparency = 1.000
+BankOn.LayoutOrder = 15
+BankOn.Position = UDim2.new(0.900793672, 0, 0.488023967, 0)
+BankOn.Size = UDim2.new(0, 25, 0, 25)
+BankOn.ZIndex = 2
+BankOn.Image = "rbxassetid://3926307971"
+BankOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+BankOn.ImageRectOffset = Vector2.new(484, 44)
+BankOn.ImageRectSize = Vector2.new(36, 36)
+BankOn.MouseButton1Click:Connect(function()
+	BankOff.Visible = true 
+	BankOn.Visible = false
+end)
+ExplosiveMenuDropFarmMoney.Name = "Explosive Menu DropFarmMoney"
+ExplosiveMenuDropFarmMoney.Parent = ScreenGui
+ExplosiveMenuDropFarmMoney.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenuDropFarmMoney.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenuDropFarmMoney.Position = UDim2.new(0.270118773, 0, 0.328571439, 0)
+ExplosiveMenuDropFarmMoney.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenuDropFarmMoney.Visible = false
+ExplosiveMenuDropFarmMoney.Draggable = true 
+
+MoneyInfo_4.Name = "Money Info"
+MoneyInfo_4.Parent = ExplosiveMenuDropFarmMoney
+MoneyInfo_4.BackgroundTransparency = 1.000
+MoneyInfo_4.Position = UDim2.new(0, 0, 0.242514968, 0)
+MoneyInfo_4.Size = UDim2.new(0, 25, 0, 25)
+MoneyInfo_4.ZIndex = 2
+MoneyInfo_4.Image = "rbxassetid://3926307971"
+MoneyInfo_4.ImageRectOffset = Vector2.new(964, 484)
+MoneyInfo_4.ImageRectSize = Vector2.new(36, 36)
+
+TextLabel_5.Parent = ExplosiveMenuDropFarmMoney
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel_5.Size = UDim2.new(0, 252, 0, 24)
+TextLabel_5.Font = Enum.Font.SciFi
+TextLabel_5.Text = "Explosive Menu DropFarm Money"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+
+Return_3.Name = "Return"
+Return_3.Parent = ExplosiveMenuDropFarmMoney
+Return_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Return_3.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Return_3.Position = UDim2.new(0, 0, 0.826347291, 0)
+Return_3.Size = UDim2.new(0, 252, 0, 29)
+Return_3.Font = Enum.Font.SciFi
+Return_3.Text = "Return"
+Return_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Return_3.TextScaled = true
+Return_3.TextSize = 14.000
+Return_3.TextWrapped = true
+Return_3.MouseButton1Click:Connect(function()
+	ExplosiveMenuDropFarmMoney.Visible = false 
 
 end)
-build.Name = "build"
-build.Parent = MainTab
-build.BackgroundTransparency = 1.000
-build.Position = UDim2.new(0.802139044, 0, 0.0119047621, 0)
-build.Size = UDim2.new(0, 25, 0, 25)
-build.ZIndex = 2
-build.Image = "rbxassetid://3926307971"
-build.ImageRectOffset = Vector2.new(964, 4)
-build.ImageRectSize = Vector2.new(36, 36)
-build.MouseButton1Click:Connect(function()
-	TextBox.Text = "Coming soon!!"
-	wait(3)
-	TextBox.Text = "Waiting for stores to open"
-end)
-event_note.Name = "event_note"
-event_note.Parent = MainTab
-event_note.BackgroundTransparency = 1.000
-event_note.Position = UDim2.new(0.0294117648, 0, 0.0119047621, 0)
-event_note.Size = UDim2.new(0, 25, 0, 25)
-event_note.ZIndex = 2
-event_note.Image = "rbxassetid://3926305904"
-event_note.ImageRectOffset = Vector2.new(404, 84)
-event_note.ImageRectSize = Vector2.new(36, 36)
-event_note.MouseButton1Click:Connect(function()
-	OptionsBar.Visible = true
 
-end)
-verified_user.Name = "verified_user"
-verified_user.Parent = MainTab
-verified_user.BackgroundTransparency = 1.000
-verified_user.Position = UDim2.new(0.122994654, 0, 0.0119047621, 0)
-verified_user.Size = UDim2.new(0, 25, 0, 25)
-verified_user.ZIndex = 2
-verified_user.Image = "rbxassetid://3926305904"
-verified_user.ImageRectOffset = Vector2.new(324, 524)
-verified_user.ImageRectSize = Vector2.new(36, 36)
-verified_user.MouseButton1Click:Connect(function()
-	TextBox.Text = "Dev Protections coming soon!"
+TextBox_5.Parent = ExplosiveMenuDropFarmMoney
+TextBox_5.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_5.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_5.BorderSizePixel = 0
+TextBox_5.Position = UDim2.new(0.115773156, 0, 0.226481736, 0)
+TextBox_5.Selectable = false
+TextBox_5.Size = UDim2.new(0, 214, 0, 35)
+TextBox_5.ClearTextOnFocus = false
+TextBox_5.Font = Enum.Font.SciFi
+TextBox_5.Text = "Money Earned = $0"
+TextBox_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_5.TextSize = 15.000
+TextBox_5.TextWrapped = true
+
+RunTimeInfo_2.Name = "RunTimeInfo"
+RunTimeInfo_2.Parent = ExplosiveMenuDropFarmMoney
+RunTimeInfo_2.BackgroundTransparency = 1.000
+RunTimeInfo_2.LayoutOrder = 14
+RunTimeInfo_2.Position = UDim2.new(0, 0, 0.440119773, 0)
+RunTimeInfo_2.Size = UDim2.new(0, 25, 0, 25)
+RunTimeInfo_2.ZIndex = 2
+RunTimeInfo_2.Image = "rbxassetid://3926305904"
+RunTimeInfo_2.ImageRectOffset = Vector2.new(804, 164)
+RunTimeInfo_2.ImageRectSize = Vector2.new(36, 36)
+
+TextBox_6.Parent = ExplosiveMenuDropFarmMoney
+TextBox_6.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_6.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_6.BorderSizePixel = 0
+TextBox_6.Position = UDim2.new(0.0959318876, 0, 0.406122446, 0)
+TextBox_6.Selectable = false
+TextBox_6.Size = UDim2.new(0, 214, 0, 35)
+TextBox_6.ClearTextOnFocus = false
+TextBox_6.Font = Enum.Font.SciFi
+TextBox_6.Text = "Total Run Time = 0 Secs"
+TextBox_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_6.TextSize = 15.000
+TextBox_6.TextWrapped = true
 
-end)
-save.Name = "save"
-save.Parent = MainTab
-save.BackgroundTransparency = 1.000
-save.Position = UDim2.new(0.676470578, 0, 0.65476191, 0)
-save.Size = UDim2.new(0, 119, 0, 81)
-save.ZIndex = 2
-save.Image = "rbxassetid://6764432408"
-save.ImageRectOffset = Vector2.new(100, 100)
-save.ImageRectSize = Vector2.new(50, 50)
-save.MouseButton1Click:Connect(function()
-	warn("Saved Config")
-
-end)
-power.Name = "power"
-power.Parent = MainTab
-power.BackgroundTransparency = 1.000
-power.Position = UDim2.new(-0.00267379684, 0, 0.607142866, 0)
-power.Size = UDim2.new(0, 135, 0, 99)
-power.ZIndex = 2
-power.Image = "rbxassetid://6764432408"
-power.ImageRectOffset = Vector2.new(100, 400)
-power.ImageRectSize = Vector2.new(50, 50)
-power.MouseButton1Click:Connect(function(Value)
-
-	while  true do
-
-
-	
-		-- Check if the condition for your loop has been met
-		if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
-
-
-			TextBox.Text = "Teleporting to the Museum"
-			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-			teleport(CFrame.new(1080.36767578125, 139.4569854736328, 1321.6270751953125));
-
-
-			wait(3)
-
-			TextBox.Text = "Robbing...."
-			local VirtualInputManager = game:GetService('VirtualInputManager')
-
-			VirtualInputManager:SendKeyEvent(true,"E",false,game)
-			local pos = Vector3.new(1087.4005126953125, 122.05658721923828, 1321.7193603515625) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-			local VirtualInputManager = game:GetService('VirtualInputManager')
-
-			VirtualInputManager:SendKeyEvent(true,"E",false,game)
-			local pos = Vector3.new(1085.9122314453125, 122.05582427978516, 1381.45947265625) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-			local VirtualInputManager = game:GetService('VirtualInputManager')
-
-			VirtualInputManager:SendKeyEvent(true,"E",false,game)
-			local pos = Vector3.new(1076.2733154296875, 122.05582427978516, 1372.4691162109375
-			) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-
-			TextBox.Text = "Selling"
-            local pos = Vector3.new(1087.4005126953125, 122.05658721923828, 1321.7193603515625) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-            wait(1)
-	local pos = Vector3.new(1089.622802734375, 125.55658721923828, 1318.7562255859375) -- your pos here
-			local delay = 2 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-            wait(2)
-			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-			teleport(CFrame.new(2278.850830078125, 23.838319778442383, -2047.63232421875));
-			wait(5)
-			local pos = Vector3.new(2278.850830078125, 23.838319778442383, -2047.63232421875) -- your pos here
-			local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-
-			local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
-			local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(3)
-			local pos = Vector3.new(2292.545654296875, 19.805152893066406, -2589.681396484375) -- your pos here
-			local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(3)
-			local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
-			local delay = 2 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(3)
-			local pos = Vector3.new(2279.58154296875, 19.21677017211914, -2067.020751953125) -- your pos here
-			local delay = 2 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			print'Autorob V0.5 finished'
-
-
-			local VirtualInputManager = game:GetService('VirtualInputManager')
-
-			VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-
-			return
-		
-	
-
-		end
-
-			TextBox.Text = "Waiting for stores to open"
-
-
-		-- Check if the condition for your loop has been met
-		if indicator.Transparency == 0.8999999761581421 then
-
-			TextBox.Text = "Teleporting to jewelry store"
-			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-
-			teleport(CFrame.new(80.30104064941406, 18.563661575317383, 1313.7412109375));
-
-
-
-			getgenv().Delete = true
-
-
-
-			if getgenv().Delete == true then 
-
-
-
-				for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-					if v.Name:match("TouchInterest") then
-						v:Destroy()
-					end
-				end
-
-			end
-
-
-
-			wait(0.3)
-			 TextBox.Text = "Breaking Glass"
-			--breaking glass
-			local pos = Vector3.new(132.88629150390625, 18.563629150390625, 1345.051513671875) -- your pos here
-			local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(7)
-			TextBox.Text = "Auto Robbing"
-
-			--Teleport to inside
-			local pos = Vector3.new(129.39793395996094, 19.205472946166992, 1313.8697509765625) -- your pos here
-			local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(4)
-			-- YOU NEED TO SET IT UP BELOW
-			local pos = Vector3.new(131.88807678222656, 19.605478286743164, 1313.9010009765625) -- your pos here
-			local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(4)
-			-- YOU NEED TO SET IT UP BELOW
-			local pos = Vector3.new(131.026611328125, 20.33732795715332, 1301.0643310546875) -- your pos here
-			local delay = 0.3-- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-			-- YOU NEED TO SET IT UP BELOW
-			local pos = Vector3.new(124.64414978027344, 19.41728973388672, 1281.71337890625) -- your pos here
-			local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-			-- YOU NEED TO SET IT UP BELOW
-			local pos = Vector3.new(117.322021484375, 19.41727638244629, 1283.056640625) -- your pos here
-			local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-			-- YOU NEED TO SET IT UP BELOW
-			local pos = Vector3.new(106.82585144042969, 19.41726303100586, 1284.8291015625) -- your pos here
-			local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-			-- YOU NEED TO SET IT UP BELOW
-			local pos = Vector3.new(138.13356018066406, 19.011384963989258, 1279.7869873046875) -- your pos here
-			local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-
-			wait(5)
-			-- YOU NEED TO SET IT UP BELOW
-			local pos = Vector3.new(103.05908203125, 40.205467224121094, 1291.5516357421875) -- your pos here
-			local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(5)
-			-- YOU NEED TO SET IT UP BELOW
-			local pos = Vector3.new(131.97117614746094, 37.60548400878906, 1311.0272216796875) -- your pos here
-			local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-
-
-
-
-			TextBox.Text = "Selling!!!"
-
-
-			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-			teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
-			-- Break out of the loop
-		end
-
-wait(2)
-	TextBox.Text = "Waiting for stores to open"
-end
-end)
-
-warning.Name = "warning"
-warning.Parent = MainTab
-warning.BackgroundTransparency = 1.000
-warning.Position = UDim2.new(0.395721912, 0, 0.440476179, 0)
-warning.Size = UDim2.new(0, 75, 0, 54)
-warning.Visible = false
-warning.ZIndex = 2
-warning.Image = "rbxassetid://3926305904"
-warning.ImageColor3 = Color3.fromRGB(255, 0, 0)
-warning.ImageRectOffset = Vector2.new(364, 324)
-warning.ImageRectSize = Vector2.new(36, 36)
-
-OptionsBar.Name = "OptionsBar"
-OptionsBar.Parent = ScreenGui
-OptionsBar.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-OptionsBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
-OptionsBar.BorderSizePixel = 0
-OptionsBar.Position = UDim2.new(0.151253924, 0, 0.257918566, 0)
-OptionsBar.Size = UDim2.new(0, -106, 0, 252)
-OptionsBar.Visible = false
-OptionsBar.Draggable = true
-
-DeveloperButton.Name = "Developer Button"
-DeveloperButton.Parent = OptionsBar
-DeveloperButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-DeveloperButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-DeveloperButton.BorderSizePixel = 0
-DeveloperButton.Position = UDim2.new(0.169811323, 0, 0.0674603209, 0)
-DeveloperButton.Size = UDim2.new(0, 80, 0, 23)
-DeveloperButton.Font = Enum.Font.LuckiestGuy
-DeveloperButton.Text = "Dev "
-DeveloperButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-DeveloperButton.TextSize = 25.000
-
-JewlLabel.Name = "JewlLabel"
-JewlLabel.Parent = OptionsBar
-JewlLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-JewlLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-JewlLabel.BorderSizePixel = 0
-JewlLabel.Position = UDim2.new(0.0849056616, 0, 0.25, 0)
-JewlLabel.Size = UDim2.new(0, 96, 0, 27)
-JewlLabel.Font = Enum.Font.LuckiestGuy
-JewlLabel.Text = "Jewelry"
-JewlLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-JewlLabel.TextSize = 25.000
-local function myLoop()
-	-- Check if the condition for your loop has been met
-	if indicator.Transparency == 0.8999999761581421 then
-		JewlLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
-
-	JewlLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-RunService.Heartbeat:Connect(myLoop)
-MuseumLabel.Name = "MuseumLabel"
-MuseumLabel.Parent = OptionsBar
-MuseumLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-MuseumLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MuseumLabel.BorderSizePixel = 0
-MuseumLabel.Position = UDim2.new(0.0754716992, 0, 0.428571433, 0)
-MuseumLabel.Size = UDim2.new(0, 96, 0, 27)
-MuseumLabel.Font = Enum.Font.LuckiestGuy
-MuseumLabel.Text = "Museum"
-MuseumLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-MuseumLabel.TextSize = 20.000
-local function myLoop1()
-	-- Check if the condition for your loop has been met
-	if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
-		MuseumLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
-
-	MuseumLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-
-RunService.Heartbeat:Connect(myLoop1)
-BankLabel.Name = "BankLabel"
-BankLabel.Parent = OptionsBar
-BankLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-BankLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-BankLabel.BorderSizePixel = 0
-BankLabel.Position = UDim2.new(0.0754716992, 0, 0.547619045, 0)
-BankLabel.Size = UDim2.new(0, 96, 0, 27)
-BankLabel.Font = Enum.Font.LuckiestGuy
-BankLabel.Text = "Bank"
-BankLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-BankLabel.TextSize = 20.000
-local function myLoop6()
-	-- Check if the condition for your loop has been met
-	if bank2.Transparency == 0.8999999761581421 then
-		BankLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
-
-	BankLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-RunService.Heartbeat:Connect(myLoop6)
-CasinoLabel.Name = "CasinoLabel"
-CasinoLabel.Parent = OptionsBar
-CasinoLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-CasinoLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CasinoLabel.BorderSizePixel = 0
-CasinoLabel.Position = UDim2.new(0.0754716992, 0, 0.65476191, 0)
-CasinoLabel.Size = UDim2.new(0, 96, 0, 27)
-CasinoLabel.Font = Enum.Font.LuckiestGuy
-CasinoLabel.Text = "AirDrop"
-CasinoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-CasinoLabel.TextSize = 20.000
-
-
-else
-warn("Wrong game.... Sorry!")
-end
-end
