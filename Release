@@ -11,13 +11,14 @@ local BankLabel = Instance.new("TextLabel")
 local PowerPlantLabel = Instance.new("TextLabel")
 local RunningStatus = Instance.new("TextLabel")
 local Run = Instance.new("TextButton")
-
+local game = game
 local player = game:GetService("Players").LocalPlayer
-local Museum = game:GetService("Workspace").Museum
+local Museum = workspace.Museum
 local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
 
 local cargotrain =  game:GetService("Workspace").Trains
 local RoofHolePart = Museum:FindFirstChild("Roof")
+local RoofHoleOpen = false
 local ind = workspace.Jewelrys:FindFirstChild('Sign', true)
 local indicator = ind.Decal
 local RunService = game:GetService("RunService")
