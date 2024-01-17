@@ -32,81 +32,72 @@ local uitab = win:Tab('UI')
 Logtab:Label('Waiting for Drops or plane')
 option:Label("The name says what this does ;)")
 option:Toggle("TEST", function(T)
-	local function smallstores()
-		local function donutshop()
-			local function getDonutShopStatus()
-				local getRobberyStatus = global.registry.getRobberyStatus
-				local status = getRobberyStatus("STORE_DONUT")
-				if status == "OPENED" then
-					return true
+	_G.Switch = true
+	while _G.Switch == true do 
+		wait(2)
+		local Robberys = {
+			['1'] = 'Bank',
+			['2'] = 'Jewelry Store',
+			['3'] = 'STORE_DONUT',		
+			['4'] = 'Power Plant',
+			['5'] = 'Passenger Train',
+			['6'] = 'Cargo Train',
+			['7'] = 'Cargo Ship',
+			['8'] = 'Cargo Plane',
+			['9'] = 'STORE_GAS',
+			['10'] = 'Museum',
+			['11'] = 'Money Truck',
+			['12'] = 'Home Vault',
+			['13'] = 'Tomb',
+			['14'] = 'Casino',
+			['15'] = 'Mansion'
+		}
+		function get_rob(name)
+			for i, v in pairs(Robberys) do
+				if v:lower() == name:lower() then
+					return i
 				end
-				if status == "STARTED" then
-					return 0
-				end 
-				return false
 			end
-			local function status()
-				local function loop()
-					if global.ui.statusRobberies["Donut Shop"] then
-						local getDonutShopStatus = getDonutShopStatus()
-						if getDonutShopStatus == 0 then
-							global.ui.statusRobberies["Donut Shop"] = ("Donut Shop Status: %s"):format("Started")
-							global.ui.colorForcing["Donut Shop"] = Color3.fromRGB(255, 178, 102)
-							return true
-						end
-						if getDonutShopStatus then
-							global.ui.statusRobberies["Donut Shop"] = ("Donut Shop Status: %s"):format("Open")
-							global.ui.colorForcing["Donut Shop"] = Color3.fromRGB(178, 255, 104)
-							return true
-						end
-						global.ui.statusRobberies["Donut Shop"] = ("Donut Shop Status: %s"):format("Closed")
-						global.ui.colorForcing["Donut Shop"] = Color3.fromRGB(255, 102, 102)
-					end
-				end
-				createloop(0, loop)
-			end
-			status()
 		end
-		donutshop()
-		local function gasstation()
-			local function getGasStationStatus()
-				local getRobberyStatus = global.registry.getRobberyStatus
-				local status = getRobberyStatus("STORE_GAS")
-				if status == "OPENED" then
 
-					return true
-				end
-				if status == "STARTED" then
+		function is_opened(rob)
+			local theft = get_rob(rob)
 
-					return 0
-				end 
-				return false
+			local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+
+			if State  == 2 then
+				return 'preparing'
+			elseif State.Value ==  4 then 
+				return 'open'
+
+
+
+
+			elseif State.Value == nil then 
+				return 'closed'
+
+			else
+				return 'closed'
+
 			end
-			local function status()
-				local function loop()
-					if global.ui.statusRobberies["Gas Station"] then
-						local getGasStationStatus = getGasStationStatus()
-						if getGasStationStatus == 0 then
-							global.ui.statusRobberies["Gas Station"] = ("Gas Station Status: %s"):format("Started")
-							global.ui.colorForcing["Gas Station"] = Color3.fromRGB(255, 178, 102)
-							return true
-						end
-						if getGasStationStatus then
-							global.ui.statusRobberies["Gas Station"] = ("Gas Station Status: %s"):format("Open")
-							global.ui.colorForcing["Gas Station"] = Color3.fromRGB(178, 255, 104)
-							return true
-						end
-						global.ui.statusRobberies["Gas Station"] = ("Gas Station Status: %s"):format("Closed")
-						global.ui.colorForcing["Gas Station"] = Color3.fromRGB(255, 102, 102)
-					end
-				end
-				createloop(0, loop)
-			end
-			status()
 		end
-		gasstation()
+		-- Check if the Donut Shop is open.
+
+		local bankStatus = is_opened("DonutShop")
+		if bankStatus == "open" or bankStatus == "closed"   then
+
+			-- The Donut Shop is open.
+			game:GetService("StarterGui"):SetCore("SendNotification", {
+				Title = "Donut Shop Info",
+				Icon = "",
+				Text = is_opened("DonutShop")
+			})
+
+
+
+		end
 	end
-	smallstores()
 end)
 option:Toggle("Hyper Mode", function(T)
 	-- Gui to Lua
