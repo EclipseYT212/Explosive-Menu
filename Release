@@ -121,7 +121,7 @@ local function onKeySubmit()
     if validation then
         gui:Destroy()
     else
-         MainFrame.Visible = true
+         return true
     end
 end
 
