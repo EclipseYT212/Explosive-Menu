@@ -80,6 +80,7 @@ option:Toggle("TEST", function(T)
 		if bankStatus == "open" or bankStatus == "closed" then
 			print(bankStatus)
 		end
+		end
 end)
 
 	
