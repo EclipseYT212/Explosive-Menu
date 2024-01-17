@@ -17,6 +17,10 @@ getgenv().Settings = {
 	NameSpoofer = true,
 
 };
+getrenv().env = getrenv()
+env.icetray = global or {}
+env.IS_WORKING = true
+env.CONNECTIONS = 1
 local maintab = win:Tab('Main')
 local StatusTab = win:Tab('Status')
 local Logtab = win:Tab("Log")
