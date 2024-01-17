@@ -41,7 +41,7 @@ if coregui:FindFirstChild("icetray_key") then
     return false
 end
 
-local shouldContinue = false
+local shouldContinue = true
 
 local function getRequest(url)
     return request({
