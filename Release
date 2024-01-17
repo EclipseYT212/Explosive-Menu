@@ -21,6 +21,10 @@ getrenv().env = getrenv()
 env.icetray = global or {}
 env.IS_WORKING = true
 env.CONNECTIONS = 1
+env.request = request or syn and syn.request
+env.discord_code = "5Eqt6QBfYY" -- 5Eqt6QBfYY
+env.coregui = game:GetService("CoreGui")
+
 local maintab = win:Tab('Main')
 local StatusTab = win:Tab('Status')
 local Logtab = win:Tab("Log")
