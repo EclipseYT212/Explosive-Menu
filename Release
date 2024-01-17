@@ -113,45 +113,31 @@ Run.TextColor3 = Color3.fromRGB(255, 255, 255)
 Run.TextSize = 20.000
 Run.TextWrapped = true
 Run.MouseButton1Click:Connect(function()
-	jewelryCorrection()
+	resolvePuzzle()
+	
+	
 end)
 
 
 
-local function jewelryCorrection()
-	local function getJewelryStatus()
-		local getRobberyStatus = global.registry.getRobberyStatus
-		local status = getRobberyStatus("JEWELRY")
-		if status == "OPENED" then
-			return true
+local function resolvePuzzle()
+	local function loop()
+		local bool = global.ui_status.puzzle_resolver
+		if not bool then
+			return false
 		end
-		if status == "STARTED" then
-			return 0
+		local flow = getupvalue(client.modules.puzzleFlow.Init,3)
+		if not flow.IsOpen then
+			return false
 		end
-		return false
-	end
-	local function status()
-		local function loop()
-			if status then
-				local getJewelryStatus = getJewelryStatus()
-				if not getJewelryStatus then
-					print("Status: %s"):format("Open")
-					
-					return true
-				end
-				if getJewelryStatus == 0 then
-				print("Status: %s"):format("Started")
-					
-					return true
-				end
-				print("Status: %s"):format("Closed")
-				
+		local resolvePowerplant = global.registry.resolvePowerplant
+		if not resolvePowerplant then
+			return false
 		end
-		createloop(0, loop)
+		return resolvePowerplant()
 	end
-	status()
-	end
-	end
+	createloop(0.5, loop)
+end
 
 
 
