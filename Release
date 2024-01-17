@@ -3,7 +3,7 @@
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-	Name = "Explosive Menu Tester V2",
+	Name = "Explosive Menu Tester V1",
 	StartupSound = {
 		Toggle = true,
 		SoundID = "rbxassetid://6958727243", -- Win 11 Startup Sound
@@ -37,17 +37,17 @@ option:Toggle("TEST", function(T)
 		wait(2)
 		local Robberys = {
 			['1'] = 'Bank',
-			['2'] = 'JewelryStore',
-			['3'] = 'STORE_DONUT',		
-			['4'] = 'PowerPlant',
-			['5'] = 'PassengerTrain',
-			['6'] = 'CargoTrain',
-			['7'] = 'CargoShip',
-			['8'] = 'CargoPlane',
+			['2'] = 'Jewelry Store',
+			['3'] = 'Museum',
+			['4'] = 'Power Plant',
+			['5'] = 'Passenger Train',
+			['6'] = 'Cargo Train',
+			['7'] = 'Cargo Ship',
+			['8'] = 'Cargo Plane',
 			['9'] = 'STORE_GAS',
-			['10'] = 'Museum',
-			['11'] = 'MoneyTruck',
-			['12'] = 'HomeVault',
+			['10'] = 'STORE_DONUT',
+			['11'] = 'Money Truck',
+			['12'] = 'Home Vault',
 			['13'] = 'Tomb',
 			['14'] = 'Casino',
 			['15'] = 'Mansion'
@@ -65,37 +65,20 @@ option:Toggle("TEST", function(T)
 
 			local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
 
-
-			if State  == 2 then
-				return 'preparing'
-			elseif State.Value ==  4 then 
-				return 'open'
-
-
-
-
-			elseif State.Value == nil then 
+			if State == nil then
 				return 'closed'
-
+			elseif State.Value == 1 then
+				return 'open'
+			elseif State.Value == 2 then
+				return 'stealing'
 			else
 				return 'closed'
-
 			end
 		end
-		-- Check if the Donut Shop is open.
 
-		local bankStatus = is_opened("DonutShop")
-		if bankStatus == "open" or bankStatus == "closed"   then
-
-			-- The Donut Shop is open.
-			game:GetService("StarterGui"):SetCore("SendNotification", {
-				Title = "Donut Shop Info",
-				Icon = "",
-				Text = is_opened("DonutShop")
-			})
-
-
-
+		local bankStatus = is_opened("Bank")
+		if bankStatus == "open" or bankStatus == "closed" then
+			print("Test")
 		end
 	end
 end)
