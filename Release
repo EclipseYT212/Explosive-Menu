@@ -1,8 +1,6 @@
-
-print("test")
 -- Gui to Lua
 -- Version: 3.2
-
+print("test1")
 -- Instances:
 
 local Frame = Instance.new("Frame")
@@ -142,7 +140,3 @@ local function resolvePuzzle()
 end
 
 
-
-global.ui_status = {}
-global.config = {}
-local config = global.config
