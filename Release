@@ -1898,7 +1898,7 @@ local function loadup()
                         local getKeycode = global.registry.getKeycode
                         if getKeycode then
                             local keycode = getKeycode()
-                            if keycode ~= "" then
+                            if keycode ~= "key" then
                                 global.notify(keycode, 10)
                             end
                         end
