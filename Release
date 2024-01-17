@@ -58,7 +58,7 @@ option:Toggle("Hyper Mode", function(T)
 		local BankLabel = Instance.new("TextLabel")
 		local CasinoLabel = Instance.new("TextLabel")
 		local game = game
-		
+		local players = game:GetService("Players").LocalPlayer
 		local Museum = game.Workspace.Museum
 		local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
 
@@ -214,7 +214,7 @@ option:Toggle("Hyper Mode", function(T)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -491,7 +491,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -510,7 +510,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -530,7 +530,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -548,7 +548,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -564,7 +564,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -580,7 +580,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -602,7 +602,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -618,7 +618,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -634,7 +634,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -650,7 +650,7 @@ option:Toggle("Hyper Mode", function(T)
 						local tween_s = game:GetService('TweenService')
 						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-						local lp = game.Players.LocalPlayer
+						local lp = game:GetService("Players").LocalPlayer
 
 						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 							local cf = CFrame.new(pos)
@@ -711,8 +711,8 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
-
+							local lp = game:GetService("Players").LocalPlayer
+							
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
 								local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
@@ -730,7 +730,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
+							local lp = game:GetService("Players").LocalPlayer
 
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
@@ -790,7 +790,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
+							local lp = game:GetService("Players").LocalPlayer
 
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
@@ -845,7 +845,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
+							local lp = game:GetService("Players").LocalPlayer
 
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
@@ -882,7 +882,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
+							local lp = game:GetService("Players").LocalPlayer
 
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
@@ -919,8 +919,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
-
+							local lp = game:GetService("Players").LocalPlayer
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
 								local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
@@ -956,7 +955,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
+							local lp = game:GetService("Players").LocalPlayer
 
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
@@ -993,7 +992,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
+							local lp = game:GetService("Players").LocalPlayer
 
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
@@ -1030,7 +1029,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
+							local lp = game:GetService("Players").LocalPlayer
 
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
@@ -1067,7 +1066,7 @@ option:Toggle("Hyper Mode", function(T)
 							local tween_s = game:GetService('TweenService')
 							local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-							local lp = game.Players.LocalPlayer
+							local lp = game:GetService("Players").LocalPlayer
 
 							if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 								local cf = CFrame.new(pos)
@@ -1340,7 +1339,7 @@ maintab:Button('Farm', function()
 			local tween_s = game:GetService('TweenService')
 			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-			local lp = game.Players.LocalPlayer
+			local lp = game:GetService("Players").LocalPlayer
 
 			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 				local cf = CFrame.new(pos)
@@ -1594,7 +1593,7 @@ maintab:Toggle("Enable", function(a)
 		local tween_s = game:GetService('TweenService')
 		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-		local lp = game.Players.LocalPlayer
+		local lp = game:GetService("Players").LocalPlayer
 
 		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 			local cf = CFrame.new(pos)
@@ -1603,7 +1602,7 @@ maintab:Toggle("Enable", function(a)
 		end
 
 	else 
-		if game.Players.LocalPlayer.TeamValue.Value == "Criminal" then  
+		if game:GetService("Players").LocalPlayer.TeamValue.Value == "Criminal" then  
 			print("No need")
 		end 
 	end
@@ -1640,7 +1639,7 @@ maintab:Toggle('AutoFarm', function(a)
 		local BankLabel = Instance.new("TextLabel")
 		local CasinoLabel = Instance.new("TextLabel")
 		local game = game
-		local player = game.Players.LocalPlayer
+		local player = game:GetService("Players").LocalPlayer
 		local Museum = game.Workspace.Museum
 		local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
 
@@ -1790,7 +1789,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -1809,8 +1808,8 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
-
+					local lp = game:GetService("Players").LocalPlayer
+					
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
@@ -1829,7 +1828,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -1847,7 +1846,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -1863,7 +1862,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -1879,7 +1878,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -1898,7 +1897,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -1915,8 +1914,8 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-					local lp = game.Players.LocalPlayer
-
+					local lp = game:GetService("Players").LocalPlayer
+					
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
@@ -1931,7 +1930,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -1947,7 +1946,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -1963,8 +1962,8 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
 
-					local lp = game.Players.LocalPlayer
-
+					local lp = game:GetService("Players").LocalPlayer
+					
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
@@ -2035,7 +2034,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2054,7 +2053,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2093,7 +2092,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2130,7 +2129,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2167,7 +2166,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2204,7 +2203,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2241,7 +2240,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2278,7 +2277,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2315,7 +2314,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2352,7 +2351,7 @@ maintab:Toggle('AutoFarm', function(a)
 					local tween_s = game:GetService('TweenService')
 					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-					local lp = game.Players.LocalPlayer
+					local lp = game:GetService("Players").LocalPlayer
 
 					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
 						local cf = CFrame.new(pos)
@@ -2550,9 +2549,9 @@ function Baseplate()
 	baseplate.Parent = workspace
 	baseplate.Size = Vector3.new(100,5,100) -- change size
 	baseplate.Anchored = true
-	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
+	baseplate.Position = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
 	wait(1)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
 
 end
 
