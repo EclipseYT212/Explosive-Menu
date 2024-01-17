@@ -1,19 +1,70 @@
--- Gui to Lua
--- Version: 3.2
-print("test1")
--- Instances:
 
-local Frame = Instance.new("Frame")
-local Console = Instance.new("TextBox")
-local JewlLabel = Instance.new("TextLabel")
-local Museum = Instance.new("TextLabel")
+
+local ScreenGui = Instance.new("ScreenGui")
+local MainTab = Instance.new("Frame")
+local TextBox = Instance.new("TextBox")
+local Close = Instance.new("ImageButton")
+local SupportButton = Instance.new("ImageButton")
+local save = Instance.new("ImageButton")
+local Run = Instance.new("ImageButton")
+local warning = Instance.new("ImageButton")
+local TextLabel = Instance.new("TextLabel")
+local security = Instance.new("ImageButton")
+local StoreSelectorTab = Instance.new("Frame")
+local TextBox_2 = Instance.new("TextBox")
+local StoreSelectorClose = Instance.new("ImageButton")
+local Support = Instance.new("ImageButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local AntiKickLabel = Instance.new("TextLabel")
+local MuseumYes = Instance.new("ImageButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local AirdropLabel = Instance.new("TextLabel")
 local BankLabel = Instance.new("TextLabel")
-local PowerPlantLabel = Instance.new("TextLabel")
-local RunningStatus = Instance.new("TextLabel")
-local Run = Instance.new("TextButton")
+local AirdropLabel_2 = Instance.new("TextLabel")
+local CargoPlane = Instance.new("TextLabel")
+local JewelryOff = Instance.new("ImageButton")
+local Bankoff = Instance.new("ImageButton")
+local TrainsOff = Instance.new("ImageButton")
+local CargoPlaneOff = Instance.new("ImageButton")
+local Airdropsoff = Instance.new("ImageButton")
+local MuseumOff = Instance.new("ImageButton")
+local TrainsYes = Instance.new("ImageButton")
+local CargoPlaneYes = Instance.new("ImageButton")
+local AirdropsYes = Instance.new("ImageButton")
+local JewelryYes = Instance.new("ImageButton")
+local DevProtectTab = Instance.new("Frame")
+local TextBox_3 = Instance.new("TextBox")
+local warning_2 = Instance.new("ImageButton")
+local ProtectionsClose = Instance.new("ImageButton")
+local Support_2 = Instance.new("ImageButton")
+local TextLabel_4 = Instance.new("TextLabel")
+local AntiKickLabel_2 = Instance.new("TextLabel")
+local AintiKickYes = Instance.new("ImageButton")
+local DevProtectNo = Instance.new("ImageButton")
+local AntiKickno = Instance.new("ImageButton")
+local DevProtectYes = Instance.new("ImageButton")
+local OptionsBar = Instance.new("Frame")
+local JewlLabel = Instance.new("TextLabel")
+local MuseumLabel = Instance.new("TextLabel")
+local BankLabel_2 = Instance.new("TextLabel")
+local CasinoLabel = Instance.new("TextLabel")
+local PastLogs = Instance.new("Frame")
+local TextBox_4 = Instance.new("TextBox")
+local warning_3 = Instance.new("ImageButton")
+local cancel = Instance.new("ImageButton")
+local Support_3 = Instance.new("ImageButton")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local TextLabel_5 = Instance.new("TextLabel")
+local TextLabel_6 = Instance.new("TextLabel")
+local store_mall_directory = Instance.new("ImageButton")
+local TextLabel_7 = Instance.new("TextLabel")
+local shopping_basket = Instance.new("ImageButton")
+local BankYes = Instance.new("ImageButton")
+
+
 local game = game
 local player = game:GetService("Players").LocalPlayer
-local Museum = workspace.Museum
+local Museum = game:GetService("Workspace").Museum
 local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
 
 local cargotrain =  game:GetService("Workspace").Trains
@@ -23,172 +74,290 @@ local ind = workspace.Jewelrys:FindFirstChild('Sign', true)
 local indicator = ind.Decal
 local RunService = game:GetService("RunService")
 local loopActive = false
+local Player = game.Players.LocalPlayer
+local Char = Player.Character
+local Humanoid = Char.Humanoid
+local UIS = game:GetService("UserInputService")
+
+local gui = MainTab
+local gui1 = DevProtectTab
+local gui2 = PastLogs
+local gui3 = StoreSelectorTab
+local gui4 = OptionsBar
+UIS.InputBegan:Connect(function(Input, IsTyping)
+	if IsTyping then return end
+	if Input.KeyCode == Enum.KeyCode.F1 then
+		if gui.Visible then
+			gui.Visible = false
+
+		else
+			gui.Visible = true
+		end
+		if gui1.Visible then
+			gui1.Visible = true
+		else 
+			gui1.Visible = false				
+		end
+		if gui2.Visible then 
+			gui2.Visible = true
+		else
+			gui2.Visible = false
+		end
+		if gui3.Visible then 
+			gui3.Visible = true
+
+
+		else
+			gui3.Visible = false
+		end
+		if gui4.Visible then 
+			gui4.Visible = true
+		else
+			gui4.Visible = false
+		end
+
+	end
+end)
 --Properties:
 
-Frame.Parent = game.CoreGui
-Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.0280510914, 0, 0.495157123, 0)
-Frame.Size = UDim2.new(0, 451, 0, 258)
+ScreenGui.Parent = game.CoreGui
 
-Console.Name = "Console"
-Console.Parent = Frame
-Console.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Console.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Console.BorderSizePixel = 0
-Console.Position = UDim2.new(0.0266075395, 0, 0.200972795, 0)
-Console.Selectable = false
-Console.Size = UDim2.new(0, 427, 0, 95)
-Console.Font = Enum.Font.LuckiestGuy
-Console.Text = ""
-Console.TextColor3 = Color3.fromRGB(255, 255, 255)
-Console.TextSize = 15.000
-Console.TextWrapped = true
+MainTab.Name = "MainTab"
+MainTab.Parent = ScreenGui
+MainTab.Active = true
+MainTab.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+MainTab.BackgroundTransparency = 0.070
+MainTab.BorderColor3 = Color3.fromRGB(0, 255, 255)
+MainTab.Position = UDim2.new(0.151253924, 0, 0.257918566, 0)
+MainTab.Size = UDim2.new(0, 374, 0, 252)
+MainTab.Draggable = true
 
-JewlLabel.Name = "JewlLabel"
-JewlLabel.Parent = Frame
-JewlLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-JewlLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-JewlLabel.BorderSizePixel = 0
-JewlLabel.Position = UDim2.new(0.0509977825, 0, 0.0498614945, 0)
-JewlLabel.Size = UDim2.new(0, 84, 0, 28)
-JewlLabel.Font = Enum.Font.LuckiestGuy
-JewlLabel.Text = "Jewelry"
-JewlLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-JewlLabel.TextSize = 14.000
-local function myLoop4()
-	-- Check if the condition for your loop has been met
-	if indicator.Transparency == 0.8999999761581421 then
-		JewlLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
 
-	JewlLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-RunService.Heartbeat:Connect(myLoop4)
+TextBox.Parent = MainTab
+TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.0294117648, 0, 0.166666672, 0)
+TextBox.Selectable = false
+TextBox.Size = UDim2.new(0, 351, 0, 133)
+TextBox.ClearTextOnFocus = false
+TextBox.Font = Enum.Font.FredokaOne
+TextBox.MultiLine = true
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 25.000
+TextBox.TextWrapped = true
 
-Museum.Name = "Museum"
-Museum.Parent = Frame
-Museum.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Museum.BackgroundTransparency = 1.000
-Museum.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Museum.BorderSizePixel = 0
-Museum.Position = UDim2.new(0.28824833, 0, 0.0498614945, 0)
-Museum.Size = UDim2.new(0, 84, 0, 28)
-Museum.Font = Enum.Font.LuckiestGuy
-Museum.Text = "Museum"
-Museum.TextColor3 = Color3.fromRGB(255, 255, 255)
-Museum.TextSize = 14.000
-local function myLoop3()
-	-- Check if the condition for your loop has been met
-	if RoofHolePart.Transparency == 0.8999999761581421 then
-		Museum.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
+Close.Name = "Close"
+Close.Parent = MainTab
+Close.BackgroundTransparency = 1.000
+Close.Position = UDim2.new(0.895722032, 0, 0, 0)
+Close.Size = UDim2.new(0, 37, 0, 32)
+Close.ZIndex = 2
+Close.Image = "rbxassetid://3926305904"
+Close.ImageRectOffset = Vector2.new(4, 4)
+Close.ImageRectSize = Vector2.new(24, 24)
+Close.MouseButton1Click:Connect(function()
+	MainTab.Visible = false
+end)
 
-	Museum.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-RunService.Heartbeat:Connect(myLoop3)
+SupportButton.Name = "SupportButton"
+SupportButton.Parent = MainTab
+SupportButton.BackgroundTransparency = 1.000
+SupportButton.Position = UDim2.new(0.802139044, 0, 0.0119047621, 0)
+SupportButton.Size = UDim2.new(0, 25, 0, 25)
+SupportButton.ZIndex = 2
+SupportButton.Image = "rbxassetid://3926307971"
+SupportButton.ImageRectOffset = Vector2.new(964, 4)
+SupportButton.ImageRectSize = Vector2.new(36, 36)
+SupportButton.MouseButton1Click:Connect(function()
+	warn("Coming soon")
+end)
 
-BankLabel.Name = "BankLabel"
-BankLabel.Parent = Frame
-BankLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-BankLabel.BackgroundTransparency = 1.000
-BankLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-BankLabel.BorderSizePixel = 0
-BankLabel.Position = UDim2.new(0.51219511, 0, 0.0498614945, 0)
-BankLabel.Size = UDim2.new(0, 84, 0, 28)
-BankLabel.Font = Enum.Font.LuckiestGuy
-BankLabel.Text = "Bank"
-BankLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-BankLabel.TextSize = 14.000
-local function myLoop2()
-	-- Check if the condition for your loop has been met
-	if bank2.Transparency == 0.8999999761581421 then
-		BankLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
-
-	BankLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-RunService.Heartbeat:Connect(myLoop2)
-
-PowerPlantLabel.Name = "PowerPlantLabel"
-PowerPlantLabel.Parent = Frame
-PowerPlantLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-PowerPlantLabel.BackgroundTransparency = 1.000
-PowerPlantLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-PowerPlantLabel.BorderSizePixel = 0
-PowerPlantLabel.Position = UDim2.new(0.760532141, 0, 0.0498614945, 0)
-PowerPlantLabel.Size = UDim2.new(0, 84, 0, 28)
-PowerPlantLabel.Font = Enum.Font.LuckiestGuy
-PowerPlantLabel.Text = "PowerPlant"
-PowerPlantLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-PowerPlantLabel.TextSize = 14.000
-local function myLoop()
-	-- Check if the condition for your loop has been met
-	if indicator.Transparency == 0.8999999761581421 then
-		JewlLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
-
-	JewlLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-RunService.Heartbeat:Connect(myLoop)
-RunningStatus.Name = "RunningStatus"
-RunningStatus.Parent = Frame
-RunningStatus.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-RunningStatus.BackgroundTransparency = 0.010
-RunningStatus.BorderColor3 = Color3.fromRGB(0, 0, 0)
-RunningStatus.BorderSizePixel = 0
-RunningStatus.Position = UDim2.new(0.0266075395, 0, 0.860411406, 0)
-RunningStatus.Selectable = true
-RunningStatus.Size = UDim2.new(0, 439, 0, 28)
-RunningStatus.Font = Enum.Font.LuckiestGuy
-RunningStatus.Text = "Waiting for connection"
-RunningStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
-RunningStatus.TextSize = 30.000
+save.Name = "save"
+save.Parent = MainTab
+save.BackgroundTransparency = 1.000
+save.Position = UDim2.new(0.676470578, 0, 0.65476191, 0)
+save.Size = UDim2.new(0, 119, 0, 81)
+save.ZIndex = 2
+save.Image = "rbxassetid://6764432408"
+save.ImageRectOffset = Vector2.new(100, 100)
+save.ImageRectSize = Vector2.new(50, 50)
+save.MouseButton1Click:Connect(function()
+	warn("Coming soon")
+end)
 
 Run.Name = "Run"
-Run.Parent = Frame
-Run.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Run.Parent = MainTab
 Run.BackgroundTransparency = 1.000
-Run.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Run.Position = UDim2.new(0.0266076066, 0, 0.656963289, 0)
-Run.Size = UDim2.new(0, 426, 0, 28)
-Run.Font = Enum.Font.LuckiestGuy
-Run.Text = "Run"
-Run.TextColor3 = Color3.fromRGB(255, 255, 255)
-Run.TextSize = 20.000
-Run.TextWrapped = true
-Run.MouseButton1Click:Connect(function()
-	if game.PlaceId == 606849621 then 
-		RunningStatus.Text = "Running script..."
-		while wait(2) do 
-			if indicator.transparency == 1 then
+Run.Position = UDim2.new(-0.00267379684, 0, 0.65476191, 0)
+Run.Size = UDim2.new(0, 135, 0, 87)
+Run.ZIndex = 2
+Run.Image = "rbxassetid://6764432408"
+Run.ImageRectOffset = Vector2.new(100, 400)
+Run.ImageRectSize = Vector2.new(50, 50)
+Run.MouseButton1Click:Connect(function(Auto)
+	if CargoPlaneYes.Visible == true then 
+			workspace.ChildAdded:connect(function(v)
+
+				if v.Name == "Plane" and v:IsA("BottomDoor") then 
+					game.StarterGui:SetCore("SendNotification", {
+
+						Title = "Explosive menu",
+						Text = "CargoPlane found telepporting", 
+						Icon = "",
+						Duration = 2.3,
+					})
+                    wait(10)
+					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+					teleport(CFrame.new(-1201.1138916015625, 46.454803466796875, 2870.557861328125));
+					wait(65)
+					print('wating for plane to takeoff')
+					local pos = Vector3.new(5-1169.8582763671875, 44.35041809082031, 2905.92236328125) -- your pos here
+					local delay = 6 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+
+
+
+					end
+					wait(40)
+					print('Opening crates')
+					local VirtualInputManager = game:GetService('VirtualInputManager')
+
+					VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+					wait(25)
+					print("Selling")
+
+					Baseplate()
+					print("Bypassing by waiting")
+					wait(15)
+					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
+
+					teleport(CFrame.new(-338.4594421386719, 21.26369285583496, 2055.239990234375));
+					Baseplate()
+
+
+
+
+				end
+
+
+
+			end)
+
+		elseif CargoPlaneOff.Visible == true then 
+
+
+    while true  do 
+
+
+		
+if BankYes.Visible == true then 
+for i,v in pairs(game:GetService("Workspace").Banks.Bank.Layout:GetChildren()) do 
+	if v:FindFirstChild("Money") then
+		local PathfindingService = game:GetService("PathfindingService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local path = PathfindingService:CreatePath()
+
+local player = Players.LocalPlayer
+local character = player.Character
+local humanoid = character:WaitForChild("Humanoid")
+
+local TEST_DESTINATION = Vector3.new(100, 0, 100)
+
+local waypoints
+local nextWaypointIndex
+local reachedConnection
+local blockedConnection
+
+local function followPath(destination)
+	-- Compute the path
+	local success, errorMessage = pcall(function()
+		path:ComputeAsync(character.PrimaryPart.Position, destination)
+	end)
+
+	if success and path.Status == Enum.PathStatus.Success then
+		-- Get the path waypoints
+		waypoints = path:GetWaypoints()
+
+		-- Detect if path becomes blocked
+		blockedConnection = path.Blocked:Connect(function(blockedWaypointIndex)
+			-- Check if the obstacle is further down the path
+			if blockedWaypointIndex >= nextWaypointIndex then
+				-- Stop detecting path blockage until path is re-computed
+				blockedConnection:Disconnect()
+				-- Call function to re-compute new path
+				followPath(destination)
+			end
+		end)
+
+		-- Detect when movement to next waypoint is complete
+		if not reachedConnection then
+			reachedConnection = humanoid.MoveToFinished:Connect(function(reached)
+				if reached and nextWaypointIndex < #waypoints then
+					-- Increase waypoint index and move to next waypoint
+					nextWaypointIndex += 1
+					humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
+				else
+					reachedConnection:Disconnect()
+					blockedConnection:Disconnect()
+				end
+			end)
+		end
+
+		-- Initially move to second waypoint (first waypoint is path start; skip it)
+		nextWaypointIndex = 2
+		humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
+	else
+		warn("Path not computed!", errorMessage)
+	end
+end
+end
+
+elseif Bankoff.Visible == true then 
+
+			if MuseumYes.Visible == true then 
+
+
+
+
 
 				-- Check if the condition for your loop has been met
 				if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
 
 
-					Console.Text = "Teleporting to the Museum"
+					TextBox.Text = "Teleporting to the Museum"
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(1080.36767578125, 139.4569854736328, 1321.6270751953125));
 
+					wait(2)
+					for i,v in pairs(workspace.Museum:GetDescendants()) do
+						if v.Name:match("Lights") then
+							v:Destroy()
+						end
+					end
+					wait(1)
 
-					wait(3)
-
-					Console.Text = "Robbing...."
+					TextBox.Text = "Robbing...."
 					local VirtualInputManager = game:GetService('VirtualInputManager')
 
 					VirtualInputManager:SendKeyEvent(true,"E",false,game)
 					local pos = Vector3.new(1087.4005126953125, 122.05658721923828, 1321.7193603515625) -- your pos here
-					local delay = 5 -- tp tween speed like how many seconds takes to tp
+					local delay = 0 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -207,7 +376,7 @@ Run.MouseButton1Click:Connect(function()
 
 					VirtualInputManager:SendKeyEvent(true,"E",false,game)
 					local pos = Vector3.new(1085.9122314453125, 122.05582427978516, 1381.45947265625) -- your pos here
-					local delay = 5 -- tp tween speed like how many seconds takes to tp
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -225,9 +394,8 @@ Run.MouseButton1Click:Connect(function()
 					local VirtualInputManager = game:GetService('VirtualInputManager')
 
 					VirtualInputManager:SendKeyEvent(true,"E",false,game)
-					local pos = Vector3.new(1076.2733154296875, 122.05582427978516, 1372.4691162109375
-					) -- your pos here
-					local delay = 5 -- tp tween speed like how many seconds takes to tp
+					local pos = Vector3.new(1076.2733154296875, 122.05582427978516, 1372.4691162109375) -- your pos here
+					local delay = 0.30 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -243,9 +411,9 @@ Run.MouseButton1Click:Connect(function()
 					end
 					wait(5)
 
-					Console.Text = "Selling"
+					TextBox.Text = "Selling"
 					local pos = Vector3.new(1087.4005126953125, 122.05658721923828, 1321.7193603515625) -- your pos here
-					local delay = 5 -- tp tween speed like how many seconds takes to tp
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -276,11 +444,27 @@ Run.MouseButton1Click:Connect(function()
 						a:Play()
 					end
 					wait(2)
+					local pos = Vector3.new(1074.760986328125, 139.4569549560547, 1308.9547119140625) -- your pos here
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(3)
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(2278.850830078125, 23.838319778442383, -2047.63232421875));
 					wait(5)
 					local pos = Vector3.new(2278.850830078125, 23.838319778442383, -2047.63232421875) -- your pos here
-					local delay = 1 -- tp tween speed like how many seconds takes to tp
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -329,7 +513,7 @@ Run.MouseButton1Click:Connect(function()
 					end
 					wait(3)
 					local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
-					local delay = 2 -- tp tween speed like how many seconds takes to tp
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -345,7 +529,7 @@ Run.MouseButton1Click:Connect(function()
 					end
 					wait(3)
 					local pos = Vector3.new(2279.58154296875, 19.21677017211914, -2067.020751953125) -- your pos here
-					local delay = 2 -- tp tween speed like how many seconds takes to tp
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -367,124 +551,38 @@ Run.MouseButton1Click:Connect(function()
 					VirtualInputManager:SendKeyEvent(true,"E",false,game)
 
 
-					return
 
 
+					TextBox.Text = "Waiting for stores to open"
 
 				end
+			elseif MuseumOff.Visible == true then 
 
-				Console.Text = "Waiting for stores to open"
+			end
 
 
+			if JewelryYes.Visible == true then
 				-- Check if the condition for your loop has been met
 				if indicator.Transparency == 0.8999999761581421 then
 
-					Console.Text = "Teleporting to jewelry store"
+					TextBox.Text = "Teleporting to jewelry store"
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 
-					teleport(CFrame.new(80.30104064941406, 18.563661575317383, 1313.7412109375));
+					teleport(CFrame.new(150, 18, 1373));
 
 
 
-					getgenv().Delete = true
+
+				
+					DAL()
 
 
 
-					if getgenv().Delete == true then 
-
-
-
-						local function lasers()
-							local function hookForBank(bool)
-								for i,v in next, collectionservice:GetAllTags() do
-									for i2,v2 in next, collectionservice:GetTagged(v) do
-										if workspace:FindFirstChild("Banks") and v2:IsDescendantOf(workspace.Banks) and v2:FindFirstChild("TouchInterest") then
-											v2.CanTouch = not bool
-										end
-									end
-								end
-							end
-							local function hookForTrain(bool)
-								for i,v in next, collectionservice:GetAllTags() do
-									for i2,v2 in next, collectionservice:GetTagged(v) do
-										if v2:IsDescendantOf(workspace.Trains) and v2:FindFirstChild("TouchInterest") then
-											v2.CanTouch = not bool
-										end
-									end
-								end
-							end
-							local function hookForJewelry(bool)
-								for i,v in next, collectionservice:GetAllTags() do
-									for i2,v2 in next, collectionservice:GetTagged(v) do
-										if workspace:FindFirstChild("Jewelrys") and v2:IsDescendantOf(workspace.Jewelrys) and v2:FindFirstChild("TouchInterest") and v2.Name ~= "LaserTouch" then
-											v2.CanTouch = not bool
-										end
-									end
-								end
-							end
-							local function hookForMansion(bool)
-								for i,v in next, workspace.MansionRobbery.Lasers:GetDescendants() do
-									if v.Name == "Laser" then
-										v.CanTouch = not bool
-									end
-								end
-							end
-							local function breakCasinoLasers(bool)
-								local casino = workspace:FindFirstChild("Casino")
-								if casino then
-									local vaultLaserControl = casino:FindFirstChild("VaultLaserControl")
-									if vaultLaserControl then
-										for i,v in next, vaultLaserControl:GetDescendants() do
-											if v:FindFirstChild("TouchInterest") then
-												v.CanTouch = not bool
-											end
-										end
-									end
-									local lasersMoving = casino:FindFirstChild("LasersMoving")
-									if lasersMoving then
-										for i,v in next, lasersMoving:GetDescendants() do
-											if v:FindFirstChild("TouchInterest") then
-												v.CanTouch = not bool
-											end
-										end
-									end
-									local laserCarousel = casino:FindFirstChild("LaserCarousel")
-									if laserCarousel then
-										for i,v in next, laserCarousel:GetDescendants() do
-											if v:FindFirstChild("TouchInterest") then
-												v.CanTouch = not bool
-											end
-										end
-									end
-									local lasers = casino:FindFirstChild("Lasers")
-									if lasers then
-										for i,v in next, lasers:GetDescendants() do
-											if v:FindFirstChild("TouchInterest") then
-												v.CanTouch = not bool
-											end
-										end
-									end
-								end
-							end
-							global.registry.breakCasinoLasers = breakCasinoLasers
-							local function breakLasers(bool)
-								for i,v in next, workspace:GetDescendants() do
-									if v.Name == "BarbedWire" then
-										v.CanTouch = not bool
-									end
-								end
-							end
-						end
-
-					end
-
-
-
-					wait(0.3)
-					Console.Text = "Breaking Glass"
+					wait(0)
+					TextBox.Text = "Breaking Glass"
 					--breaking glass
 					local pos = Vector3.new(132.88629150390625, 18.563629150390625, 1345.051513671875) -- your pos here
-					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -498,12 +596,12 @@ Run.MouseButton1Click:Connect(function()
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(7)
-					Console.Text = "Auto Robbing"
+					wait(1)
+					TextBox.Text = "Auto Robbing"
 
 					--Teleport to inside
 					local pos = Vector3.new(129.39793395996094, 19.205472946166992, 1313.8697509765625) -- your pos here
-					local delay = 3 -- tp tween speed like how many seconds takes to tp
+					local delay = 0 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -517,10 +615,35 @@ Run.MouseButton1Click:Connect(function()
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(4)
+
+
+
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+
+					wait(0.59)
 					-- YOU NEED TO SET IT UP BELOW
 					local pos = Vector3.new(131.88807678222656, 19.605478286743164, 1313.9010009765625) -- your pos here
-					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+					local delay = 0 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -534,10 +657,30 @@ Run.MouseButton1Click:Connect(function()
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(4)
+
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+
+					wait(0.59)
 					-- YOU NEED TO SET IT UP BELOW
 					local pos = Vector3.new(131.026611328125, 20.33732795715332, 1301.0643310546875) -- your pos here
-					local delay = 0.3-- tp tween speed like how many seconds takes to tp
+					local delay = 0-- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -551,10 +694,30 @@ Run.MouseButton1Click:Connect(function()
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(5)
+
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+
+					wait(0.59)
 					-- YOU NEED TO SET IT UP BELOW
 					local pos = Vector3.new(124.64414978027344, 19.41728973388672, 1281.71337890625) -- your pos here
-					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+					local delay = 0 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -568,10 +731,30 @@ Run.MouseButton1Click:Connect(function()
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(5)
+
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+
+					wait(0.59)
 					-- YOU NEED TO SET IT UP BELOW
 					local pos = Vector3.new(117.322021484375, 19.41727638244629, 1283.056640625) -- your pos here
-					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+					local delay = 0 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -585,10 +768,30 @@ Run.MouseButton1Click:Connect(function()
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(5)
+
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+
+					wait(0.59)
 					-- YOU NEED TO SET IT UP BELOW
 					local pos = Vector3.new(106.82585144042969, 19.41726303100586, 1284.8291015625) -- your pos here
-					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+					local delay = 0 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
@@ -602,7 +805,27 @@ Run.MouseButton1Click:Connect(function()
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(5)
+
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+
+					wait(0.59)
 					-- YOU NEED TO SET IT UP BELOW
 					local pos = Vector3.new(138.13356018066406, 19.011384963989258, 1279.7869873046875) -- your pos here
 					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
@@ -620,7 +843,26 @@ Run.MouseButton1Click:Connect(function()
 						a:Play()
 					end
 
-					wait(5)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+
+					wait(0.59)
 					-- YOU NEED TO SET IT UP BELOW
 					local pos = Vector3.new(103.05908203125, 40.205467224121094, 1291.5516357421875) -- your pos here
 					local delay = 0 -- tp tween speed like how many seconds takes to tp
@@ -637,7 +879,27 @@ Run.MouseButton1Click:Connect(function()
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
-					wait(5)
+
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+					keypress(0x46)
+					wait(0.40)
+					keyrelease(0x46)
+
+					wait(0.59)
 					-- YOU NEED TO SET IT UP BELOW
 					local pos = Vector3.new(131.97117614746094, 37.60548400878906, 1311.0272216796875) -- your pos here
 					local delay = 0 -- tp tween speed like how many seconds takes to tp
@@ -658,43 +920,810 @@ Run.MouseButton1Click:Connect(function()
 
 
 
-					Console.Text = "Selling!!!"
+
+
+					TextBox.Text = "Selling!!!"
 
 
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-					teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
+					teleport(CFrame.new(82.78319549560547, 245.3197479248047, 1498.57080078125));
 					-- Break out of the loop
+					Baseplate()
+					TextBox.Text = "Bypassing by waiting 15"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 14"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 13"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 12"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 11"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 10"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 9"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 8"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 7"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 6"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 5"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 4"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 3"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 2"
+					wait(1)
+					TextBox.Text = "Bypassing by waiting 1"
+					wait(1)
+					BSD()
+					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+					teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
+					Baseplate()
 				end
-
+            end 
+	
+				indicator.Transparency = 0 
 				wait(2)
-				Console.Text = "Waiting for stores to open"
-			end
-			
-			end
+				TextBox.Text = "Waiting for stores to open"
+
+				
+task.wait(3)
 		
-		
+		end
 	end
-	
-	
+end
+end)
+warning.Name = "warning"
+warning.Parent = MainTab
+warning.BackgroundTransparency = 1.000
+warning.Position = UDim2.new(0.395721912, 0, 0.440476179, 0)
+warning.Size = UDim2.new(0, 75, 0, 54)
+warning.Visible = false
+warning.ZIndex = 2
+warning.Image = "rbxassetid://3926305904"
+warning.ImageColor3 = Color3.fromRGB(255, 0, 0)
+warning.ImageRectOffset = Vector2.new(364, 324)
+warning.ImageRectSize = Vector2.new(36, 36)
+
+TextLabel.Parent = MainTab
+TextLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.259358287, 0, 0.00793650839, 0)
+TextLabel.Size = UDim2.new(0, 180, 0, 28)
+TextLabel.Font = Enum.Font.Bangers
+TextLabel.Text = "Explosive Menu"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 30.000
+
+security.Name = "security"
+security.Parent = MainTab
+security.BackgroundTransparency = 1.000
+security.Position = UDim2.new(0.114973262, 0, 0.0119047621, 0)
+security.Size = UDim2.new(0, 25, 0, 25)
+security.ZIndex = 2
+security.Image = "rbxassetid://3926307971"
+security.ImageRectOffset = Vector2.new(164, 284)
+security.ImageRectSize = Vector2.new(36, 36)
+
+StoreSelectorTab.Name = "StoreSelectorTab"
+StoreSelectorTab.Parent = MainTab
+StoreSelectorTab.Active = true
+StoreSelectorTab.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+StoreSelectorTab.BackgroundTransparency = 0.070
+StoreSelectorTab.BorderColor3 = Color3.fromRGB(0, 255, 255)
+StoreSelectorTab.Position = UDim2.new(1.02063739, 0, -1.79230228e-05, 0)
+StoreSelectorTab.Size = UDim2.new(0, 460, 0, 443)
+StoreSelectorTab.Visible = false
+StoreSelectorTab.Draggable = true
+
+TextBox_2.Parent = StoreSelectorTab
+TextBox_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_2.Selectable = false
+TextBox_2.Size = UDim2.new(0, 460, 0, 38)
+TextBox_2.ClearTextOnFocus = false
+TextBox_2.Font = Enum.Font.FredokaOne
+TextBox_2.MultiLine = true
+TextBox_2.Text = "Store Selector"
+TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_2.TextSize = 25.000
+TextBox_2.TextWrapped = true
+
+StoreSelectorClose.Name = "StoreSelectorClose"
+StoreSelectorClose.Parent = StoreSelectorTab
+StoreSelectorClose.BackgroundTransparency = 1.000
+StoreSelectorClose.Position = UDim2.new(0.909765065, 0, -0.00163926929, 0)
+StoreSelectorClose.Size = UDim2.new(0, 37, 0, 32)
+StoreSelectorClose.ZIndex = 2
+StoreSelectorClose.Image = "rbxassetid://3926305904"
+StoreSelectorClose.ImageRectOffset = Vector2.new(4, 4)
+StoreSelectorClose.ImageRectSize = Vector2.new(24, 24)
+StoreSelectorClose.MouseButton1Click:Connect(function()
+	StoreSelectorTab.Visible = false
+
+end)
+Support.Name = "Support"
+Support.Parent = StoreSelectorTab
+Support.BackgroundTransparency = 1.000
+Support.Position = UDim2.new(0.814880371, 0, 0.0119763929, 0)
+Support.Size = UDim2.new(0, 34, 0, 25)
+Support.ZIndex = 2
+Support.Image = "rbxassetid://3926307971"
+Support.ImageRectOffset = Vector2.new(964, 4)
+Support.ImageRectSize = Vector2.new(36, 36)
+Support.MouseButton1Click:Connect(function()
+
+
+end)
+TextLabel_2.Parent = StoreSelectorTab
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0513252579, 0, 0.190476194, 0)
+TextLabel_2.Size = UDim2.new(0, 177, 0, 38)
+TextLabel_2.Font = Enum.Font.LuckiestGuy
+TextLabel_2.Text = "Jewelry"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 25.000
+
+AntiKickLabel.Name = "AntiKickLabel"
+AntiKickLabel.Parent = StoreSelectorTab
+AntiKickLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+AntiKickLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiKickLabel.BorderSizePixel = 0
+AntiKickLabel.Position = UDim2.new(0.574564159, 0, 0.190476194, 0)
+AntiKickLabel.Size = UDim2.new(0, 155, 0, 38)
+AntiKickLabel.Font = Enum.Font.LuckiestGuy
+AntiKickLabel.Text = "Museum"
+AntiKickLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+AntiKickLabel.TextSize = 25.000
+
+MuseumYes.Name = "MuseumYes"
+MuseumYes.Parent = StoreSelectorTab
+MuseumYes.BackgroundTransparency = 1.000
+MuseumYes.Position = UDim2.new(0.690999985, 0, 0.275999993, 0)
+MuseumYes.Size = UDim2.new(0, 48, 0, 36)
+MuseumYes.Visible = false
+MuseumYes.ZIndex = 2
+MuseumYes.Image = "rbxassetid://3926305904"
+MuseumYes.ImageRectOffset = Vector2.new(284, 924)
+MuseumYes.ImageRectSize = Vector2.new(36, 36)
+MuseumYes.MouseButton1Click:Connect(function()
+	MuseumOff.Visible = true
+	MuseumYes.Visible = false
+
+end)
+TextLabel_3.Parent = StoreSelectorTab
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.0534991734, 0, 0.190476194, 0)
+TextLabel_3.Size = UDim2.new(0, 177, 0, 38)
+TextLabel_3.Font = Enum.Font.LuckiestGuy
+TextLabel_3.Text = "Jewelry"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 25.000
+
+AirdropLabel.Name = "AirdropLabel"
+AirdropLabel.Parent = StoreSelectorTab
+AirdropLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+AirdropLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AirdropLabel.BorderSizePixel = 0
+AirdropLabel.Position = UDim2.new(0.550999761, 0, 0.403292835, 0)
+AirdropLabel.Size = UDim2.new(0, 177, 0, 38)
+AirdropLabel.Font = Enum.Font.LuckiestGuy
+AirdropLabel.Text = "Airdrops"
+AirdropLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+AirdropLabel.TextSize = 25.000
+
+BankLabel.Name = "BankLabel"
+BankLabel.Parent = StoreSelectorTab
+BankLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+BankLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BankLabel.BorderSizePixel = 0
+BankLabel.Position = UDim2.new(0.0516740866, 0, 0.403292835, 0)
+BankLabel.Size = UDim2.new(0, 177, 0, 38)
+BankLabel.Font = Enum.Font.LuckiestGuy
+BankLabel.Text = "Bank"
+BankLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+BankLabel.TextSize = 25.000
+
+AirdropLabel_2.Name = "AirdropLabel"
+AirdropLabel_2.Parent = StoreSelectorTab
+AirdropLabel_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+AirdropLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AirdropLabel_2.BorderSizePixel = 0
+AirdropLabel_2.Position = UDim2.new(0.0534990393, 0, 0.696746647, 0)
+AirdropLabel_2.Size = UDim2.new(0, 177, 0, 38)
+AirdropLabel_2.Font = Enum.Font.LuckiestGuy
+AirdropLabel_2.Text = "Trains"
+AirdropLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+AirdropLabel_2.TextSize = 25.000
+
+CargoPlane.Name = "Cargo Plane"
+CargoPlane.Parent = StoreSelectorTab
+CargoPlane.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+CargoPlane.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CargoPlane.BorderSizePixel = 0
+CargoPlane.Position = UDim2.new(0.550999761, 0, 0.67868793, 0)
+CargoPlane.Size = UDim2.new(0, 181, 0, 38)
+CargoPlane.Font = Enum.Font.LuckiestGuy
+CargoPlane.Text = "Cargo Plane"
+CargoPlane.TextColor3 = Color3.fromRGB(255, 255, 255)
+CargoPlane.TextSize = 25.000
+
+JewelryOff.Name = "JewelryOff"
+JewelryOff.Parent = StoreSelectorTab
+JewelryOff.BackgroundTransparency = 1.000
+JewelryOff.Position = UDim2.new(0.190521777, 0, 0.289361209, 0)
+JewelryOff.Size = UDim2.new(0, 48, 0, 36)
+JewelryOff.ZIndex = 2
+JewelryOff.Image = "rbxassetid://3926305904"
+JewelryOff.ImageRectOffset = Vector2.new(4, 4)
+JewelryOff.ImageRectSize = Vector2.new(24, 24)
+JewelryOff.MouseButton1Click:Connect(function()
+	JewelryOff.Visible = false
+	JewelryYes.Visible = true
+
+end)
+BankYes.Name = "BankYes"
+BankYes.Parent = StoreSelectorTab
+BankYes.BackgroundTransparency = 1.000
+BankYes.Position = UDim2.new(0.192695677, 0, 0.508322835, 0)
+BankYes.Size = UDim2.new(0, 48, 0, 36)
+BankYes.Visible = false
+BankYes.ZIndex = 2
+BankYes.Image = "rbxassetid://3926305904"
+BankYes.ImageRectOffset = Vector2.new(284, 924)
+BankYes.ImageRectSize = Vector2.new(36, 36)
+BankYes.MouseButton1Click:Connect(function()
+	BankYes.Visible = false
+	Bankoff.Visible = true
+
+end)
+Bankoff.Name = "Bankoff"
+Bankoff.Parent = StoreSelectorTab
+Bankoff.BackgroundTransparency = 1.000
+Bankoff.Position = UDim2.new(0.192695677, 0, 0.508322835, 0)
+Bankoff.Size = UDim2.new(0, 48, 0, 36)
+Bankoff.ZIndex = 2
+Bankoff.Image = "rbxassetid://3926305904"
+Bankoff.ImageRectOffset = Vector2.new(4, 4)
+Bankoff.ImageRectSize = Vector2.new(24, 24)
+Bankoff.MouseButton1Click:Connect(function()
+	Bankoff.Visible = false
+	BankYes.Visible = true
+
+end)
+TrainsOff.Name = "TrainsOff"
+TrainsOff.Parent = StoreSelectorTab
+TrainsOff.BackgroundTransparency = 1.000
+TrainsOff.Position = UDim2.new(0.192695677, 0, 0.810805917, 0)
+TrainsOff.Size = UDim2.new(0, 48, 0, 36)
+TrainsOff.ZIndex = 2
+TrainsOff.Image = "rbxassetid://3926305904"
+TrainsOff.ImageRectOffset = Vector2.new(4, 4)
+TrainsOff.ImageRectSize = Vector2.new(24, 24)
+TrainsOff.MouseButton1Click:Connect(function()
+	TrainsOff.Visible = false
+	TrainsYes.Visible = true
+
+end)
+CargoPlaneOff.Name = "CargoPlaneOff"
+CargoPlaneOff.Parent = StoreSelectorTab
+CargoPlaneOff.BackgroundTransparency = 1.000
+CargoPlaneOff.Position = UDim2.new(0.690521896, 0, 0.804033875, 0)
+CargoPlaneOff.Size = UDim2.new(0, 48, 0, 36)
+CargoPlaneOff.ZIndex = 2
+CargoPlaneOff.Image = "rbxassetid://3926305904"
+CargoPlaneOff.ImageRectOffset = Vector2.new(4, 4)
+CargoPlaneOff.ImageRectSize = Vector2.new(24, 24)
+CargoPlaneOff.MouseButton1Click:Connect(function()
+	CargoPlaneOff.Visible = false
+	CargoPlaneYes.Visible = true
+
+end)
+Airdropsoff.Name = "Airdropsoff"
+Airdropsoff.Parent = StoreSelectorTab
+Airdropsoff.BackgroundTransparency = 1.000
+Airdropsoff.Position = UDim2.new(0.690521896, 0, 0.524124205, 0)
+Airdropsoff.Size = UDim2.new(0, 48, 0, 36)
+Airdropsoff.ZIndex = 2
+Airdropsoff.Image = "rbxassetid://3926305904"
+Airdropsoff.ImageRectOffset = Vector2.new(4, 4)
+Airdropsoff.ImageRectSize = Vector2.new(24, 24)
+Airdropsoff.MouseButton1Click:Connect(function()
+	Airdropsoff.Visible = false
+	AirdropsYes.Visible = true
+
+end)
+MuseumOff.Name = "MuseumOff"
+MuseumOff.Parent = StoreSelectorTab
+MuseumOff.BackgroundTransparency = 1.000
+MuseumOff.Position = UDim2.new(0.690521896, 0, 0.275817186, 0)
+MuseumOff.Size = UDim2.new(0, 48, 0, 36)
+MuseumOff.ZIndex = 2
+MuseumOff.Image = "rbxassetid://3926305904"
+MuseumOff.ImageRectOffset = Vector2.new(4, 4)
+MuseumOff.ImageRectSize = Vector2.new(24, 24)
+MuseumOff.MouseButton1Click:Connect(function()
+	MuseumOff.Visible = false
+	MuseumYes.Visible = true
+
+end)
+TrainsYes.Name = "TrainsYes"
+TrainsYes.Parent = StoreSelectorTab
+TrainsYes.BackgroundTransparency = 1.000
+TrainsYes.Position = UDim2.new(0.191715002, 0, 0.804249108, 0)
+TrainsYes.Size = UDim2.new(0, 48, 0, 36)
+TrainsYes.Visible = false
+TrainsYes.ZIndex = 2
+TrainsYes.Image = "rbxassetid://3926305904"
+TrainsYes.ImageRectOffset = Vector2.new(284, 924)
+TrainsYes.ImageRectSize = Vector2.new(36, 36)
+TrainsYes.MouseButton1Click:Connect(function()
+	TrainsOff.Visible = true
+	TrainsYes.Visible = false
+
+end)
+CargoPlaneYes.Name = "CargoPlaneYes"
+CargoPlaneYes.Parent = StoreSelectorTab
+CargoPlaneYes.BackgroundTransparency = 1.000
+CargoPlaneYes.Position = UDim2.new(0.691000104, 0, 0.804228008, 0)
+CargoPlaneYes.Size = UDim2.new(0, 48, 0, 36)
+CargoPlaneYes.Visible = false
+CargoPlaneYes.ZIndex = 2
+CargoPlaneYes.Image = "rbxassetid://3926305904"
+CargoPlaneYes.ImageRectOffset = Vector2.new(284, 924)
+CargoPlaneYes.ImageRectSize = Vector2.new(36, 36)
+CargoPlaneYes.MouseButton1Click:Connect(function()
+	CargoPlaneOff.Visible = true
+	CargoPlaneYes.Visible = false
+
+end)
+AirdropsYes.Name = "AirdropsYes"
+AirdropsYes.Parent = StoreSelectorTab
+AirdropsYes.BackgroundTransparency = 1.000
+AirdropsYes.Position = UDim2.new(0.690999985, 0, 0.523999989, 0)
+AirdropsYes.Size = UDim2.new(0, 48, 0, 36)
+AirdropsYes.Visible = false
+AirdropsYes.ZIndex = 2
+AirdropsYes.Image = "rbxassetid://3926305904"
+AirdropsYes.ImageRectOffset = Vector2.new(284, 924)
+AirdropsYes.ImageRectSize = Vector2.new(36, 36)
+AirdropsYes.MouseButton1Click:Connect(function()
+	Airdropsoff.Visible = true
+	AirdropsYes.Visible = false
+
+end)
+JewelryYes.Name = "JewelryYes"
+JewelryYes.Parent = StoreSelectorTab
+JewelryYes.BackgroundTransparency = 1.000
+JewelryYes.Position  = UDim2.new(0.190521777, 0, 0.289361209, 0)
+JewelryYes.Size = UDim2.new(0, 48, 0, 36)
+JewelryYes.Visible = false
+JewelryYes.ZIndex = 2
+JewelryYes.Image = "rbxassetid://3926305904"
+JewelryYes.ImageRectOffset = Vector2.new(284, 924)
+JewelryYes.ImageRectSize = Vector2.new(36, 36)
+JewelryYes.MouseButton1Click:Connect(function()
+	JewelryYes.Visible = false
+	JewelryOff.Visible = true
+
+end)
+DevProtectTab.Name = "DevProtectTab"
+DevProtectTab.Parent = MainTab
+DevProtectTab.Active = true
+DevProtectTab.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+DevProtectTab.BackgroundTransparency = 0.070
+DevProtectTab.BorderColor3 = Color3.fromRGB(0, 255, 255)
+DevProtectTab.Position = UDim2.new(1.02783167, 0, 0.00791858509, 0)
+DevProtectTab.Size = UDim2.new(0, 374, 0, 252)
+DevProtectTab.Visible = false
+DevProtectTab.Draggable = true
+
+TextBox_3.Parent = DevProtectTab
+TextBox_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox_3.BorderSizePixel = 0
+TextBox_3.Selectable = false
+TextBox_3.Size = UDim2.new(0, 373, 0, 38)
+TextBox_3.ClearTextOnFocus = false
+TextBox_3.Font = Enum.Font.FredokaOne
+TextBox_3.MultiLine = true
+TextBox_3.Text = "Protections"
+TextBox_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_3.TextSize = 25.000
+TextBox_3.TextWrapped = true
+
+warning_2.Name = "warning"
+warning_2.Parent = DevProtectTab
+warning_2.BackgroundTransparency = 1.000
+warning_2.Position = UDim2.new(0.395721912, 0, 0.440476179, 0)
+warning_2.Size = UDim2.new(0, 75, 0, 54)
+warning_2.Visible = false
+warning_2.ZIndex = 2
+warning_2.Image = "rbxassetid://3926305904"
+warning_2.ImageColor3 = Color3.fromRGB(255, 0, 0)
+warning_2.ImageRectOffset = Vector2.new(364, 324)
+warning_2.ImageRectSize = Vector2.new(36, 36)
+
+ProtectionsClose.Name = "ProtectionsClose"
+ProtectionsClose.Parent = DevProtectTab
+ProtectionsClose.BackgroundTransparency = 1.000
+ProtectionsClose.Position = UDim2.new(0.901069522, 0, 0.0119047621, 0)
+ProtectionsClose.Size = UDim2.new(0, 37, 0, 32)
+ProtectionsClose.ZIndex = 2
+ProtectionsClose.Image = "rbxassetid://3926305904"
+ProtectionsClose.ImageRectOffset = Vector2.new(4, 4)
+ProtectionsClose.ImageRectSize = Vector2.new(24, 24)
+ProtectionsClose.MouseButton1Click:Connect(function()
+	DevProtectTab.Visible = false
+
+end)
+Support_2.Name = "Support"
+Support_2.Parent = DevProtectTab
+Support_2.BackgroundTransparency = 1.000
+Support_2.Position = UDim2.new(0.804812849, 0, 0.027777778, 0)
+Support_2.Size = UDim2.new(0, 25, 0, 25)
+Support_2.ZIndex = 2
+Support_2.Image = "rbxassetid://3926307971"
+Support_2.ImageRectOffset = Vector2.new(964, 4)
+Support_2.ImageRectSize = Vector2.new(36, 36)
+Support_2.MouseButton1Click:Connect(function()
+	print'coming soon!'
+
+end)
+TextLabel_4.Parent = DevProtectTab
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0.0187165774, 0, 0.190476194, 0)
+TextLabel_4.Size = UDim2.new(0, 177, 0, 38)
+TextLabel_4.Font = Enum.Font.LuckiestGuy
+TextLabel_4.Text = "Dev Protect"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextSize = 25.000
+
+AntiKickLabel_2.Name = "AntiKickLabel"
+AntiKickLabel_2.Parent = DevProtectTab
+AntiKickLabel_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+AntiKickLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiKickLabel_2.BorderSizePixel = 0
+AntiKickLabel_2.Position = UDim2.new(0.526737988, 0, 0.190476194, 0)
+AntiKickLabel_2.Size = UDim2.new(0, 177, 0, 38)
+AntiKickLabel_2.Font = Enum.Font.LuckiestGuy
+AntiKickLabel_2.Text = "Anti kick"
+AntiKickLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+AntiKickLabel_2.TextSize = 25.000
+
+AintiKickYes.Name = "AntiKickYes"
+AintiKickYes.Parent = DevProtectTab
+AintiKickYes.BackgroundTransparency = 1.000
+AintiKickYes.Position = UDim2.new(0.696953118, 0, 0.338472754, 0)
+AintiKickYes.Size = UDim2.new(0, 48, 0, 36)
+AintiKickYes.Visible = false
+AintiKickYes.ZIndex = 2
+AintiKickYes.Image = "rbxassetid://3926305904"
+AintiKickYes.ImageRectOffset = Vector2.new(284, 924)
+AintiKickYes.ImageRectSize = Vector2.new(36, 36)
+AintiKickYes.MouseButton1Click:Connect(function()
+	AintiKickYes.Visible = false
+	AntiKickno.Visible = true
+
+end)
+DevProtectNo.Name = "Dev{ProtectNo"
+DevProtectNo.Parent = DevProtectTab
+DevProtectNo.BackgroundTransparency = 1.000
+DevProtectNo.Position = UDim2.new(0.190521732, 0, 0.340948433, 0)
+DevProtectNo.Size = UDim2.new(0, 48, 0, 36)
+DevProtectNo.ZIndex = 2
+DevProtectNo.Image = "rbxassetid://3926305904"
+DevProtectNo.ImageRectOffset = Vector2.new(4, 4)
+DevProtectNo.ImageRectSize = Vector2.new(24, 24)
+DevProtectNo.MouseButton1Click:Connect(function()
+	DevProtectNo.Visible = true
+	DevProtectYes.Visible = false
+
+end)
+AntiKickno.Name = "AntiKickno"
+AntiKickno.Parent = DevProtectTab
+AntiKickno.BackgroundTransparency = 1.000
+AntiKickno.Position = UDim2.new(0.698543131, 0, 0.336980194, 0)
+AntiKickno.Size = UDim2.new(0, 48, 0, 36)
+AntiKickno.ZIndex = 2
+AntiKickno.Image = "rbxassetid://3926305904"
+AntiKickno.ImageRectOffset = Vector2.new(4, 4)
+AntiKickno.ImageRectSize = Vector2.new(24, 24)
+AntiKickno.MouseButton1Click:Connect(function()
+	AntiKickno.Visible = false
+	AintiKickYes.Visible = true
+
+end)
+DevProtectYes.Name = "DevProtectYes"
+DevProtectYes.Parent = DevProtectTab
+DevProtectYes.BackgroundTransparency = 1.000
+DevProtectYes.Position = UDim2.new(0.188931718, 0, 0.338472754, 0)
+DevProtectYes.Size = UDim2.new(0, 48, 0, 36)
+DevProtectYes.Visible = false
+DevProtectYes.ZIndex = 2
+DevProtectYes.Image = "rbxassetid://3926305904"
+DevProtectYes.ImageRectOffset = Vector2.new(284, 924)
+DevProtectYes.ImageRectSize = Vector2.new(36, 36)
+AntiKickno.MouseButton1Click:Connect(function()
+	AntiKickno.Visible = false
+	AintiKickYes.Visible = true
+
+end)
+OptionsBar.Name = "OptionsBar"
+OptionsBar.Parent = MainTab
+OptionsBar.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+OptionsBar.BorderColor3 = Color3.fromRGB(0, 255, 255)
+OptionsBar.Position = UDim2.new(-0.0267379675, 0, 0, 0)
+OptionsBar.Selectable = true
+OptionsBar.Size = UDim2.new(0, -120, 0, 251)
+OptionsBar.Draggable = true
+
+JewlLabel.Name = "JewlLabel"
+JewlLabel.Parent = OptionsBar
+JewlLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+JewlLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+JewlLabel.BorderSizePixel = 0
+JewlLabel.Position = UDim2.new(0.0849056616, 0, 0.25, 0)
+JewlLabel.Size = UDim2.new(0, 96, 0, 27)
+JewlLabel.Font = Enum.Font.LuckiestGuy
+JewlLabel.Text = "Jewelry"
+JewlLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+JewlLabel.TextSize = 25.000
+local runService = game:GetService("RunService")
+runService.Heartbeat:Connect(function()
+
+	if indicator.Transparency == 0.8999999761581421 then
+		JewlLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
+		-- Yield the coroutine
+	elseif indicator.Transparency == 0 then
+		JewlLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
+		task.wait(3)
+	end	
+end)
+MuseumLabel.Name = "MuseumLabel"
+MuseumLabel.Parent = OptionsBar
+MuseumLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+MuseumLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MuseumLabel.BorderSizePixel = 0
+MuseumLabel.Position = UDim2.new(0.0754716992, 0, 0.428571433, 0)
+MuseumLabel.Size = UDim2.new(0, 96, 0, 27)
+MuseumLabel.Font = Enum.Font.LuckiestGuy
+MuseumLabel.Text = "Museum"
+MuseumLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+MuseumLabel.TextSize = 20.000
+local runService = game:GetService("RunService")
+runService.Heartbeat:Connect(function()
+	if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
+		MuseumLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
+		-- Yield the coroutine
+	elseif  RoofHolePart.Hole.RoofPart.Transparency == 0 then 
+
+		MuseumLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
+		task.wait(3)
+	end
+end)
+BankLabel_2.Name = "BankLabel"
+BankLabel_2.Parent = OptionsBar
+BankLabel_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+BankLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BankLabel_2.BorderSizePixel = 0
+BankLabel_2.Position = UDim2.new(0.0754716992, 0, 0.547619045, 0)
+BankLabel_2.Size = UDim2.new(0, 96, 0, 27)
+BankLabel_2.Font = Enum.Font.LuckiestGuy
+BankLabel_2.Text = "Bank"
+BankLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+BankLabel_2.TextSize = 20.000
+local runService = game:GetService("RunService")
+runService.Heartbeat:Connect(function()
+
+	if bank2.Transparency == 0.8999999761581421 then
+		BankLabel_2.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
+		-- Yield the coroutine
+
+	elseif bank2.Transparency == 0 then
+		BankLabel_2.TextColor3 = Color3.new(1, 0, 0) -- set to closed
+		task.wait(3)
+	end
+end)
+CasinoLabel.Name = "Airdrops"
+CasinoLabel.Parent = OptionsBar
+CasinoLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+CasinoLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CasinoLabel.BorderSizePixel = 0
+CasinoLabel.Position = UDim2.new(0.0754716992, 0, 0.65476191, 0)
+CasinoLabel.Size = UDim2.new(0, 96, 0, 27)
+CasinoLabel.Font = Enum.Font.LuckiestGuy
+CasinoLabel.Text = "Airdrops"
+CasinoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+CasinoLabel.TextSize = 20.000
+local runService = game:GetService("RunService")
+runService.Heartbeat:Connect(function()
+	workspace.ChildAdded:connect(function(v)
+
+		if v.Name == "Drop" and v:IsA("Model") then 
+
+			CasinoLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
+		else
+			CasinoLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
+		end
+		task.wait(3)
+	end)
+end)
+PastLogs.Name = "PastLogs"
+PastLogs.Parent = MainTab
+PastLogs.Active = true
+PastLogs.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+PastLogs.BackgroundTransparency = 0.070
+PastLogs.BorderColor3 = Color3.fromRGB(0, 255, 255)
+PastLogs.Position = UDim2.new(1.0305171, 0, -1.79230228e-05, 0)
+PastLogs.Size = UDim2.new(0, 373, 0, 246)
+PastLogs.Draggable = true
+
+TextBox_4.Parent = PastLogs
+TextBox_4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox_4.BorderSizePixel = 0
+TextBox_4.Selectable = false
+TextBox_4.Size = UDim2.new(0, 373, 0, 38)
+TextBox_4.ClearTextOnFocus = false
+TextBox_4.Font = Enum.Font.Bangers
+TextBox_4.MultiLine = true
+TextBox_4.Text = "Logs"
+TextBox_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_4.TextSize = 35.000
+TextBox_4.TextWrapped = true
+
+warning_3.Name = "warning"
+warning_3.Parent = PastLogs
+warning_3.BackgroundTransparency = 1.000
+warning_3.Position = UDim2.new(0.395721912, 0, 0.440476179, 0)
+warning_3.Size = UDim2.new(0, 75, 0, 54)
+warning_3.Visible = false
+warning_3.ZIndex = 2
+warning_3.Image = "rbxassetid://3926305904"
+warning_3.ImageColor3 = Color3.fromRGB(255, 0, 0)
+warning_3.ImageRectOffset = Vector2.new(364, 324)
+warning_3.ImageRectSize = Vector2.new(36, 36)
+
+cancel.Name = "cancel"
+cancel.Parent = PastLogs
+cancel.BackgroundTransparency = 1.000
+cancel.Position = UDim2.new(0.901069522, 0, 0.0119047621, 0)
+cancel.Size = UDim2.new(0, 37, 0, 32)
+cancel.ZIndex = 2
+cancel.Image = "rbxassetid://3926305904"
+cancel.ImageRectOffset = Vector2.new(4, 4)
+cancel.ImageRectSize = Vector2.new(24, 24)
+cancel.MouseButton1Click:Connect(function()
+	PastLogs.Visible = false
+end)
+Support_3.Name = "Support"
+Support_3.Parent = PastLogs
+Support_3.BackgroundTransparency = 1.000
+Support_3.Position = UDim2.new(0.804812849, 0, 0.027777778, 0)
+Support_3.Size = UDim2.new(0, 25, 0, 25)
+Support_3.ZIndex = 2
+Support_3.Image = "rbxassetid://3926307971"
+Support_3.ImageRectOffset = Vector2.new(964, 4)
+Support_3.ImageRectSize = Vector2.new(36, 36)
+
+ScrollingFrame.Parent = PastLogs
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ScrollingFrame.BackgroundTransparency = 0.450
+ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(0, 0, 0.151374385, 0)
+ScrollingFrame.Size = UDim2.new(0, 373, 0, 208)
+
+TextLabel_5.Parent = ScrollingFrame
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Position = UDim2.new(0.00438541686, 0, 0.0113662295, 0)
+TextLabel_5.Size = UDim2.new(0, 365, 0, 38)
+TextLabel_5.Font = Enum.Font.Bangers
+TextLabel_5.Text = "Waiting for logs"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextSize = 20.000
+
+TextLabel_6.Parent = ScrollingFrame
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_6.BorderSizePixel = 0
+TextLabel_6.Position = UDim2.new(0.0285140537, 0, 0.0268855467, 0)
+TextLabel_6.Size = UDim2.new(0, 356, 0, 38)
+TextLabel_6.Font = Enum.Font.Bangers
+TextLabel_6.Text = "Waiting for logs"
+TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.TextSize = 20.000
+
+
+TextLabel_7.Parent = MainTab
+TextLabel_7.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_7.BackgroundTransparency = 1.000
+TextLabel_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_7.BorderSizePixel = 0
+TextLabel_7.Position = UDim2.new(-0.344919801, 0, 0.00793650839, 0)
+TextLabel_7.Size = UDim2.new(0, 119, 0, 28)
+TextLabel_7.Font = Enum.Font.Bangers
+TextLabel_7.Text = "status"
+TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.TextSize = 30.000
+
+shopping_basket.Name = "shopping_basket"
+shopping_basket.Parent = MainTab
+shopping_basket.BackgroundTransparency = 1.000
+shopping_basket.Position = UDim2.new(0.0267647319, 0, 0.00406350009, 0)
+shopping_basket.Size = UDim2.new(0, 25, 0, 25)
+shopping_basket.ZIndex = 2
+shopping_basket.Image = "rbxassetid://3926307971"
+shopping_basket.ImageRectOffset = Vector2.new(924, 204)
+shopping_basket.ImageRectSize = Vector2.new(36, 36)
+shopping_basket.MouseButton1Click:Connect(function()
+	StoreSelectorTab.Visible = true
 end)
 
+function antiafk()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+
+end
+
+function Baseplate()
+	local baseplate = Instance.new("Part")
+	baseplate.Parent = workspace
+	baseplate.Size = Vector3.new(100,5,100) -- change size
+	baseplate.Anchored = true
+	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
+	wait(1)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
+
+end
+
+function BSD()
+	baseplate:Destroy()
+end
+function fireworks()
+	for i, v in pairs(getgc()) do
+		if typeof(v) == "function" then
+			for i2, v2 in pairs(debug.getupvalues(v)) do
+				if typeof(v2) == "table" and rawget(v2, "Fireworks") then
+					v2.Fireworks(math.huge)
+				end
+			end
+		end
+	end
+
+end
 
 
-
-
-local global = {
-	version = "";
-}
-local env = getrenv()
-env.workspace = game:GetService("Workspace")
-env.repl = game:GetService("ReplicatedStorage")
-env.players = game:GetService("Players")
-env.httpservice = game:GetService("HttpService")
-env.runservice = game:GetService("RunService")
-env.uis = game:GetService("UserInputService")
-env.lighting = game:GetService("Lighting")
-env.teleportservice = game:GetService("TeleportService")
-env.tweenservice = game:GetService("TweenService")
-env.collectionservice = game:GetService("CollectionService")
-env.teams = game:GetService("Teams")
-env.global = global
+function DAL()
+	for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+		if v.Name:match("Lasers") then
+			v:Destroy()
+		end
+	end
+wait(1)
+	for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+		if v.Name:match("LaserFloors") then
+			v:Destroy()
+		end
+	end
+end
