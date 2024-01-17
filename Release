@@ -3,7 +3,7 @@
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-	Name = "Explosive Menu Tester V1",
+	Name = "Explosive Menu Tester V2",
 	StartupSound = {
 		Toggle = true,
 		SoundID = "rbxassetid://6958727243", -- Win 11 Startup Sound
@@ -64,13 +64,13 @@ option:Toggle("TEST", function(T)
 			local theft = get_rob(rob)
 			local getRobberyStatus = global.registry.getRobberyStatus
 			local status = getRobberyStatus("STORE_DONUT")
-			
+
 
 			if status == "OPENED"then
-			
+
 				return true
-		
-				
+
+
 			elseif status == "STARTED" then
 				return false
 			end
