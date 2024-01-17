@@ -20,7 +20,7 @@ local shopping_basket = Instance.new("ImageButton")
 --Properties:
 
 TeslaHubReborn.Name = "TeslaHubReborn"
-TeslaHubReborn.Parent = game.StarterGui.ScreenGui
+TeslaHubReborn.Parent = game.CoreGui
 TeslaHubReborn.Active = true
 TeslaHubReborn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 TeslaHubReborn.BackgroundTransparency = 0.070
