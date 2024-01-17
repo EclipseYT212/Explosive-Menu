@@ -83,6 +83,177 @@ option:Toggle("TEST", function(T)
 		end
 end)
 
+option:Toggle("TEST2",function(A)
+	local function mansionCorrection()
+	local function autoentry()
+		local mansionRobbery = workspace.MansionRobbery
+		local function hasMansioninvite()
+			return global.registry.hasMansioninvite()
+		end
+		local getPartsInRegion = global.registry.getPartsInRegion
+		local function isInMansion()
+			local char = client.playerCharacter
+			if char then
+				local primarypart = char.PrimaryPart
+				if primarypart then
+					local tbl = {
+						x = {
+							max = 3225;
+							min = 3103;
+						};
+						y = {
+							max = 104;
+							min = 56;
+						};
+						z = {
+							max = -4520;
+							min = -4691;
+						};
+					}
+					local pos = {
+						x = primarypart.Position.x;
+						y = primarypart.Position.y;
+						z = primarypart.Position.z;
+					}
+					local getPartsInRegion = getPartsInRegion(pos.x, pos.y, pos.z, tbl.x.min, tbl.y.min, tbl.z.min, tbl.x.max, tbl.y.max, tbl.z.max)
+					if getPartsInRegion then
+						return true
+					end
+				end
+			end
+			return false
+		end
+		local utils = client.modules.mansionRobberyUtils
+		local function getNumPlayersInElevator()
+			return utils.getNumPlayersInElevator(mansionRobbery)
+		end
+		local function isPlayerInElevator(player)
+			return utils.isPlayerInElevator(mansionRobbery, player)
+		end
+		local function loop()
+			local bool = global.ui_status.automatic_elevator_entry
+			if bool then
+				if not global.ui_status.allow_on_police_team and tostring(player.Team) == "Police" then
+					return false
+				end
+				if not hasMansioninvite() then
+					return false
+				end
+				local char = client.playerCharacter
+				if not char then
+					return false
+				end
+				local primarypart = char.PrimaryPart
+				if not primarypart then
+					return false
+				end
+				if not isInMansion() then
+					return false
+				end
+				local status = getMansionStatus()
+				if status then
+					local getNumPlayersInElevator = getNumPlayersInElevator()
+					if getNumPlayersInElevator < 3 then
+						local isPlayerInElevator = isPlayerInElevator(player)
+						if not isPlayerInElevator then
+							firetouchinterest(mansionRobbery.Lobby.EntranceElevator.TouchToEnter, primarypart, 0)
+							firetouchinterest(mansionRobbery.Lobby.EntranceElevator.TouchToEnter, primarypart, 1)
+						end
+					end
+				end
+			end
+		end
+		createloop(0, loop)
+	end
+	autoentry()
+	local function status()
+		local function loop()
+			if global.ui.statusRobberies["Mansion Status"] then
+				local getMansionStatus = getMansionStatus()
+				if getMansionStatus == 0 then
+					global.ui.statusRobberies["Mansion Status"] = ("Status: %s"):format("Started")
+					global.ui.colorForcing["Mansion Status"] = Color3.fromRGB(255, 178, 102)
+					return true
+				end
+				if getMansionStatus then
+					global.ui.statusRobberies["Mansion Status"] = ("Status: %s"):format("Open")
+					global.ui.colorForcing["Mansion Status"] = Color3.fromRGB(178, 255, 104)
+					return true
+				end
+				global.ui.statusRobberies["Mansion Status"] = ("Status: %s"):format("Closed")
+				global.ui.colorForcing["Mansion Status"] = Color3.fromRGB(255, 102, 102)
+			end
+		end
+		createloop(0, loop)
+	end
+	status()
+	local function noTraps(bool)
+		local function laserTraps(bool)
+			if workspace.MansionRobbery.InRobberyFolder:FindFirstChild(player.UserId) then
+				for i,v in next, workspace.MansionRobbery.LaserTraps:GetDescendants() do
+					if v:IsA("BasePart") and v.CanTouch ~= not bool then
+						v.CanTouch = not bool
+					end
+				end
+			end
+		end
+		local function loop()
+			local bool = global.ui_status.disable_traps
+			laserTraps(bool)
+		end
+		createloop(0, loop)
+	end
+	noTraps()
+	local function noRagdoll()
+		local module = client.modules.falling.StartRagdolling
+		local function hook(...)
+			local bool = global.ui_status.anti_boss_ragdoll
+			if string.find(debug.traceback(), "BossNPCBinder") then
+				return not bool
+			end
+			return module(...)
+		end
+		client.modules.falling.StartRagdolling = hook
+	end
+	noRagdoll()
+	local function noDamage()
+		local playLaserSweepVisual = client.modules.bossNpcBinder._constructor.PlayLaserSweepVisual
+		local playArmGrab = client.modules.bossNpcBinder._constructor.PlayArmGrab
+		local function hookLaserSweep(...)
+			local bool = global.ui_status.anti_boss_attack
+			if bool then
+				return false
+			end
+			return playLaserSweepVisual(...)
+		end
+		local function hookArmGrab(...)
+			local bool = global.ui_status.anti_boss_attack
+			if bool then
+				return false
+			end
+			return playArmGrab(...)
+		end
+		client.modules.bossNpcBinder._constructor.PlayLaserSweepVisual = hookLaserSweep
+		client.modules.bossNpcBinder._constructor.PlayArmGrab = hookArmGrab
+	end
+	noDamage()
+	local function lasers()
+		local function loop()
+			if workspace.MansionRobbery.InRobberyFolder:FindFirstChild(player.UserId) then
+				for i,v in next, workspace.MansionRobbery.Lasers:GetDescendants() do
+					if v:IsA("BasePart") then
+						v.CanTouch = not global.ui_status.disable_lasers
+					end
+				end
+			end
+		end
+		createloop(0, loop)
+	end
+	lasers()
+end
+mansionCorrection()
+	
+end)
 	
 option:Toggle("Hyper Mode", function(T)
 	-- Gui to Lua
