@@ -14,7 +14,7 @@ local Run = Instance.new("TextButton")
 
 --Properties:
 
-Frame.Parent = game.StarterGui.ScreenGui
+Frame.Parent = game.CoreGui
 Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
