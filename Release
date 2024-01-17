@@ -114,6 +114,7 @@ Run.TextSize = 20.000
 Run.TextWrapped = true
 Run.MouseButton1Click:Connect(function()
 	powerplant()
+	casino()
 end)
 
 
@@ -139,6 +140,57 @@ local function powerplant()
 	config.disable_powerwire_damage = disable_powerwire_damage
 end
 powerplant()
+
+local function casino()
+	function callback.auto_crack_vault(bool)
+		global.ui_status.auto_crack_vault = bool
+	end
+	function callback.auto_collect_cash(bool)
+		global.ui_status.auto_collect_cash = bool
+	end
+	function callback.auto_open_door(bool)
+		global.ui_status.auto_open_door = bool
+	end
+	function callback.auto_open_keycode_door(bool)
+		global.ui_status.auto_open_keycode_door = bool
+	end
+	function callback.break_elevator(bool)
+		global.ui_status.break_elevator = bool
+	end
+	function callback.hack_nearby_computers(bool)
+		global.ui_status.hack_nearby_computers = bool
+	end
+	function callback.reveal_casino_keycode()
+		local getKeycode = global.registry.getKeycode
+		if getKeycode then
+			local keycode = getKeycode()
+			if keycode ~= "" then
+				global.notify(keycode, 10)
+			end
+		end
+	end
+	function callback.call_elevator_to_floor(cb)
+		local call_elevator_to_floor = global.registry.call_elevator_to_floor
+		if call_elevator_to_floor then
+			call_elevator_to_floor(cb)
+		end
+	end
+	local status = label("Casino", "Casino Status", Color3.fromRGB(0, 0, 0))
+	local auto_crack_vault = toggle("Casino", "Automatic Crack Vault", callback.auto_crack_vault)
+	local auto_collect_cash = toggle("Casino", "Automatic Collect Loot", callback.auto_collect_cash)
+	local auto_open_door = toggle("Casino", "Automatic Open Door", callback.auto_open_door)
+	local break_elevator = toggle("Casino", "Break Elevator", callback.break_elevator)
+	local hack_nearby_computers = toggle("Casino", "Hack Nearby Computers", callback.hack_nearby_computers)
+	local reveal_casino_keycode = button("Casino", "Reveal Keycode", callback.reveal_casino_keycode)
+	local call_elevator_to_floor = dropdown("Casino", "Call Elevator To Floor", {"The Roof", "Security", "Ground", "Vaults"}, callback.call_elevator_to_floor)
+	config.auto_crack_vault = auto_crack_vault
+	config.auto_collect_cash = auto_collect_cash
+	config.auto_open_door = auto_open_door
+	config.break_elevator = break_elevator
+	config.hack_nearby_computers = hack_nearby_computers
+	config.reveal_casino_keycode = reveal_casino_keycode
+end
+
 
 global.ui_status = {}
 global.config = {}
