@@ -41,7 +41,7 @@ if coregui:FindFirstChild("icetray_key") then
     return false
 end
 
-local shouldContinue = true
+local shouldContinue = false
 
 local function getRequest(url)
     return request({
@@ -86,7 +86,7 @@ local function validate(key)
     if not key then
         while true do end
     end
-    local newKey = "KEY"
+    local newKey = ""
     for i=1, key:len() do
         local byte = key:byte(i)
         if byte then
@@ -121,7 +121,7 @@ local function onKeySubmit()
     if validation then
         gui:Destroy()
     else
-        IceTrayLib.Visible = true
+        return notify("Invalid key", 10)
     end
 end
 
@@ -1898,7 +1898,7 @@ local function loadup()
                         local getKeycode = global.registry.getKeycode
                         if getKeycode then
                             local keycode = getKeycode()
-                            if keycode ~= "key" then
+                            if keycode ~= "" then
                                 global.notify(keycode, 10)
                             end
                         end
