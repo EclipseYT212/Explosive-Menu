@@ -3,7 +3,7 @@
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-	Name = "Explosive Menu",
+	Name = "Explosive Menu Aplha Build",
 	StartupSound = {
 		Toggle = true,
 		SoundID = "rbxassetid://6958727243", -- Win 11 Startup Sound
@@ -96,10 +96,10 @@ option:Toggle("Plane & airdrop farm", function(T)
 	Start.Image = "rbxassetid://3926305904"
 	Start.ImageRectOffset = Vector2.new(844, 804)
 	Start.ImageRectSize = Vector2.new(36, 36)
-	Start.MouseButton1Click:Connect(function(T)
+	Start.MouseButton1Click:Connect(function()
 		Baseplate()
 		TextBox.Text = "Waiting for Drops or Plane!"
-		_G.Farmer = true
+	
 		while wait(2)  do 
 
 
