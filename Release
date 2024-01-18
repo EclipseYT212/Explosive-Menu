@@ -21,7 +21,7 @@ local maintab = win:Tab('Main')
 local StatusTab = win:Tab('Status')
 local Logtab = win:Tab("Log")
 local option = win:Tab("Settings")
-local lp = game:GetService("Players").LocalPlayer
+
 
 
 
@@ -46,7 +46,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 	local UICorner = Instance.new("UICorner")
 	local TextLabel = Instance.new("TextLabel")
 	local UICorner_2 = Instance.new("UICorner")
-
+local lp = game:GetService("Players").LocalPlayer
 	--Properties:
 
 	AirdropFarmer.Name = "AirdropFarmer"
@@ -484,7 +484,7 @@ option:Toggle("Hyper Mode", function(T)
 		local player = game.Players.LocalPlayer
 		local Museum = game.Workspace.Museum
 		local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
-
+local lp = game:GetService("Players").LocalPlayer
 		local cargotrain =  game:GetService("Workspace").Trains
 		local RoofHolePart = Museum:FindFirstChild("Roof")
 		local RoofHoleOpen = false
