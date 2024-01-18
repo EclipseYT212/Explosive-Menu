@@ -1,36 +1,194 @@
-local library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
-local Wait = library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while Wait() do' loops
-local Museum = game.Workspace.Museum
-local RoofHolePart = Museum:FindFirstChild("Roof")
-local ind = workspace.Jewelrys:FindFirstChild('Sign', true)
-local indicator = ind.Decal
-local PepsisWorld = library:CreateWindow({
+-- Gui to Lua
+-- Version: 3.2
 
-	Name = "Pepsi's World",
-	Themeable = {
-		Info = "Discord Server: VzYTJ7Y"
-	}
-})
+-- Instances:
 
-local GeneralTab = PepsisWorld:CreateTab({
-	Name = "General"
-})
-local FarmingSection = GeneralTab:CreateSection({
-	Name = "Farming"
-})
-FarmingSection:AddToggle({
-	Name = "Enable",
-	Flag = "Enable_Farm",
+local ScreenGui = Instance.new("ScreenGui")
+local ExplosiveMenu = Instance.new("Frame")
+local MoneyInfo = Instance.new("ImageButton")
+local Locations = Instance.new("ImageButton")
+local Snooze = Instance.new("ImageButton")
+local TextLabel = Instance.new("TextLabel")
+local Run = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+local DropFarm = Instance.new("ImageButton")
+local ExplosiveMenuDropFarm = Instance.new("Frame")
+local MoneyInfo_2 = Instance.new("ImageButton")
+local Snooze_2 = Instance.new("ImageButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local Run_2 = Instance.new("TextButton")
+local TextBox_2 = Instance.new("TextBox")
+local ExplosiveMenuMoney = Instance.new("Frame")
+local MoneyInfo_3 = Instance.new("ImageButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local Return = Instance.new("TextButton")
+local TextBox_3 = Instance.new("TextBox")
+local RunTimeInfo = Instance.new("ImageButton")
+local TextBox_4 = Instance.new("TextBox")
+local ExplosiveMenuLocations = Instance.new("Frame")
+local TextLabel_4 = Instance.new("TextLabel")
+local Return_2 = Instance.new("TextButton")
+local BankOff = Instance.new("ImageButton")
+local CargoShipOn = Instance.new("ImageButton")
+local DonutShopOn = Instance.new("ImageButton")
+local BankTruckOn = Instance.new("ImageButton")
+local GasStationOn = Instance.new("ImageButton")
+local JewelryStoreOn = Instance.new("ImageButton")
+local CargoPlaneOn = Instance.new("ImageButton")
+local MuseumOn = Instance.new("ImageButton")
+local CargoPlaneOff = Instance.new("ImageButton")
+local MuseumOff = Instance.new("ImageButton")
+local DonutShopOff = Instance.new("ImageButton")
+local BankTruckOff = Instance.new("ImageButton")
+local GasStationOff = Instance.new("ImageButton")
+local CargoShipOff = Instance.new("ImageButton")
+local JewelryStoreOff = Instance.new("ImageButton")
+local BankOn = Instance.new("ImageButton")
+local ExplosiveMenuDropFarmMoney = Instance.new("Frame")
+local MoneyInfo_4 = Instance.new("ImageButton")
+local TextLabel_5 = Instance.new("TextLabel")
+local Return_3 = Instance.new("TextButton")
+local TextBox_5 = Instance.new("TextBox")
+local RunTimeInfo_2 = Instance.new("ImageButton")
+local TextBox_6 = Instance.new("TextBox")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local character = player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+--Properties:
 
-	Callback = function(T)
-		if _G.Jewl == true then 
-
-			if indicator.Transparency == 0.8999999761581421 then
-
-				getgenv().AutoDoorOpen = true 
+ScreenGui.Parent = game.CoreGui
 
 
-				if getgenv().AutoDoorOpen == true then 
+ExplosiveMenu.Name = "Explosive Menu"
+ExplosiveMenu.Parent = ScreenGui
+ExplosiveMenu.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenu.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenu.Position = UDim2.new(0.0659340695, 0, 0.328571439, 0)
+ExplosiveMenu.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenu.Active = true 
+ExplosiveMenu.Draggable = true
+
+MoneyInfo.Name = "Money Info"
+MoneyInfo.Parent = ExplosiveMenu
+MoneyInfo.BackgroundTransparency = 1.000
+MoneyInfo.Position = UDim2.new(0, 0, 0.673652709, 0)
+MoneyInfo.Size = UDim2.new(0, 25, 0, 25)
+MoneyInfo.ZIndex = 2
+MoneyInfo.Image = "rbxassetid://3926307971"
+MoneyInfo.ImageRectOffset = Vector2.new(964, 484)
+MoneyInfo.ImageRectSize = Vector2.new(36, 36)
+MoneyInfo.MouseButton1Click:Connect(function()
+	ExplosiveMenuMoney.Visible = true
+end)
+Locations.Name = "Locations"
+Locations.Parent = ExplosiveMenu
+Locations.BackgroundTransparency = 1.000
+Locations.Position = UDim2.new(0, 0, 0.523952067, 0)
+Locations.Size = UDim2.new(0, 25, 0, 25)
+Locations.ZIndex = 2
+Locations.Image = "rbxassetid://3926307971"
+Locations.ImageRectOffset = Vector2.new(804, 364)
+Locations.ImageRectSize = Vector2.new(36, 36)
+Locations.MouseButton1Click:Connect(function()
+	ExplosiveMenuLocations.Visible = true
+end)
+Snooze.Name = "Snooze"
+Snooze.Parent = ExplosiveMenu
+Snooze.BackgroundTransparency = 1.000
+Snooze.Position = UDim2.new(0, 0, 0.374251485, 0)
+Snooze.Size = UDim2.new(0, 25, 0, 25)
+Snooze.ZIndex = 2
+Snooze.Image = "rbxassetid://3926307971"
+Snooze.ImageRectOffset = Vector2.new(684, 244)
+Snooze.ImageRectSize = Vector2.new(36, 36)
+Snooze.MouseButton1Click:Connect(function(T)
+	_G.Snooze = T
+	if _G.Snooze == true then 
+		return
+			true
+	else 
+		if _G.Snooze == nil then 
+			return
+				false
+
+		end
+	end
+end)
+TextLabel.Parent = ExplosiveMenu
+TextLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel.Size = UDim2.new(0, 252, 0, 24)
+TextLabel.Font = Enum.Font.SciFi
+TextLabel.Text = "Explosive Menu"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+Run.Name = "Run"
+Run.Parent = ExplosiveMenu
+Run.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Run.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Run.Position = UDim2.new(0, 0, 0.826347291, 0)
+Run.Size = UDim2.new(0, 252, 0, 29)
+Run.Font = Enum.Font.SciFi
+Run.Text = "Run"
+Run.TextColor3 = Color3.fromRGB(255, 255, 255)
+Run.TextScaled = true
+Run.TextSize = 14.000
+Run.TextWrapped = true
+Run.MouseButton1Click:Connect(function()
+	if _G.Snooze == true then 
+		local Robberys = {
+			['1'] = 'Bank',
+			['2'] = 'Power Plant',
+			['3'] = 'Passenger Train',
+			['4'] = 'Cargo Train',
+			['5'] = 'Cargo Ship',
+			['6'] = 'Cargo Plane',
+			['7'] = 'Store_Gas',
+			['8'] = 'Store_Donut',
+			['9'] = 'Money Truck',
+			['10'] = 'Home Vault',
+			['11'] = 'Tomb',
+			['12'] = 'Casino',
+			['13'] = 'Mansion'
+		}
+		function get_rob(name)
+			for i, v in pairs(Robberys) do
+				if v:lower() == name:lower() then
+					return i
+				end
+			end
+		end
+
+		function is_opened(rob)
+			local theft = get_rob(rob)
+
+			local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+			if State == nil then
+				return 'closed'
+			elseif State.Value == 1 then
+				return 'open'
+			elseif State.Value == 2 then
+				return 'stealing'
+			else
+				return 'closed'
+			end
+		end
+
+		local bankStatus = is_opened("Store_Donut")
+		if bankStatus == "open" or bankStatus == "closed" then
+			if BankOn.Visible == true then
+				print(is_opened("Store_Donut"))
+				wait(1) 
+
+				print("Going to Bank")
+				getgenv().NoKey = true 
+
+				if getgenv().NoKey == true then 
 
 					local plrUtils = game:GetService("ReplicatedStorage").Game.PlayerUtils
 					local oldHasKey = require(plrUtils).hasKey
@@ -39,203 +197,24 @@ FarmingSection:AddToggle({
 					end
 
 
-				else 
-					game.StarterGui:SetCore("SendNotification", {
-						Title = "Not Possible to go through the door without keys"; -- the title 
-						Text = "Explosive Menu"; -- what the text says 
-						Duration = 10; -- how long the notification should in secounds
-					})
-				end
 
-				if getgenv().AutoEscape == true 
-
-
-				then 
-					game.StarterGui:SetCore("SendNotification", {
-						Title = "Auto Escaping!!!"; -- the title 
-						Text = "Explosive Menu"; -- what the text says 
-						Duration = 10; -- how long the notification should in secounds
-					})
-					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-
-					teleport(CFrame.new(150, 18, 1373));
 
 				else
-					print'none' 
+					warn'no key'
 				end
 
-
+				local teleport = loadstring(game:HttpGet("https://github.com/EclipseYT212/test3/blob/main/tp"))();
+				teleport(CFrame.new(11.062485694885254, 18.563661575317383, 863.6871948242188));
+				wait(1)
 				game.StarterGui:SetCore("SendNotification", {
-					Title = "Robbing Jewelry Store!!"; -- the title 
-					Text = "Explosive Menu"; -- what the text says 
-					Duration = 10; -- how long the notification should in secounds
-				})
-				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-
-				teleport(CFrame.new(150, 18, 1373));
-
-
-				getgenv().Spam = true
-				getgenv().Delete = true
-
-
-
-				if getgenv().Delete == true then 
-
-
-
-					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-						if v.Name:match("TouchInterest") then
-							v:Destroy()
-						end
-					end
-
-				end
-				wait(2)
-				for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-					if v.Name:match("BarbedWire") then
-						v:Destroy()
-					end
-				end
-
-
-
-				wait(0.3)
-				game.StarterGui:SetCore("SendNotification", {
-					Title = "breaking glass!!"; -- the title 
-					Text = "Explosive Menu"; -- what the text says 
-					Duration = 10; -- how long the notification should in secounds
-				})
-
-
-				--breaking glass
-				local pos = Vector3.new(132.88629150390625, 18.563629150390625, 1345.051513671875) -- your pos here
-				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(0.3)
-				game.StarterGui:SetCore("SendNotification", {
-					Title = "Auto Robbing!!"; -- the title 
+					Title = "Going to Main door"; -- the title 
 					Text = "Explosive Menu"; -- what the text says 
 					Duration = 25; -- how long the notification should in secounds
 				})
 
 				--Teleport to inside
-				local pos = Vector3.new(129.39793395996094, 19.205472946166992, 1313.8697509765625) -- your pos here
-				local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(4)
-				-- YOU NEED TO SET IT UP BELOW
-				local pos = Vector3.new(131.88807678222656, 19.605478286743164, 1313.9010009765625) -- your pos here
-				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(4)
-				-- YOU NEED TO SET IT UP BELOW
-				local pos = Vector3.new(131.026611328125, 20.33732795715332, 1301.0643310546875) -- your pos here
-				local delay = 0.3-- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(5)
-				-- YOU NEED TO SET IT UP BELOW
-				local pos = Vector3.new(124.64414978027344, 19.41728973388672, 1281.71337890625) -- your pos here
-				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(5)
-				-- YOU NEED TO SET IT UP BELOW
-				local pos = Vector3.new(117.322021484375, 19.41727638244629, 1283.056640625) -- your pos here
-				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(5)
-				-- YOU NEED TO SET IT UP BELOW
-				local pos = Vector3.new(106.82585144042969, 19.41726303100586, 1284.8291015625) -- your pos here
-				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(5)
-				-- YOU NEED TO SET IT UP BELOW
-				local pos = Vector3.new(138.13356018066406, 19.011384963989258, 1279.7869873046875) -- your pos here
-				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+				local pos = Vector3.new(36.073097229003906, 18.635835647583008, 905.9580078125) -- your pos here
+				local delay = 1 -- tp tween speed like how many seconds takes to tp
 
 				-- do not edit below cuz breaks script
 
@@ -250,173 +229,34 @@ FarmingSection:AddToggle({
 					a:Play()
 				end
 
-				wait(5)
-				-- YOU NEED TO SET IT UP BELOW
-				local pos = Vector3.new(103.05908203125, 40.205467224121094, 1291.5516357421875) -- your pos here
-				local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(5)
-				-- YOU NEED TO SET IT UP BELOW
-				local pos = Vector3.new(131.97117614746094, 37.60548400878906, 1311.0272216796875) -- your pos here
-				local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-
-				print'do you want to teleport to the crim base?'
+				wait(1)
+				if getgenv().Delete == true then 
 
 
 
-				game.StarterGui:SetCore("SendNotification", {
-					Title = "Selling!!"; -- the title 
-					Text = "Explosive Menu"; -- what the text says 
-					Duration = 5; -- how long the notification should in secounds
-				})
-
-				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-				teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
-				print'Autorob V0.5 finished'
-
-			else
-				if indicator.Transparency == 0 then
-					print"Waiting for stores to open"
-				end
-			end 
+					for i,v in pairs(workspace.Banks:GetDescendants()) do
+						if v.Name:match("Lasers") then
+							v:Destroy()
+						end
+					end
 
 
-
-		else 
-			if _G.Jewl == false then 
-				print"Stopped"
-			end
-		end 
-
-		if _G.Museum == true then 
-			while true do
-				wait()
-				-- Check if the condition for your loop has been met
-				if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
+					for i,v in pairs(workspace.Banks:GetDescendants()) do
+						if v.Name:match("lasers") then
+							v:Destroy()
+						end
+					end
 
 
-
-
-
-					game.StarterGui:SetCore("SendNotification", {
-						Title = "Teleporting to the Museum"; -- the title 
-						Text = "Explosive Menu"; -- what the text says 
-						Duration = 10; -- how long the notification should in secounds
-					})
-
-					local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
-					teleport(CFrame.new(1080.36767578125, 139.4569854736328, 1321.6270751953125));
-
-
+					--Teleport to inside
 					wait(2)
-
-					game.StarterGui:SetCore("SendNotification", {
-						Title = "Robbing...."; -- the title 
-						Text = "Explosive Menu"; -- what the text says 
-						Duration = 10; -- how long the notification should in secounds
-					})
-					local VirtualInputManager = game:GetService('VirtualInputManager')
-
-					VirtualInputManager:SendKeyEvent(true,"E",false,game)
-					local pos = Vector3.new(1128.465087890625, 107.8069839477539, 1310.480224609375) -- your pos here
-					local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-					wait(5)
-					local VirtualInputManager = game:GetService('VirtualInputManager')
-
-					VirtualInputManager:SendKeyEvent(true,"E",false,game)
-					local pos = Vector3.new(1125.381591796875, 108.94673156738281, 1299.3876953125
-					) -- your pos here
-					local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-					wait(5)
-					local VirtualInputManager = game:GetService('VirtualInputManager')
-
-					VirtualInputManager:SendKeyEvent(true,"E",false,game)
-					local pos = Vector3.new(1125.381591796875, 108.94673156738281, 1299.3876953125
-					) -- your pos here
-					local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-					wait(5)
-
-
-					game.StarterGui:SetCore("SendNotification", {
-						Title = "Selling!!"; -- the title 
-						Text = "Explosive Menu"; -- what the text says 
-						Duration = 5; -- how long the notification should in secounds
-					})
-
-					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-					teleport(CFrame.new(2278.850830078125, 23.838319778442383, -2047.63232421875));
-					wait(5)
-					local pos = Vector3.new(2278.850830078125, 23.838319778442383, -2047.63232421875) -- your pos here
+					local pos = Vector3.new(40.11933898925781, 18.63584327697754, 921.849365234375) -- your pos here
 					local delay = 1 -- tp tween speed like how many seconds takes to tp
 
 					-- do not edit below cuz breaks script
 
 					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
 					local lp = game.Players.LocalPlayer
 
@@ -425,1243 +265,595 @@ FarmingSection:AddToggle({
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
+
+
 					wait(5)
+					local bankcheck = game:GetService("Workspace").Banks.Bank.Layout:FindFirstChild("Money")
 
-					local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
-					local delay = 3 -- tp tween speed like how many seconds takes to tp
 
-					-- do not edit below cuz breaks script
+					if bankcheck then 
+						local PathfindingService = game:GetService("PathfindingService")
+						local Players = game:GetService("Players")
+						local RunService = game:GetService("RunService")
 
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+						local path = PathfindingService:CreatePath()
 
-					local lp = game.Players.LocalPlayer
+						local player = Players.LocalPlayer
+						local character = player.Character
+						local humanoid = character:WaitForChild("Humanoid")
 
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
+						local TEST_DESTINATION = Vector3.new(bankcheck.Position)
+
+						local waypoints
+						local nextWaypointIndex
+						local reachedConnection
+						local blockedConnection
+
+						local function followPath(destination)
+							-- Compute the path
+							local success, errorMessage = pcall(function()
+								path:ComputeAsync(character.PrimaryPart.Position, destination)
+
+								humanoid.WalkSpeed = 40
+
+							end)
+						end
 					end
-					wait(3)
-					local pos = Vector3.new(2292.545654296875, 19.805152893066406, -2589.681396484375) -- your pos here
-					local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-					wait(3)
-					local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
-					local delay = 2 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-					wait(3)
-					local pos = Vector3.new(2279.58154296875, 19.21677017211914, -2067.020751953125) -- your pos here
-					local delay = 2 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-					print'Autorob V0.5 finished'
 
 
-					local VirtualInputManager = game:GetService('VirtualInputManager')
-
-					VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-
-				else 
-					if _G.Museum == false then 
-						if  RoofHolePart.Hole.RoofPart.Transparency == 0 then
-
-							print("Waiting for stores to open")
-						end 
-					end
 				end
+
+			else 
+				if BankOff.Visible == true then
+					print("Opted Out")
+				end
+
+
 			end
-		end 
-local casino = game.workspace.CasinoSign
-	if _G.Casino == true then 
-	while wait() do
-		
-			print(" open")
-			
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "Teleporting to the Casino"; -- the title 
-            Text = "Explosive Menu"; -- what the text says 
-            Duration = 10; -- how long the notification should in secounds
-        })
-        
-        local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-        teleport(CFrame.new(-249.948486328125, 23.976511001586914, -4661.296875))
-        wait(1)
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "Robbing...."; -- the title 
-            Text = "Explosive Menu"; -- what the text says 
-            Duration = 10; -- how long the notification should in secounds
-        })
 
--- YOU NEED TO SET IT UP BELOW
-		local pos = Vector3.new(-216.24740600585938, 19.81377410888672, -4682.09033203125) -- your pos here
-		local delay =6-- tp tween speed like how many seconds takes to tp
-local ed = EasingDirection
-ed = 1;
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-		wait(3)
-		
-local pos = Vector3.new(-180.63107299804688, 19.877317428588867, -4686.11767578125) -- your pos here
-        local delay = 5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        wait(5)
-        local pos = Vector3.new(-75.57755279541016, 19.103355407714844, -4719.4013671875) -- your pos here
-        local delay = 5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        wait(4)
-        local pos = Vector3.new(-57.25518035888672, 19.929697036743164, -4634.249511718755) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        wait(2)
-        local pos = Vector3.new(61.0252571105957, 19.929697036743164, -4676.18505859375) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        wait(2)
-        local pos = Vector3.new(53.26105499267578, 19.929697036743164, -4708.5546875) -- your pos here
-        local delay = 2 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        
-        
-        wait()
-        local args = {
-            [1] = "2457",
-            [1] = "5028",
-            [1] = "3380",
-            [1] = "4322",
-            [1] = "3632",
-            [1] = "8941"
-        }
-        
-        workspace:WaitForChild("Casino"):WaitForChild("RobberyDoor"):WaitForChild("Keypad"):WaitForChild("Pad"):WaitForChild("CasinoKeypadSubmit"):FireServer(unpack(args))
-        
-        local UI = require(game:GetService("ReplicatedStorage").Module:WaitForChild("UI"));
-       
-                    for i,v in pairs (UI.CircleAction.Specs) do
-                        v.Duration = 0;
-                        v.Timed = true;
-                    end
-               
-        wait(2)
-        local pos = Vector3.new(46.62722396850586, 19.88067626953125, -4733.8359375) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        wait(5)
-      
- local pos = Vector3.new(-18.08220100402832, 19.88944435119629, -4756.830078125) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        wait(8)
-        
-        local pos = Vector3.new(-17.470623016357422, 19.886337280273438, -4756.4384765625) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        wait(3)
-        fireclickdetector(game:GetService("Workspace").Casino.Elevator.Car.InnerModel.Calls["3"].ClickDetector)
-       
-        wait(4)
-        local pos = Vector3.new(-13.66425895690918, 71.47806549072266, -4736.2255859375) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        
-        wait(4)
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        local pos = Vector3.new(-110.7985610961914, 73.12210083007812, -4610.15185546875) -- your pos here
-        local delay =  2 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        
-        wait(2)
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        wait(1)
-        
-       
-        --beginning of laptops+
-        local pos = Vector3.new(-58.74448776245117, 73.13204956054688, -4624.92333984375) -- your pos here
-        local delay = 1-- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-      
-        wait(2)
-        --beginning of laptops+
-        --2nd laptop
-        local pos = Vector3.new(-78.99031829833984, 73.13204956054688, -4619.10595703125) -- your pos here
-        local delay = 1 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-      
-        wait(1)
-        --beginning of laptops+
-        local pos = Vector3.new(-58.74448776245117, 73.13204956054688, -4624.92333984375) -- your pos here
-        local delay =  0.5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-    
-        wait(1)
-        --beginning of laptops+
-        local pos = Vector3.new(-46.8404541015625, 73.12216186523438, -4628.333984375) -- your pos here
-        local delay =  0.5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        wait(1)
-        
-     
-       
-        --beginning of laptops+
-        local pos = Vector3.new(-24.962724685668945, 73.1221694946289, -4634.734375) -- your pos here
-        local delay =  0.5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-    
-        wait(1)
-        --beginning of laptops+
-        local pos = Vector3.new(-3.3408281803131104, 73.13223266601562, -4640.86279296875) -- your pos here
-        local delay =  0.5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-       
-
-
-        wait(1)
-        --beginning of laptops+
-        local pos = Vector3.new(3.752683401107788, 73.13229370117188, -4643.49609375) -- your pos here
-        local delay = 0.5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-       
-     
-        wait(1)
-        --beginning of laptops+
-        local pos = Vector3.new(29.478313446044922, 73.13229370117188, -4650.5078125) -- your pos here
-        local delay = 0.5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        wait(1)
-    
-        
-        --beginning of laptops+
-        local pos = Vector3.new(53.801265716552734, 73.13229370117188, -4657.15234375) -- your pos here
-        local delay =  0.5-- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-    
-        wait(2)
-        --beginning of laptops+
-        local pos = Vector3.new(64.98200225830078, 73.1222915649414, -4660.33740234375) -- your pos here
-        local delay =  0.5 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-    
-        wait(2)
-        --beginning of laptops+
-        local pos = Vector3.new(-13.397501945495605, 73.13119506835938, -4670.01806640625) -- your pos here
-        local delay =  1 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-    
-        wait(1)
-        --beginning of laptops+
-        local pos = Vector3.new(22.6924991607666, 73.11133575439453, -4680.31201171875) -- your pos here
-        local delay =  1 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        wait(1)
-        --beginning of laptops+
-        local pos = Vector3.new(-78.99031829833984, 73.13204956054688, -4619.10595703125) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        
-        wait(5)
-        --back casino
-        local pos = Vector3.new(-59.93450164794922, 69.57959747314453, -4664.86962890625) -- your pos here
-        local delay = 1 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        
-        
-        
-        
-        
-        wait(5)   
-        local pos = Vector3.new(-15.499055862426758, 71.47806549072266, -4740.22509765625) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        
-        
-        wait(5)   
-        local pos = Vector3.new(-17.110340118408203, 71.4735336303711, -4753.97802734375) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-        local cf = CFrame.new(pos)
-        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-        a:Play()
-        end
-        fireclickdetector(game:GetService("Workspace").Casino.Elevator.Floors["3"].Call.ClickDetector)
-        wait(3)
-        fireclickdetector(game:GetService("Workspace").Casino.Elevator.Floors["1"].Call.ClickDetector)
-        
-        wait(9) 
-        local pos = Vector3.new(-14.24863338470459, -77.02101135253906, -4744.541015625) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        --glass
-        wait(5)  
-        local pos = Vector3.new(11.930963516235352, -77.02644348144531, -4746.82080078125) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        
-        wait(5)  
-        local pos = Vector3.new(26.928058624267578, -77.27166748046875, -4751.21240234375) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        
-        wait(5)  
-        local pos = Vector3.new(48.125083923339844, -77.27167510986328, -4667.23779296875) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        
-        wait(5)  
-        local pos = Vector3.new(23.62175178527832, -77.27167510986328, -4661.197265625) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        
-        wait(5)  
-        local pos = Vector3.new(23.62175178527832, -77.27167510986328, -4661.197265625) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        
-        wait(5)  
-        local pos = Vector3.new(38.288169860839844, -77.07501983642578, -4571.92236328125) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        
-        wait(5)  
-        local pos = Vector3.new(85.00628662109375, -77.07501983642578, -4536.45458984375) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        
-        wait(5)  
-        local pos = Vector3.new(142.45065307617188, -77.02845001220703, -4525.43994140625) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        wait(3)
-        --functions
-local hack = game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.RequestHack
-local hack1 = game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Puzzle.UpdateDirection
-local part = game:GetService("Workspace").Casino.HackableVaults.VaultDoorMain.InnerModel.Model.UnlockedLED
-getgenv().Loop  = true
-
-
-
-if Loop == true then 
-
---Loop
-
-while wait(1) do 
-if part.BrickColor == BrickColor.new("Really red") then
-hack:FireServer()
-
-
-elseif part.BrickColor == BrickColor.new("Lime green") then
-hack1:FireServer()
-end
-end
-
-else if Loop == false then 
-print("Not Enabled")
-end
-end
-        
-  --End of hack script      
-        wait(6)  
-        local pos = Vector3.new(169.9488067626953, -77.01850128173828, -4529.34814453125) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        
-        wait(5)  
-        local pos = Vector3.new(218.64842224121094, -77.1288070678711, -4528.17236328125) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        
-        wait(5)  
-        local pos = Vector3.new(259.5143127441406, -76.57250213623047, -4591.751953125) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        --13
-        wait(5)  
-        local pos = Vector3.new(264.51397705078125, -77.23490142822266, -4614.34130859375) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        wait(5)  
-        local pos = Vector3.new(237.00662231445312, -77.23233032226562, -4604.20556640625) -- your pos here
-        local delay = 3 -- tp tween speed like how many seconds takes to tp
-        
-        -- do not edit below cuz breaks script
-        
-        local tween_s = game:GetService('TweenService')
-        local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-        
-        local lp = game.Players.LocalPlayer
-        
-        if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-            local cf = CFrame.new(pos)
-            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-            a:Play()
-        end
-        
-        
-        local VirtualInputManager = game:GetService('VirtualInputManager')
-        
-        VirtualInputManager:SendKeyEvent(true,"E",false,game)
-        
-
-
-		
-	
-				end
-			end
-		end
-
-})
-FarmingSection:AddToggle({
-	Name = "Trick Spammer",
-	Flag = "FarmingSection_TrickSpammer",
-	Keybind = 1,
-	Callback = print
-})
-FarmingSection:AddSlider({
-	Name = "Vehicle Speed",
-	Flag = "Vehicle_Speed",
-	Value = 70,
-	Precise = 2,
-	Min = 0,
-	Max = 2000,
-	Callback = function(T)
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/1111/main/S"))()
-		vehicle_speed = T
-
-	end
-})
-FarmingSection:AddSlider({
-	Name = "Player Speed",
-	Flag = "PlayerSpeed",
-	Value = 70,
-	Precise = 2,
-	Min = 0,
-	Max = 450,
-	Callback = function(T)
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/1111/main/S"))()
-		player_speed = T
-	end
-})
-FarmingSection:AddToggle({
-	Name = "TP To Coins",
-	Flag = "FarmingSection_TPCoins"
-})
-FarmingSection:AddToggle({
-	Name = "Collect Coins",
-	Flag = "FarmingSection_CollectCoins",
-	Callback = print
-})
-FarmingSection:AddSlider({
-	Name = "Coin Distance",
-	Flag = "FarmingSection_CoinDistance",
-	Value = 175,
-	Min = 0,
-	Max = 200,
-	Format = function(Value)
-		if Value == 0 then
-			return "Collection Distance: Infinite"
-		else
-			return "Collection Distance: " .. tostring(Value)
-		end
-	end
-})
-
-local BoardControlSection = GeneralTab:CreateSection({
-	Name = "LocalPlayer"
-})
-BoardControlSection:AddToggle({
-	Name = "Anti Trip/Ragdoll",
-	Flag = "BoardControlSection_AntiTripRagdoll",
-	Callback = function()
-
-	end
-})
-BoardControlSection:AddToggle({
-	Name = "No Wear & Tear",
-	Flag = "BoardControlSection_NoWearTear"
-})
-BoardControlSection:AddToggle({
-	Name = "No Trick Cooldown",
-	Flag = "BoardControlSection_NoTrickCooldown",
-	Callback = print
-})
-BoardControlSection:AddToggle({
-	Name = "Walkspeed",
-	Flag = "BoardControlSection_ExtendComboTimeout",
-	Callback = function(Value)
-		_G.Wsped = Value
-
-	end 
-})
-BoardControlSection:AddSlider({
-	Name = "Player Walkspeed",
-	Flag = "BoardControlSection_CoinDistance",
-	Value = 50,
-	Min = 0,
-	Max = 145,
-	Callback = function(Value)
-		if _G.Wsped == true then 
-			local g = (number)
-			local lp = game:GetService("Players").LocalPlayer
-			local hooks = {
-				walkspeed = Value,
-
-			}
-			local index
-			local newindex
-
-			index = hookmetamethod(game, "__index", function(self, property)
-				if not checkcaller() and self:IsA("Humanoid") and self:IsDescendantOf(lp.Character) and hooks[property:lower()] then
-					return hooks[property:lower()]
-				end
-				return index(self, property)
-			end)
-
-			newindex = hookmetamethod(game, "__newindex", function(self, property, value)
-				if not checkcaller() and self:IsA("Humanoid") and self:IsDescendantOf(lp.Character) and hooks[property:lower()] then
-					return value
-				end
-				return newindex(self, property, value)
-			end)
-			lp.Character:FindFirstChildWhichIsA("Humanoid").WalkSpeed = Value
 
 		else
-			print("Not enabled")
+			if _G.Snooze == false then return end
 		end
 	end
-})
-BoardControlSection:AddToggle({
-	Name = "Jumppower",
-	Flag = "JP",
-	Callback = function(Value)
-		_G.JP = Value
-	end
-})
-BoardControlSection:AddSlider({
-	Name = "Jumpower",
-	Flag = "BoardControlSection_CoinDistance",
-	Value = 25,
-	Min = 0,
-	Max = 50,
-	Callback = function(Value)
-		if _G.JP == true then 
-			plr = game:GetService('Players').LocalPlayer
-			rs = game:GetService("RunService").RenderStepped
-			function onKeyPress(inputObject, gameProcessedEvent)
-				if inputObject.KeyCode == Enum.KeyCode.Space then
-					plr.Character.Humanoid.JumpPower = Value
-					wait(rs)
-					plr.Character.Humanoid.JumpPower = Value
-				end
-			end
-			game:GetService("UserInputService").InputBegan:connect(onKeyPress)
-		end
-	end
-})
+end)
+TextBox.Parent = ExplosiveMenu
+TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.115773097, 0, 0.226481736, 0)
+TextBox.Selectable = false
+TextBox.Size = UDim2.new(0, 193, 0, 89)
+TextBox.ClearTextOnFocus = false
+TextBox.Font = Enum.Font.SciFi
+TextBox.Text = "Waiting!!"
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 25.000
+TextBox.TextWrapped = true
 
-local MiscSection = GeneralTab:CreateSection({
-	Name = "Misc",
-	Side = "Right"
-})
-MiscSection:AddToggle({
-	Name = "Unlock Gamepasses",
-	Flag = "MiscSection_UnlockGamepasses",
-	Callback = print
-})
-MiscSection:AddToggle({
-	Name = "Auto Compete",
-	Flag = "MiscSection_AutoCompete",
-	Callback = print
-})
-MiscSection:AddButton({
-	Name = "Repair Board",
-	Callback = function()
-		print("Fixed")
-	end
-})
-MiscSection:AddKeybind({
-	Name = "Test Key",
-	Callback = print
-})
-MiscSection:AddToggle({
-	Name = "Test Toggle/Key",
-	Keybind = {
-		Mode = "Dynamic" -- Dynamic means to use the 'hold' method, if the user keeps the button pressed for longer than 0.65 seconds; else use toggle method
-	},
-	Callback = print
-})
+DropFarm.Name = "DropFarm"
+DropFarm.Parent = ExplosiveMenu
+DropFarm.BackgroundTransparency = 1.000
+DropFarm.LayoutOrder = 7
+DropFarm.Position = UDim2.new(0, 0, 0.170658678, 0)
+DropFarm.Size = UDim2.new(0, 25, 0, 25)
+DropFarm.ZIndex = 2
+DropFarm.Image = "rbxassetid://3926307971"
+DropFarm.ImageRectOffset = Vector2.new(124, 84)
+DropFarm.ImageRectSize = Vector2.new(36, 36)
+DropFarm.MouseButton1Click:Connect(function()
+	ExplosiveMenuDropFarm.Visible = true
+end)
+ExplosiveMenuDropFarm.Name = "Explosive Menu Drop Farm"
+ExplosiveMenuDropFarm.Parent = ScreenGui
+ExplosiveMenuDropFarm.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenuDropFarm.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenuDropFarm.Position = UDim2.new(0.274365723, 0, 0.328571439, 0)
+ExplosiveMenuDropFarm.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenuDropFarm.Visible = false
 
-local FunSection = GeneralTab:CreateSection({
-	Name = "Fun Cosmetics"
-})
-FunSection:AddToggle({
-	Name = "Ragdoll Assumes Flight",
-	Flag = "FunSection_AssumesFlight"
-})
-FunSection:AddToggle({
-	Name = "Ragdoll On Player Collision",
-	Flag = "FunSection_RagdollOnPlayerCollision"
-})
-FunSection:AddToggle({
-	Name = "Un-Ragdoll When Motionless",
-	Flag = "FunSection_UnRagdollWhenMotionless"
-})
-FunSection:AddToggle({
-	Name = "Extend Ragdoll Duration",
-	Flag = "FunSection_ExtendRagdollDuration"
-})
-FunSection:AddSlider({
-	Name = "Coin Distance",
-	Flag = "FarmingSection_Coin Distance",
-	Value = 4,
-	Min = 0,
-	Max = 60,
-	Textbox = true,
-	Format = function(Value)
-		if Value == 0 then
-			return "Ragdoll Extension: Indefinite"
-		else
-			return "Ragdoll Extension: " .. tostring(Value) .. "s"
-		end
-	end
-})
+MoneyInfo_2.Name = "Money Info"
+MoneyInfo_2.Parent = ExplosiveMenuDropFarm
+MoneyInfo_2.BackgroundTransparency = 1.000
+MoneyInfo_2.Position = UDim2.new(0, 0, 0.374251485, 0)
+MoneyInfo_2.Size = UDim2.new(0, 25, 0, 25)
+MoneyInfo_2.ZIndex = 2
+MoneyInfo_2.Image = "rbxassetid://3926307971"
+MoneyInfo_2.ImageRectOffset = Vector2.new(964, 484)
+MoneyInfo_2.ImageRectSize = Vector2.new(36, 36)
 
-local Farm = PepsisWorld:CreateTab({
-	Name = "Store Locations"
-})
+Snooze_2.Name = "Snooze"
+Snooze_2.Parent = ExplosiveMenuDropFarm
+Snooze_2.BackgroundTransparency = 1.000
+Snooze_2.Position = UDim2.new(0, 0, 0.170658678, 0)
+Snooze_2.Size = UDim2.new(0, 25, 0, 25)
+Snooze_2.ZIndex = 2
+Snooze_2.Image = "rbxassetid://3926307971"
+Snooze_2.ImageRectOffset = Vector2.new(684, 244)
+Snooze_2.ImageRectSize = Vector2.new(36, 36)
 
-local AutoRobSection = Farm:CreateSection({
-	Name = "Auto Rob"
-})
+TextLabel_2.Parent = ExplosiveMenuDropFarm
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel_2.Size = UDim2.new(0, 252, 0, 24)
+TextLabel_2.Font = Enum.Font.SciFi
+TextLabel_2.Text = "Explosive Menu Drop Farm"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
 
+Run_2.Name = "Run"
+Run_2.Parent = ExplosiveMenuDropFarm
+Run_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Run_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Run_2.Position = UDim2.new(0, 0, 0.826347291, 0)
+Run_2.Size = UDim2.new(0, 252, 0, 29)
+Run_2.Font = Enum.Font.SciFi
+Run_2.Text = "Run"
+Run_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Run_2.TextScaled = true
+Run_2.TextSize = 14.000
+Run_2.TextWrapped = true
 
-AutoRobSection:AddToggle({
-	Name = "JewelryStore",
-	Flag = "Jewl",
+TextBox_2.Parent = ExplosiveMenuDropFarm
+TextBox_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_2.BorderSizePixel = 0
+TextBox_2.Position = UDim2.new(0.115773037, 0, 0.226481736, 0)
+TextBox_2.Selectable = false
+TextBox_2.Size = UDim2.new(0, 193, 0, 89)
+TextBox_2.ClearTextOnFocus = false
+TextBox_2.Font = Enum.Font.SciFi
+TextBox_2.Text = "Waiting!!"
+TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_2.TextSize = 25.000
+TextBox_2.TextWrapped = true
 
-	Callback = function(Value)
-		_G.Jewl = Value
+ExplosiveMenuMoney.Name = "Explosive Menu Money"
+ExplosiveMenuMoney.Parent = ScreenGui
+ExplosiveMenuMoney.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenuMoney.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenuMoney.Position = UDim2.new(0.270118773, 0, 0.328571439, 0)
+ExplosiveMenuMoney.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenuMoney.Visible = false
 
-	end 
-})
+MoneyInfo_3.Name = "Money Info"
+MoneyInfo_3.Parent = ExplosiveMenuMoney
+MoneyInfo_3.BackgroundTransparency = 1.000
+MoneyInfo_3.Position = UDim2.new(0, 0, 0.242514968, 0)
+MoneyInfo_3.Size = UDim2.new(0, 25, 0, 25)
+MoneyInfo_3.ZIndex = 2
+MoneyInfo_3.Image = "rbxassetid://3926307971"
+MoneyInfo_3.ImageRectOffset = Vector2.new(964, 484)
+MoneyInfo_3.ImageRectSize = Vector2.new(36, 36)
 
+TextLabel_3.Parent = ExplosiveMenuMoney
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel_3.Size = UDim2.new(0, 252, 0, 24)
+TextLabel_3.Font = Enum.Font.SciFi
+TextLabel_3.Text = "Explosive Menu Money"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
 
-AutoRobSection:AddToggle({
-	Name = "Bank",
-	Flag = "Cash",
+Return.Name = "Return"
+Return.Parent = ExplosiveMenuMoney
+Return.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Return.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Return.Position = UDim2.new(0, 0, 0.826347291, 0)
+Return.Size = UDim2.new(0, 252, 0, 29)
+Return.Font = Enum.Font.SciFi
+Return.Text = "Return"
+Return.TextColor3 = Color3.fromRGB(255, 255, 255)
+Return.TextScaled = true
+Return.TextSize = 14.000
+Return.TextWrapped = true
 
-	Callback = function(Value)
-		_G.Bank = Value
+TextBox_3.Parent = ExplosiveMenuMoney
+TextBox_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_3.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_3.BorderSizePixel = 0
+TextBox_3.Position = UDim2.new(0.115773156, 0, 0.226481736, 0)
+TextBox_3.Selectable = false
+TextBox_3.Size = UDim2.new(0, 214, 0, 35)
+TextBox_3.ClearTextOnFocus = false
+TextBox_3.Font = Enum.Font.SciFi
+TextBox_3.Text = "Money Earned = $0"
+TextBox_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_3.TextSize = 15.000
+TextBox_3.TextWrapped = true
 
-	end 
-})
+RunTimeInfo.Name = "RunTimeInfo"
+RunTimeInfo.Parent = ExplosiveMenuMoney
+RunTimeInfo.BackgroundTransparency = 1.000
+RunTimeInfo.LayoutOrder = 14
+RunTimeInfo.Position = UDim2.new(0, 0, 0.440119773, 0)
+RunTimeInfo.Size = UDim2.new(0, 25, 0, 25)
+RunTimeInfo.ZIndex = 2
+RunTimeInfo.Image = "rbxassetid://3926305904"
+RunTimeInfo.ImageRectOffset = Vector2.new(804, 164)
+RunTimeInfo.ImageRectSize = Vector2.new(36, 36)
 
+TextBox_4.Parent = ExplosiveMenuMoney
+TextBox_4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_4.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_4.BorderSizePixel = 0
+TextBox_4.Position = UDim2.new(0.0959318876, 0, 0.406122446, 0)
+TextBox_4.Selectable = false
+TextBox_4.Size = UDim2.new(0, 214, 0, 35)
+TextBox_4.ClearTextOnFocus = false
+TextBox_4.Font = Enum.Font.SciFi
+TextBox_4.Text = "Total Run Time = 0 Secs"
+TextBox_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_4.TextSize = 15.000
+TextBox_4.TextWrapped = true
 
-AutoRobSection:AddToggle({
-	Name = "Museum",
-	Flag = "Artifacts",
+ExplosiveMenuLocations.Name = "Explosive Menu Locations"
+ExplosiveMenuLocations.Parent = ScreenGui
+ExplosiveMenuLocations.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenuLocations.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenuLocations.Position = UDim2.new(0.272466183, 0, 0.328571439, 0)
+ExplosiveMenuLocations.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenuLocations.Visible = false
 
-	Callback = function(Value)
-		_G.Museum = Value
+TextLabel_4.Parent = ExplosiveMenuLocations
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel_4.Size = UDim2.new(0, 252, 0, 24)
+TextLabel_4.Font = Enum.Font.SciFi
+TextLabel_4.Text = "Explosive Menu Stores"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
 
-	end 
-})
+Return_2.Name = "Return"
+Return_2.Parent = ExplosiveMenuLocations
+Return_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Return_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Return_2.Position = UDim2.new(0, 0, 0.826347291, 0)
+Return_2.Size = UDim2.new(0, 252, 0, 29)
+Return_2.Font = Enum.Font.SciFi
+Return_2.Text = "Return"
+Return_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Return_2.TextScaled = true
+Return_2.TextSize = 14.000
+Return_2.TextWrapped = true
 
-AutoRobSection:AddToggle({
-	Name = "Casino WIP",
-	Flag = "Chips",
+BankOff.Name = "BankOff"
+BankOff.Parent = ExplosiveMenuLocations
+BankOff.BackgroundTransparency = 1.000
+BankOff.LayoutOrder = 15
+BankOff.Position = UDim2.new(0.900793672, 0, 0.488023967, 0)
+BankOff.Size = UDim2.new(0, 25, 0, 25)
+BankOff.Visible = false
+BankOff.ZIndex = 2
+BankOff.Image = "rbxassetid://3926307971"
+BankOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+BankOff.ImageRectOffset = Vector2.new(484, 44)
+BankOff.ImageRectSize = Vector2.new(36, 36)
+BankOff.MouseButton1Click:Connect(function()
+	BankOff.Visible = false 
+	BankOn.Visible = true
+end)
+CargoShipOn.Name = "CargoShipOn"
+CargoShipOn.Parent = ExplosiveMenuLocations
+CargoShipOn.BackgroundTransparency = 1.000
+CargoShipOn.LayoutOrder = 15
+CargoShipOn.Position = UDim2.new(0.900793672, 0, 0.661676645, 0)
+CargoShipOn.Size = UDim2.new(0, 25, 0, 25)
+CargoShipOn.ZIndex = 2
+CargoShipOn.Image = "rbxassetid://3926305904"
+CargoShipOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+CargoShipOn.ImageRectOffset = Vector2.new(84, 524)
+CargoShipOn.ImageRectSize = Vector2.new(36, 36)
+CargoShipOn.MouseButton1Click:Connect(function()
+	CargoShipOff.Visible = true 
+	CargoShipOn.Visible = false
+end)
+DonutShopOn.Name = "DonutShopOn"
+DonutShopOn.Parent = ExplosiveMenuLocations
+DonutShopOn.BackgroundTransparency = 1.000
+DonutShopOn.LayoutOrder = 15
+DonutShopOn.Position = UDim2.new(0.0317460336, 0, 0.326347291, 0)
+DonutShopOn.Size = UDim2.new(0, 25, 0, 25)
+DonutShopOn.ZIndex = 2
+DonutShopOn.Modal = true
+DonutShopOn.Image = "rbxassetid://3926307971"
+DonutShopOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+DonutShopOn.ImageRectOffset = Vector2.new(924, 204)
+DonutShopOn.ImageRectSize = Vector2.new(36, 36)
+DonutShopOn.MouseButton1Click:Connect(function()
+	DonutShopOff.Visible = true 
+	DonutShopOn.Visible = false
+end)
+BankTruckOn.Name = "BankTruckOn"
+BankTruckOn.Parent = ExplosiveMenuLocations
+BankTruckOn.BackgroundTransparency = 1.000
+BankTruckOn.LayoutOrder = 14
+BankTruckOn.Position = UDim2.new(0.0317460336, 0, 0.476047903, 0)
+BankTruckOn.Size = UDim2.new(0, 25, 0, 25)
+BankTruckOn.ZIndex = 2
+BankTruckOn.Image = "rbxassetid://3926305904"
+BankTruckOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+BankTruckOn.ImageRectOffset = Vector2.new(124, 604)
+BankTruckOn.ImageRectSize = Vector2.new(36, 36)
+BankTruckOn.MouseButton1Click:Connect(function()
+	BankTruckOff.Visible = true 
+	BankTruckOn.Visible = false
+end)
+GasStationOn.Name = "GasStationOn"
+GasStationOn.Parent = ExplosiveMenuLocations
+GasStationOn.BackgroundTransparency = 1.000
+GasStationOn.LayoutOrder = 17
+GasStationOn.Position = UDim2.new(0.0317460336, 0, 0.625748515, 0)
+GasStationOn.Size = UDim2.new(0, 25, 0, 25)
+GasStationOn.ZIndex = 2
+GasStationOn.Image = "rbxassetid://3926305904"
+GasStationOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+GasStationOn.ImageRectOffset = Vector2.new(844, 484)
+GasStationOn.ImageRectSize = Vector2.new(36, 36)
+GasStationOn.MouseButton1Click:Connect(function()
+	GasStationOff.Visible = true 
+	GasStationOn.Visible = false
+end)
+JewelryStoreOn.Name = "JewelryStoreOn"
+JewelryStoreOn.Parent = ExplosiveMenuLocations
+JewelryStoreOn.BackgroundTransparency = 1.000
+JewelryStoreOn.Position = UDim2.new(0.0317460336, 0, 0.176646709, 0)
+JewelryStoreOn.Size = UDim2.new(0, 25, 0, 25)
+JewelryStoreOn.ZIndex = 2
+JewelryStoreOn.Image = "rbxassetid://6764432293"
+JewelryStoreOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+JewelryStoreOn.ImageRectOffset = Vector2.new(700, 600)
+JewelryStoreOn.ImageRectSize = Vector2.new(100, 100)
+JewelryStoreOn.MouseButton1Click:Connect(function()
+	JewelryStoreOff.Visible = true 
+	JewelryStoreOn.Visible = false
+end)
+CargoPlaneOn.Name = "CargoPlaneOn"
+CargoPlaneOn.Parent = ExplosiveMenuLocations
+CargoPlaneOn.BackgroundTransparency = 1.000
+CargoPlaneOn.LayoutOrder = 14
+CargoPlaneOn.Position = UDim2.new(0.900793672, 0, 0.338323355, 0)
+CargoPlaneOn.Size = UDim2.new(0, 25, 0, 25)
+CargoPlaneOn.ZIndex = 2
+CargoPlaneOn.Image = "rbxassetid://3926305904"
+CargoPlaneOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+CargoPlaneOn.ImageRectOffset = Vector2.new(684, 44)
+CargoPlaneOn.ImageRectSize = Vector2.new(36, 36)
+CargoPlaneOn.MouseButton1Click:Connect(function()
+	CargoPlaneOff.Visible = true 
+	CargoPlaneOn.Visible = false
+end)
+MuseumOn.Name = "MuseumOn"
+MuseumOn.Parent = ExplosiveMenuLocations
+MuseumOn.BackgroundTransparency = 1.000
+MuseumOn.LayoutOrder = 13
+MuseumOn.Position = UDim2.new(0.900793672, 0, 0.176646709, 0)
+MuseumOn.Size = UDim2.new(0, 25, 0, 25)
+MuseumOn.ZIndex = 2
+MuseumOn.Image = "rbxassetid://3926305904"
+MuseumOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+MuseumOn.ImageRectOffset = Vector2.new(484, 844)
+MuseumOn.ImageRectSize = Vector2.new(36, 36)
+MuseumOn.MouseButton1Click:Connect(function()
+	MuseumOff.Visible = true 
+	MuseumOn.Visible = false
+end)
+CargoPlaneOff.Name = "CargoPlaneOff"
+CargoPlaneOff.Parent = ExplosiveMenuLocations
+CargoPlaneOff.BackgroundTransparency = 1.000
+CargoPlaneOff.LayoutOrder = 14
+CargoPlaneOff.Position = UDim2.new(0.900793672, 0, 0.338323355, 0)
+CargoPlaneOff.Size = UDim2.new(0, 25, 0, 25)
+CargoPlaneOff.Visible = false
+CargoPlaneOff.ZIndex = 2
+CargoPlaneOff.Image = "rbxassetid://3926305904"
+CargoPlaneOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+CargoPlaneOff.ImageRectOffset = Vector2.new(684, 44)
+CargoPlaneOff.ImageRectSize = Vector2.new(36, 36)
+CargoPlaneOff.MouseButton1Click:Connect(function()
+	CargoPlaneOff.Visible = false 
+	CargoPlaneOn.Visible = true
+end)
+MuseumOff.Name = "MuseumOff"
+MuseumOff.Parent = ExplosiveMenuLocations
+MuseumOff.BackgroundTransparency = 1.000
+MuseumOff.LayoutOrder = 13
+MuseumOff.Position = UDim2.new(0.900793672, 0, 0.176646709, 0)
+MuseumOff.Size = UDim2.new(0, 25, 0, 25)
+MuseumOff.Visible = false
+MuseumOff.ZIndex = 2
+MuseumOff.Image = "rbxassetid://3926305904"
+MuseumOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+MuseumOff.ImageRectOffset = Vector2.new(484, 844)
+MuseumOff.ImageRectSize = Vector2.new(36, 36)
+MuseumOff.MouseButton1Click:Connect(function()
+	MuseumOff.Visible = false 
+	MuseumOn.Visible = true
+end)
+DonutShopOff.Name = "DonutShopOff"
+DonutShopOff.Parent = ExplosiveMenuLocations
+DonutShopOff.BackgroundTransparency = 1.000
+DonutShopOff.LayoutOrder = 15
+DonutShopOff.Position = UDim2.new(0.0317460336, 0, 0.326347291, 0)
+DonutShopOff.Size = UDim2.new(0, 25, 0, 25)
+DonutShopOff.Visible = false
+DonutShopOff.ZIndex = 2
+DonutShopOff.Modal = true
+DonutShopOff.Image = "rbxassetid://3926307971"
+DonutShopOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+DonutShopOff.ImageRectOffset = Vector2.new(924, 204)
+DonutShopOff.ImageRectSize = Vector2.new(36, 36)
+DonutShopOff.MouseButton1Click:Connect(function()
+	DonutShopOff.Visible = false 
+	DonutShopOn.Visible = true
+end)
+BankTruckOff.Name = "BankTruckOff"
+BankTruckOff.Parent = ExplosiveMenuLocations
+BankTruckOff.BackgroundTransparency = 1.000
+BankTruckOff.LayoutOrder = 14
+BankTruckOff.Position = UDim2.new(0.0317460336, 0, 0.476047903, 0)
+BankTruckOff.Size = UDim2.new(0, 25, 0, 25)
+BankTruckOff.Visible = false
+BankTruckOff.ZIndex = 2
+BankTruckOff.Image = "rbxassetid://3926305904"
+BankTruckOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+BankTruckOff.ImageRectOffset = Vector2.new(124, 604)
+BankTruckOff.ImageRectSize = Vector2.new(36, 36)
+BankTruckOff.MouseButton1Click:Connect(function()
+	BankTruckOff.Visible = false 
+	BankTruckOn.Visible = true
+end)
+GasStationOff.Name = "GasStationOff"
+GasStationOff.Parent = ExplosiveMenuLocations
+GasStationOff.BackgroundTransparency = 1.000
+GasStationOff.LayoutOrder = 17
+GasStationOff.Position = UDim2.new(0.0317460336, 0, 0.625748515, 0)
+GasStationOff.Size = UDim2.new(0, 25, 0, 25)
+GasStationOff.Visible = false
+GasStationOff.ZIndex = 2
+GasStationOff.Image = "rbxassetid://3926305904"
+GasStationOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+GasStationOff.ImageRectOffset = Vector2.new(844, 484)
+GasStationOff.ImageRectSize = Vector2.new(36, 36)
+GasStationOff.MouseButton1Click:Connect(function()
+	GasStationOn.Visible = true 
+	GasStationOff.Visible = false
+end)
+CargoShipOff.Name = "CargoShipOff"
+CargoShipOff.Parent = ExplosiveMenuLocations
+CargoShipOff.BackgroundTransparency = 1.000
+CargoShipOff.LayoutOrder = 15
+CargoShipOff.Position = UDim2.new(0.900793672, 0, 0.661676645, 0)
+CargoShipOff.Size = UDim2.new(0, 25, 0, 25)
+CargoShipOff.Visible = false
+CargoShipOff.ZIndex = 2
+CargoShipOff.Image = "rbxassetid://3926305904"
+CargoShipOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+CargoShipOff.ImageRectOffset = Vector2.new(84, 524)
+CargoShipOff.ImageRectSize = Vector2.new(36, 36)
+CargoShipOff.MouseButton1Click:Connect(function()
+	CargoShipOff.Visible = false 
+	MuseumOn.Visible = true
+end)
+JewelryStoreOff.Name = "JewelryStoreOff"
+JewelryStoreOff.Parent = ExplosiveMenuLocations
+JewelryStoreOff.BackgroundTransparency = 1.000
+JewelryStoreOff.Position = UDim2.new(0.0317460336, 0, 0.176646709, 0)
+JewelryStoreOff.Size = UDim2.new(0, 25, 0, 25)
+JewelryStoreOff.Visible = false
+JewelryStoreOff.ZIndex = 2
+JewelryStoreOff.Image = "rbxassetid://6764432293"
+JewelryStoreOff.ImageColor3 = Color3.fromRGB(255, 0, 0)
+JewelryStoreOff.ImageRectOffset = Vector2.new(700, 600)
+JewelryStoreOff.ImageRectSize = Vector2.new(100, 100)
+JewelryStoreOff.MouseButton1Click:Connect(function()
+	JewelryStoreOff.Visible = false 
+	JewelryStoreOn.Visible = true
+end)
+BankOn.Name = "BankOn"
+BankOn.Parent = ExplosiveMenuLocations
+BankOn.BackgroundTransparency = 1.000
+BankOn.LayoutOrder = 15
+BankOn.Position = UDim2.new(0.900793672, 0, 0.488023967, 0)
+BankOn.Size = UDim2.new(0, 25, 0, 25)
+BankOn.ZIndex = 2
+BankOn.Image = "rbxassetid://3926307971"
+BankOn.ImageColor3 = Color3.fromRGB(0, 255, 0)
+BankOn.ImageRectOffset = Vector2.new(484, 44)
+BankOn.ImageRectSize = Vector2.new(36, 36)
+BankOn.MouseButton1Click:Connect(function()
+	BankOff.Visible = true 
+	BankOn.Visible = false
+end)
+ExplosiveMenuDropFarmMoney.Name = "Explosive Menu DropFarmMoney"
+ExplosiveMenuDropFarmMoney.Parent = ScreenGui
+ExplosiveMenuDropFarmMoney.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ExplosiveMenuDropFarmMoney.BorderColor3 = Color3.fromRGB(0, 255, 255)
+ExplosiveMenuDropFarmMoney.Position = UDim2.new(0.270118773, 0, 0.328571439, 0)
+ExplosiveMenuDropFarmMoney.Size = UDim2.new(0, 252, 0, 167)
+ExplosiveMenuDropFarmMoney.Visible = false
+ExplosiveMenuDropFarmMoney.Draggable = true 
 
-	Callback = function(Value)
-		_G.Casino = Value
+MoneyInfo_4.Name = "Money Info"
+MoneyInfo_4.Parent = ExplosiveMenuDropFarmMoney
+MoneyInfo_4.BackgroundTransparency = 1.000
+MoneyInfo_4.Position = UDim2.new(0, 0, 0.242514968, 0)
+MoneyInfo_4.Size = UDim2.new(0, 25, 0, 25)
+MoneyInfo_4.ZIndex = 2
+MoneyInfo_4.Image = "rbxassetid://3926307971"
+MoneyInfo_4.ImageRectOffset = Vector2.new(964, 484)
+MoneyInfo_4.ImageRectSize = Vector2.new(36, 36)
 
-	end 
-})
+TextLabel_5.Parent = ExplosiveMenuDropFarmMoney
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel_5.Size = UDim2.new(0, 252, 0, 24)
+TextLabel_5.Font = Enum.Font.SciFi
+TextLabel_5.Text = "Explosive Menu DropFarm Money"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+
+Return_3.Name = "Return"
+Return_3.Parent = ExplosiveMenuDropFarmMoney
+Return_3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Return_3.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Return_3.Position = UDim2.new(0, 0, 0.826347291, 0)
+Return_3.Size = UDim2.new(0, 252, 0, 29)
+Return_3.Font = Enum.Font.SciFi
+Return_3.Text = "Return"
+Return_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Return_3.TextScaled = true
+Return_3.TextSize = 14.000
+Return_3.TextWrapped = true
+Return_3.MouseButton1Click:Connect(function()
+	ExplosiveMenuDropFarmMoney.Visible = false 
+
+end)
+
+TextBox_5.Parent = ExplosiveMenuDropFarmMoney
+TextBox_5.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_5.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_5.BorderSizePixel = 0
+TextBox_5.Position = UDim2.new(0.115773156, 0, 0.226481736, 0)
+TextBox_5.Selectable = false
+TextBox_5.Size = UDim2.new(0, 214, 0, 35)
+TextBox_5.ClearTextOnFocus = false
+TextBox_5.Font = Enum.Font.SciFi
+TextBox_5.Text = "Money Earned = $0"
+TextBox_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_5.TextSize = 15.000
+TextBox_5.TextWrapped = true
+
+RunTimeInfo_2.Name = "RunTimeInfo"
+RunTimeInfo_2.Parent = ExplosiveMenuDropFarmMoney
+RunTimeInfo_2.BackgroundTransparency = 1.000
+RunTimeInfo_2.LayoutOrder = 14
+RunTimeInfo_2.Position = UDim2.new(0, 0, 0.440119773, 0)
+RunTimeInfo_2.Size = UDim2.new(0, 25, 0, 25)
+RunTimeInfo_2.ZIndex = 2
+RunTimeInfo_2.Image = "rbxassetid://3926305904"
+RunTimeInfo_2.ImageRectOffset = Vector2.new(804, 164)
+RunTimeInfo_2.ImageRectSize = Vector2.new(36, 36)
+
+TextBox_6.Parent = ExplosiveMenuDropFarmMoney
+TextBox_6.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+TextBox_6.BorderColor3 = Color3.fromRGB(0, 255, 255)
+TextBox_6.BorderSizePixel = 0
+TextBox_6.Position = UDim2.new(0.0959318876, 0, 0.406122446, 0)
+TextBox_6.Selectable = false
+TextBox_6.Size = UDim2.new(0, 214, 0, 35)
+TextBox_6.ClearTextOnFocus = false
+TextBox_6.Font = Enum.Font.SciFi
+TextBox_6.Text = "Total Run Time = 0 Secs"
+TextBox_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_6.TextSize = 15.000
+TextBox_6.TextWrapped = true
 
