@@ -1474,7 +1474,7 @@ function Baseplate()
 	baseplate.Anchored = true
 	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
 	wait(1)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
 
 end
 
